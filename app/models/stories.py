@@ -10,10 +10,7 @@ class Story(db.Model):
     img = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
-
-    # FOR CASCADE DELETE
-    # db.Column(db.Integer, db.ForeignKey('bills.id', ondelete="CASCADE"))
-
+    
     comments = db.relationship("Comment", backpopulates="stories", cascade="all, delete")
 
     def to_dict(self):

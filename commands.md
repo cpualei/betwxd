@@ -20,8 +20,7 @@ to rebuild a database with sqlalchemy:
 to only drop the data from the databse:
 - run: flask undo all
 
-
-heroku
+HEROKU
 heroku run -a betwxd flask db migrate
 heroku run -a betwxd flask db upgrade
 heroku run -a betwxd flask seed all

@@ -8,4 +8,20 @@ CHECK GIT ORIGIN
 git remote -v
 
 
-test
+to rebuild a database with sqlalchemy:
+
+- drop database, then create it
+- delete all migration versions
+- start the shell
+- run: flask db migrate
+- run: flask db upgrade
+- run: flask seed all
+
+to only drop the data from the databse:
+- run: flask undo all
+
+
+heroku
+heroku run -a betwxd flask db migrate
+heroku run -a betwxd flask db upgrade
+heroku run -a betwxd flask seed all

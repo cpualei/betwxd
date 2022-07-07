@@ -4,14 +4,16 @@ class Story(db.Model):
     __tablename__ = "stories"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    title = db.Column(db.String(50), nullable=False)
-    story = db.Column(db.Text(5000), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    # category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
+    title = db.Column(db.String(100), nullable=False)
+    story = db.Column(db.String(5000), nullable=False)
     img = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
-    
-    comments = db.relationship("Comment", backpopulates="stories", cascade="all, delete")
+
+    comments = db.relationship("Comment", back_populates="stories", cascade="all, delete")
+    # categories = db.relationship("Category", backpopulates="stories")
 
     def to_dict(self):
         return {

@@ -6,7 +6,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     story_id = db.Column(db.Integer, db.ForeignKey('stories.id', ondelete="CASCADE"))
-    content = db.Column(db.text(2000), nullable=False)
+    content = db.Column(db.String(2000), nullable=False)
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
 

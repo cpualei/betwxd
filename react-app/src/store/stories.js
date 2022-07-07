@@ -12,7 +12,7 @@ const create = (story) => ({
 })
 
 export const viewStories = () => async (dispatch) => {
-    const res = await fetch('/api/stories');
+    const res = await fetch('/api/stories/');
 
     if (res.ok) {
         const stories = await res.json();

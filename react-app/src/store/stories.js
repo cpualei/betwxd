@@ -21,7 +21,7 @@ export const viewStories = () => async (dispatch) => {
 };
 
 export const createStory = (payload) => async (dispatch) => {
-    const res = await fetch('/api/new-story', {
+    const res = await fetch('/api/stories/new-story', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -44,9 +44,9 @@ const storiesReducer = (state = {}, action) => {
                 normalizedStories[story.id] = story;
             });
             return { ...normalizedStories };
-        // case CREATE_STORY:
-        //     const createState = { ...state, [action.newStory.id]: action.newStory };
-        //     return createState;
+        case CREATE_STORY:
+            const createState = { ...state, [action.newStory.id]: action.newStory };
+            return createState;
         default:
             return state;
     }

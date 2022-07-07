@@ -7,7 +7,8 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import Stories from './components/Stories'
+import Stories from './components/Stories';
+import CreateStory from './components/CreateStory';
 import { authenticate } from './store/session';
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/stories' exact={true} >
           <Stories />
+        </ProtectedRoute>
+        <ProtectedRoute path='/new-story' exact={true} >
+          <CreateStory />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { viewStory } from "../../store/stories.js";
 import { viewStories } from "../../store/stories.js";
 
 function ViewStory() {

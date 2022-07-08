@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeStory } from "../../store/stories";
+import EditStory from "../EditStory";
 import "./DotsButton.css";
 
-function DotsButton({ storyId }) {
+function DotsButton({ story }) {
   const dispatch = useDispatch();
+
   const [showMenu, setShowMenu] = useState(false);
+
+  const storyId = story.id; // prop for Delete feature
 
   const openMenu = () => {
     if (showMenu) return;
@@ -36,8 +40,18 @@ function DotsButton({ storyId }) {
         {showMenu && (
           <>
             <ul className="dots-dropdown">
-              <p id="edit-story-btn">Edit story</p>
-              <p id="delete-story-btn" onClick={() => dispatch(removeStory(storyId))}>Delete story</p>
+              <>
+                {/* <p id="edit-story-btn">
+                  <EditStory storyObj={story} />
+                </p> */}
+                <a href="/stories">
+                  <p
+                    id="delete-story-btn"
+                    onClick={() => dispatch(removeStory(storyId))}
+                    >Delete story
+                  </p>
+                </a>
+              </>
             </ul>
           </>
         )}

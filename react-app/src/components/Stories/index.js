@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { viewStories } from "../../store/stories.js";
+import ViewStory from "../ViewStory/index.js";
 import DotsButton from "./DotsButton.js";
 import "./Stories.css";
 
@@ -38,6 +39,7 @@ function Stories() {
                     className="story-icons"
                     src="https://img.icons8.com/external-flat-icons-inmotus-design/344/external-dots-internet-messenger-flat-icons-inmotus-design.png"
                   /> */}
+                  <ViewStory storyId={story.title}/>
                   <DotsButton storyId={story.id}/>
                 </div>
               </div>

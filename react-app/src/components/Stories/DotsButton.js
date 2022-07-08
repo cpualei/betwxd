@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import "./DotsButton.css"
+import { removeStory } from "../../store/stories";
+import "./DotsButton.css";
 
-function DotsButton() {
+function DotsButton({ storyId }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -34,8 +35,9 @@ function DotsButton() {
         </button>
         {showMenu && (
           <>
-            <ul className="profile-dropdown">
-              <li>{}</li>
+            <ul className="dots-dropdown">
+              <p id="edit-story-btn">Edit story</p>
+              <p id="delete-story-btn" onClick={() => dispatch(removeStory(storyId))}>Delete story</p>
             </ul>
           </>
         )}

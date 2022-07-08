@@ -1,3 +1,17 @@
+body {
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.dots-dropdown {
+    border: 1px solid #999999;
+    height: 39px;
+    padding: 17px;
+    position: sticky;
+    top: 350px;
+    right: -54px;
+    background-color: white;
+}
+
 .dots-icon-btn {
     background-color: white;
     border: none;
@@ -7,4 +21,18 @@
     width: 17px;
     height: 17px;
     color: rgba(0, 0, 0, 0.133);
+    position: absolute;
+    /* top: 6px; */
+    left: 612px;
+    cursor: pointer;
+}
+
+#edit-story-btn {
+    margin: 0px;
+}
+
+#delete-story-btn {
+    color: rgb(201, 74, 74);
+    margin: 0px;
+    cursor: pointer;
 }

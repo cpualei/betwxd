@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { viewStories } from "../../store/stories.js";
 import DotsButton from "./DotsButton.js";
-import "./Stores.css";
+import "./Stories.css";
 
 function Stories() {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ function Stories() {
                     className="story-icons"
                     src="https://img.icons8.com/external-flat-icons-inmotus-design/344/external-dots-internet-messenger-flat-icons-inmotus-design.png"
                   /> */}
-                  <DotsButton />
+                  <DotsButton storyId={story.id}/>
                 </div>
               </div>
               <img src={story.img} className="story-img" />

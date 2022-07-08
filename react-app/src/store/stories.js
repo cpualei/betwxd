@@ -1,14 +1,20 @@
 const VIEW_STORIES = 'stories/VIEW_STORIES';
 const CREATE_STORY = 'stories/CREATE_STORY';
+const REMOVE_STORY = 'stories/REMOVE_STORY';
 
 const view = (stories) => ({
     type: VIEW_STORIES,
-    stories,
+    stories
 });
 
 const create = (story) => ({
     type: CREATE_STORY,
     story
+});
+
+const remove = (storyId) => ({
+    type: REMOVE_STORY,
+    storyId
 })
 
 export const viewStories = () => async (dispatch) => {
@@ -36,6 +42,18 @@ export const createStory = (payload) => async (dispatch) => {
     return newStory;
 }
 
+export const removeStory = (id) => async (dispatch) => {
+    const res = await fetch(`/api/stories/${id}`, {
+        method: 'DELETE',
+    })
+
+    if (res.ok) {
+        dispatch(remove(id));
+    }
+
+    return res;
+};
+
 const storiesReducer = (state = {}, action) => {
     switch (action.type) {
         case VIEW_STORIES:
@@ -47,6 +65,9 @@ const storiesReducer = (state = {}, action) => {
         case CREATE_STORY:
             const createState = { ...state, [action.newStory.id]: action.newStory };
             return createState;
+        case REMOVE_STORY:
+            const removeState = { ...state }
+            return removeState;
         default:
             return state;
     }

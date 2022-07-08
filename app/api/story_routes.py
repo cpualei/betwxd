@@ -37,3 +37,11 @@ def add_story():
         db.session.commit()
         return new_story.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@story_routes.route('/<int:id>', methods=['DELETE'])
+def delete_story(id):
+    story = Story.query.get(id)
+    db.session.delete(story)
+    db.session.commit()
+
+    return "Story was successfully deleted."

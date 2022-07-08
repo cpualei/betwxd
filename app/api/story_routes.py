@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from app.models import db, Story
-from app.forms import CreateStoryForm
+from app.forms import CreateStoryForm, EditStoryForm
 from datetime import datetime
 
 
@@ -37,12 +37,27 @@ def add_story():
         new_story = Story(title=data['title'],
                           story=data['story'],
                           img=data['img'],
-                          created_at=datetime.now(),
-                          updated_at=datetime.now())
+                          created_at=datetime.now())
         db.session.add(new_story)
         db.session.commit()
         return new_story.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@story_routes.route('/edit-story/<int:id>', methods=['PUT'])
+def edit_story(id):
+    story = Story.query.get(id)
+    form = EditStoryForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        story.title=data['title']
+        story.story=data['story']
+        story.img=data['img']
+        story.updated_at=datetime.now()
+
+        db.session.commit()
+        return story.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
 
 @story_routes.route('/<int:id>', methods=['DELETE'])
 def delete_story(id):

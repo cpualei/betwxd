@@ -26,6 +26,16 @@ export const viewStories = () => async (dispatch) => {
     }
 };
 
+export const viewStory = (id) => async (dispatch) => {
+    const res = await fetch(`/api/stories/${id}`);
+    console.log("THIS HITS THE THUNK")
+
+    if (res.ok) {
+        const story = await res.json();
+        dispatch(view(story));
+    }
+}
+
 export const createStory = (payload) => async (dispatch) => {
     const res = await fetch('/api/stories/new-story', {
         method: 'POST',
@@ -57,7 +67,7 @@ export const removeStory = (id) => async (dispatch) => {
 const storiesReducer = (state = {}, action) => {
     switch (action.type) {
         case VIEW_STORIES:
-            const normalizedStories = { };
+            const normalizedStories = { ...state };
             action.stories.stories.forEach((story) => {
                 normalizedStories[story.id] = story;
             });

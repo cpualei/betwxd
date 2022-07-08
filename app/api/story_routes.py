@@ -22,6 +22,12 @@ def stories():
     stories = Story.query.all()
     return {'stories': [story.to_dict() for story in stories]}
 
+@story_routes.route('/<int:id>')
+def story():
+    story = Story.query.get(id)
+    print("THIS IS THE STORY ROUTE", story)
+    return story
+
 @story_routes.route('/new-story', methods=['POST'])
 def add_story():
     form = CreateStoryForm()

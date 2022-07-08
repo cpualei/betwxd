@@ -8,7 +8,7 @@ function Stories() {
   const dispatch = useDispatch();
 
   const stories = useSelector((state) => {
-    return Object.values(state.stories);
+    return Object.values(state?.stories);
   });
 
   useEffect(() => {
@@ -27,8 +27,10 @@ function Stories() {
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
-                <div className="story-title">{story.title}</div>
-                <div className="story-story">{story.story}</div>
+                <a href={`/stories/${story.id - 1}`}>
+                  <div className="story-title">{story.title}</div>
+                  <div className="story-story">{story.story}</div>
+                </a>
                 <div className="story-icons-div">
                   {/* <img
                     className="story-icons"
@@ -38,10 +40,12 @@ function Stories() {
                     className="story-icons"
                     src="https://img.icons8.com/external-flat-icons-inmotus-design/344/external-dots-internet-messenger-flat-icons-inmotus-design.png"
                   /> */}
-                  <DotsButton story={story}/>
+                  <DotsButton story={story} />
                 </div>
               </div>
-              <img src={story.img} className="story-img" />
+              <a href={`/stories/${story.id - 1}`}>
+                <img src={story.img} className="story-img" />
+              </a>
             </div>
           </ul>
         ))}

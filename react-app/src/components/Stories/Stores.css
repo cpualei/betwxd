@@ -8,13 +8,17 @@ body {
     min-height: 100vh;
 }
 
+#stories-container {
+    margin: 0px 90px 0px 90px;
+}
+
 .each-story-div {
     display: flex;
+    margin-bottom: 45px;
 }
 
 .story-user-and-date-div {
     display: flex;
-
 }
 
 .story-title-and-story-div {
@@ -24,7 +28,7 @@ body {
 
 .story-title {
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     color: rgba(41, 41, 41, 1);
     inline-size: 500px;
@@ -32,22 +36,36 @@ body {
 }
 
 .story-story {
-    margin-top: 10px;
+    margin: 10px 0px 10px;
     letter-spacing: -0.003em;
     line-height: 28px;
     font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 18px;
-    color: rgba(41, 41, 41, 1);
+    /* color: rgba(41, 41, 41, 1); */
+    color: rgba(117, 117, 117, 1);
     display: block;
     width: 500px;
     overflow: hidden;
-    white-space: wrap;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .story-img {
     height: 150px;
-    width: 150px;
+    width: 220px;
     object-fit: cover;
     margin-left: 60px;
 }
+
+.story-icons-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* .story-icons {
+    width: 17px;
+    height: 17px;
+    color: rgba(0, 0, 0, 0.133);
+} */

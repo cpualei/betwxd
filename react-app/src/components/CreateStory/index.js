@@ -83,11 +83,11 @@ function CreateStory() {
           <button type="submit">Submit</button>
         </div>
         <div>
-          <ul>
+          {/* <ul>
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </form>
     </div>

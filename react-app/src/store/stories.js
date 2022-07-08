@@ -57,7 +57,7 @@ export const removeStory = (id) => async (dispatch) => {
 const storiesReducer = (state = {}, action) => {
     switch (action.type) {
         case VIEW_STORIES:
-            const normalizedStories = { };
+            const normalizedStories = {};
             action.stories.stories.forEach((story) => {
                 normalizedStories[story.id] = story;
             });

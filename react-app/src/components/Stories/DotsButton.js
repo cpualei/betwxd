@@ -9,7 +9,7 @@ function DotsButton({ story }) {
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const storyId = story.id; // prop for Delete feature
+  const storyId = story.id; // prop for Edit and Delete features
 
   const openMenu = () => {
     if (showMenu) return;
@@ -44,6 +44,9 @@ function DotsButton({ story }) {
                 {/* <p id="edit-story-btn">
                   <EditStory storyObj={story} />
                 </p> */}
+                <a href={`/edit-story/${storyId}`}>
+                  <p id="edit-story-btn">Edit story</p>
+                </a>
                 <a href="/stories">
                   <p
                     id="delete-story-btn"

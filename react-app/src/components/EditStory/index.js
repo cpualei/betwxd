@@ -1,97 +1,100 @@
-// import React, { useState, useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { useHistory } from "react-router-dom";
-// // import { updateStory } from "../../store/stories.js";
-// // import "./UpdateStory.css"
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { updateStory } from "../../store/stories.js";
+import { ValidationError } from "../../utils/validationErrors.js";
+// import "./EditStory.css"
 
-// function EditStory({ storyObj }) {
-//     const dispatch = useDispatch();
-//     const history = useHistory();
+function EditStory() {
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-//     const sessionUser = useSelector((state) => state.session.user);
+    const sessionUser = useSelector((state) => state.session.user);
 
-//     const [title, setTitle] = useState("");
-//     const [story, setStory] = useState("");
-//     const [img, setImg] = useState("");
-//     const [errors, setErrors] = useState([]);
+    const [title, setTitle] = useState("");
+    const [story, setStory] = useState("");
+    const [img, setImg] = useState("");
+    const [errors, setErrors] = useState([]);
 
-//     useEffect(() => {
-//         const errors = [];
+    useEffect(() => {
+        const errors = [];
 
-//         if (title.length > 100) errors.push("Title must not exceed 100 characters");
-//         if (story.length > 5000) errors.push("Story must not exceed 5000 characters");
+        if (title.length > 100) errors.push("Title must not exceed 100 characters");
+        if (story.length > 5000) errors.push("Story must not exceed 5000 characters");
 
-//         setErrors(errors);
-//       }, [title, story]);
+        setErrors(errors);
+      }, [title, story]);
 
-//       const handleSubmit = async (e) => {
-//         e.preventDefault();
+      const handleSubmit = async (e) => {
+        e.preventDefault();
 
-//         const payload = {
-//           user_id: sessionUser.id,
-//           title,
-//           story,
-//           img,
-//         };
+        const payload = {
+          user_id: sessionUser.id,
+          title,
+          story,
+          img,
+        };
 
-//         // let newStory;
+        let editStory;
 
-//     //     try {
-//     //       newStory = await dispatch(updateStory(payload));
-//     //     } catch (error) {
-//     //       if (error instanceof ValidationError) setErrors(errors.error);
-//     //       else setErrors(error.toString().slice(7));
-//     //     }
+        try {
+          editStory = await dispatch(updateStory(id, payload));
+        } catch (error) {
+          if (error instanceof ValidationError) setErrors(errors.error);
+          else setErrors(error.toString().slice(7));
+        }
 
-//     //     if (newStory) {
-//     //       setErrors([]);
-//     //       return history.push(`/`);
-//     //     }
-//       };
+        if (editStory) {
+          setErrors([]);
+          return history.push(`/`);
+        }
+      };
 
-//     return (
-//         <div>
-//         <form onSubmit={handleSubmit}>
-//           <div>
-//             <input
-//               type="text"
-//               value={title}
-//               onChange={(e) => setTitle(e.target.value)}
-//               placeholder={"Title"}
-//               required
-//             ></input>
-//           </div>
-//           <div>
-//             <input
-//               type="text"
-//               value={story}
-//               onChange={(e) => setStory(e.target.value)}
-//               placeholder={"Tell your story..."}
-//               required
-//             ></input>
-//           </div>
-//           <div>
-//             <input
-//               type="text"
-//               value={img}
-//               onChange={(e) => setImg(e.target.value)}
-//               placeholder={"Image URL goes here..."}
-//               required
-//             ></input>
-//           </div>
-//           <div>
-//             <button type="submit">Submit</button>
-//           </div>
-//           <div>
-//             {/* <ul>
-//               {errors.map((error, idx) => (
-//                 <li key={idx}>{error}</li>
-//               ))}
-//             </ul> */}
-//           </div>
-//         </form>
-//       </div>
-//     );
-// }
+    return (
+        <div>
+        <h1>Edit story page</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder={"Title"}
+              required
+            ></input>
+          </div>
+          <div>
+            <input
+              type="text"
+              value={story}
+              onChange={(e) => setStory(e.target.value)}
+              placeholder={"Tell your story..."}
+              required
+            ></input>
+          </div>
+          <div>
+            <input
+              type="text"
+              value={img}
+              onChange={(e) => setImg(e.target.value)}
+              placeholder={"Image URL goes here..."}
+              required
+            ></input>
+          </div>
+          <div>
+            <button type="submit">Save and publish</button>
+          </div>
+          <div>
+            {/* <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul> */}
+          </div>
+        </form>
+      </div>
+    );
+}
 
-// export default EditStory;
+export default EditStory;

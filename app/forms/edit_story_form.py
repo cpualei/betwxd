@@ -4,7 +4,7 @@ from sqlalchemy import DateTime
 from wtforms.validators import DataRequired
 
 
-class CreateStoryForm(FlaskForm):
+class EditStoryForm(FlaskForm):
     user_id = IntegerField('User ID')
     title = StringField('Title', validators=[DataRequired()])
     story = StringField('Story', validators=[DataRequired()])

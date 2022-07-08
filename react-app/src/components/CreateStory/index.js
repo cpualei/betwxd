@@ -19,8 +19,7 @@ function CreateStory() {
     const errors = [];
 
     if (title.length > 100) errors.push("Title must not exceed 100 characters");
-    if (story.length > 5000)
-      errors.push("Story must not exceed 5000 characters");
+    if (story.length > 5000) errors.push("Story must not exceed 5000 characters");
 
     setErrors(errors);
   }, [title, story]);

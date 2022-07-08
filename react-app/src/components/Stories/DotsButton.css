@@ -1,0 +1,10 @@
+.dots-icon-btn {
+    background-color: white;
+    border: none;
+}
+
+.dots-icon {
+    width: 17px;
+    height: 17px;
+    color: rgba(0, 0, 0, 0.133);
+}

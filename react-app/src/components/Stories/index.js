@@ -27,7 +27,7 @@ function Stories() {
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
-                <a href={`/stories/${story.id - 1}`}>
+                <a style={{textDecoration: 'none'}} href={`/stories/${story.id - 1}`}>
                   <div className="story-title">{story.title}</div>
                   <div className="story-story">{story.story}</div>
                 </a>

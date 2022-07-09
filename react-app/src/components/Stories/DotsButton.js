@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeStory } from "../../store/stories";
 import EditStory from "../EditStory";
+import CommentsModal from "../CommentsModal";
+import dots from './dots.png'
 import "./DotsButton.css";
 
 function DotsButton({ story }) {
@@ -34,7 +36,8 @@ function DotsButton({ story }) {
         <button className="dots-icon-btn" onClick={openMenu}>
           <img
             className="dots-icon"
-            src="https://img.icons8.com/external-flat-icons-inmotus-design/344/external-dots-internet-messenger-flat-icons-inmotus-design.png"
+            src={dots}
+            alt="dots"
           />
         </button>
         {showMenu && (

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { viewStories } from "../../store/stories.js";
+import CommentsModal from "../CommentsModal/index.js";
+import "./ViewStory.css"
 
 function ViewStory() {
     const { id } = useParams();
@@ -27,6 +29,7 @@ function ViewStory() {
         <div>{story?.story}</div>
         <div>{story?.created_at}</div>
         <div>{story?.img}</div>
+        <CommentsModal />
       </>
     );
   }

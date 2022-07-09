@@ -13,10 +13,7 @@ function ViewStory() {
       return Object.values(state.stories);
     });
 
-    console.log(stories[id])
     const story = stories[id]
-    console.log("STORY", story)
-
 
     useEffect(() => {
       dispatch(viewStories(id));
@@ -29,7 +26,7 @@ function ViewStory() {
         <div>{story?.story}</div>
         <div>{story?.created_at}</div>
         <div>{story?.img}</div>
-        <CommentsModal />
+        <CommentsModal story={story}/>
       </>
     );
   }

@@ -4,7 +4,7 @@ import Comments from './Comments';
 import chat from './chat.png';
 import "./Comments.css"
 
-function CommentsModal() {
+function CommentsModal({ story }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ function CommentsModal() {
       <img id="chat-icon" src={chat} alt="chat" onClick={() => setShowModal(true)}/>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <Comments setShowModal={setShowModal}/>
+          <Comments setShowModal={setShowModal} story={story}/>
         </Modal>
       )}
     </>

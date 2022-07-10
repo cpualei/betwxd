@@ -42,7 +42,7 @@ function CreateComment({ setShowModal, story }) {
 
     if (newComment) {
       setErrors([]);
-        return history.push(`/`);
+        // return history.push(`/`);
     }
   };
 
@@ -56,7 +56,7 @@ function CreateComment({ setShowModal, story }) {
           placeholder={"What are your thoughts?"}
         />
         <button type="submit" disabled={content.length < 1}>Respond</button>
-        <button onClick={() => setShowModal(false)}>Cancel</button>
+        <button type="button" onClick={() => setShowModal(false)}>Cancel</button>
       </form>
     </>
   );

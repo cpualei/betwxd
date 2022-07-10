@@ -43,7 +43,7 @@ const commentsReducer = (state = {}, action) => {
       });
       return { ...normalizedComments };
     case CREATE_COMMENT:
-      const createState = { ...state, [action.newComment.id]: action.newComment }
+      const createState = { ...state, [action.newComment]: action.newComment }
       return createState;
     default:
       return state;

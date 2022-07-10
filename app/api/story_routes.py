@@ -34,7 +34,8 @@ def add_story():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        new_story = Story(title=data['title'],
+        new_story = Story(user_id=data['user_id'],
+                          title=data['title'],
                           story=data['story'],
                           img=data['img'],
                           created_at=datetime.now())

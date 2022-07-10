@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { viewStories } from "../../store/stories.js";
-import DotsButton from "./DotsButton.js";
+import DotsIcon from "./DropdownMenu/DotsIcon.js";
 import "./Stories.css";
 
 function Stories() {
@@ -40,11 +40,11 @@ function Stories() {
                     className="story-icons"
                     src="https://img.icons8.com/external-flat-icons-inmotus-design/344/external-dots-internet-messenger-flat-icons-inmotus-design.png"
                   /> */}
-                  <DotsButton story={story} />
+                  <DotsIcon story={story} />
                 </div>
               </div>
               <a href={`/stories/${story.id - 1}`}>
-                <img src={story.img} className="story-img" />
+                <img src={story.img} alt="story-img" className="story-img" />
               </a>
             </div>
           </ul>

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { removeStory } from "../../store/stories";
-import EditStory from "../EditStory";
-import CommentsModal from "../CommentsModal";
-import dots from './dots.png'
+import { removeStory } from "../../../store/stories";
+import dots from '../../../icons/dots.png'
 import "./DotsButton.css";
 
-function DotsButton({ story }) {
+function DotsIcon({ story }) {
   const dispatch = useDispatch();
 
   const [showMenu, setShowMenu] = useState(false);
@@ -44,9 +42,6 @@ function DotsButton({ story }) {
           <>
             <ul className="dots-dropdown">
               <>
-                {/* <p id="edit-story-btn">
-                  <EditStory storyObj={story} />
-                </p> */}
                 <a href={`/edit-story/${storyId}`}>
                   <p id="edit-story-btn">Edit story</p>
                 </a>
@@ -66,4 +61,4 @@ function DotsButton({ story }) {
   );
 }
 
-export default DotsButton;
+export default DotsIcon;

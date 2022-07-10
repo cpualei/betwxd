@@ -1,0 +1,16 @@
+
+.comment-textarea-div {
+    display: flex;
+    justify-content: center;
+}
+
+.comment-textarea {
+    height: 170px;
+    width: 320px;
+    border: none;
+}
+
+.comment-btns-div {
+    display: flex;
+    justify-content: flex-end;
+}

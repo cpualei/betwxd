@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from app.models import db, Comment
-from app.forms import CreateCommentForm
+from app.models import comment, db, Comment
+from app.forms import CreateCommentForm, EditCommentForm
 from datetime import datetime
 
 
@@ -37,6 +37,20 @@ def add_comment():
         db.session.commit()
         return new_comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@comment_routes.route('/<int:id>', methods=['PUT'])
+def edit_comment(id):
+    comment = Comment.query.get(id)
+    form = EditCommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        comment.content=data['content']
+        comment.updated_at=datetime.now()
+
+        db.session.commit()
+        return comment.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
 
 @comment_routes.route('/<int:id>', methods=['DELETE'])
 def delete_comment(id):

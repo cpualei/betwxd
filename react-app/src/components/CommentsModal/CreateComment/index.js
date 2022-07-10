@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import { createComment } from "../../../store/comments";
 import { ValidationError } from "../../../utils/validationErrors";
+import "./CreateComment.css"
 
 function CreateComment({ setShowModal, story }) {
   const dispatch = useDispatch();
@@ -49,14 +50,22 @@ function CreateComment({ setShowModal, story }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <textarea
-          type="textarea"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder={"What are your thoughts?"}
-        />
-        <button type="submit" disabled={content.length < 1}>Respond</button>
+        <div className="comment-content-container">
+          <div>{sessionUser.username}</div>
+          <div className="comment-textarea-div">
+          <textarea
+            className="comment-textarea"
+            type="textarea"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder={"What are your thoughts?"}
+          />
+          </div>
+        </div>
+        <div className="comment-btns-div">
         <button type="button" onClick={() => setShowModal(false)}>Cancel</button>
+        <button type="submit" disabled={content.length < 1}>Respond</button>
+        </div>
       </form>
     </>
   );

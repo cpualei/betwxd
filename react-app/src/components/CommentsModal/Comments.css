@@ -3,3 +3,30 @@
     width: 24px;
     cursor: pointer;
 }
+
+.entire-comments-container {
+    /* width: 300px; */
+}
+
+.comments-content-btns-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comments-content-div {
+    display: flex;
+}
+
+.comments-delete-btn-div {
+    display: flex;
+    /* justify-content: flex-end; */
+}
+
+#comments-delete-btn {
+    color: rgba(255, 0, 0, 0.698);
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background: white;
+    cursor: pointer;
+}

@@ -4,7 +4,8 @@ from sqlalchemy import DateTime
 from wtforms.validators import DataRequired
 
 
-class CreateCommentForm(FlaskForm):
+class EditCommentForm(FlaskForm):
+
     user_id = IntegerField('User ID')
     story_id = IntegerField('Story ID')
     content = TextAreaField('Comment Box', validators=[DataRequired()])

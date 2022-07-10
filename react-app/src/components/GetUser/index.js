@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./GetUser.css"
 
 function GetUser({ userId }) {
   const [users, setUsers] = useState([]);
@@ -7,17 +8,17 @@ function GetUser({ userId }) {
     async function fetchData() {
       const response = await fetch("/api/users/");
       const responseData = await response.json();
-      setUsers(responseData.users);
+      setUsers(responseData?.users);
     }
     fetchData();
   }, []);
 
   return (
     <>
-      {users.map((user) => (
-        <ul key={user.id}>
-          {user.id === userId ? (
-            <p id="comment-username">{user.username}</p>
+      {users?.map((user) => (
+        <ul id="comment-username-ul" key={user?.id}>
+          {user?.id === userId ? (
+            <p id="comment-username">{user?.username}</p>
           ) : null}
         </ul>
       ))}

@@ -12,13 +12,17 @@ function GetUser({ userId }) {
     fetchData();
   }, []);
 
-  return users.map((user) => (
+  return (
     <>
-        {user.id == userId ? (
-          <p id="comment-username">{user.username}</p>
-        ) : null}
+      {users.map((user) => (
+        <ul key={user.id}>
+          {user.id == userId ? (
+            <p id="comment-username">{user.username}</p>
+          ) : null}
+        </ul>
+      ))}
     </>
-  ));
+  );
 }
 
 export default GetUser;

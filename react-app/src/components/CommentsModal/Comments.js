@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CreateComment from './CreateComment';
 import GetUser from '../GetUser';
-import { viewComments } from '../../store/comments';
+import { viewComments, removeComment } from '../../store/comments';
 import './Comments.css'
 
 function Comments({ setShowModal, story }) {
@@ -18,6 +18,7 @@ function Comments({ setShowModal, story }) {
 
     useEffect(() => {
         dispatch(viewComments());
+        dispatch(removeComment());
       }, [dispatch]);
 
     return (
@@ -27,6 +28,7 @@ function Comments({ setShowModal, story }) {
                 <ul key={comment.id}>
                     <GetUser userId={comment.user_id} />
                     <div>{comment.content}</div>
+                    <button onClick={() => dispatch(removeComment(comment.id))}>Delete response</button>
                 </ul>
             )) : null}
         </>

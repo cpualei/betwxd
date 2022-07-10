@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { createComment } from "../../../store/comments";
 import { ValidationError } from "../../../utils/validationErrors";
 
 function CreateComment({ setShowModal, story }) {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
 

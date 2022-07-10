@@ -18,7 +18,6 @@ function Comments({ setShowModal, story }) {
 
     useEffect(() => {
         dispatch(viewComments());
-        dispatch(removeComment());
       }, [dispatch]);
 
     return (

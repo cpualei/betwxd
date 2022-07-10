@@ -16,7 +16,7 @@ function GetUser({ userId }) {
     <>
       {users.map((user) => (
         <ul key={user.id}>
-          {user.id == userId ? (
+          {user.id === userId ? (
             <p id="comment-username">{user.username}</p>
           ) : null}
         </ul>

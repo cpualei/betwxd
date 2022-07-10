@@ -1,44 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { createComment } from "../../../store/comments";
+import { ValidationError } from "../../../utils/validationErrors";
 
-function CreateComment({ setShowModal }) {
+function CreateComment({ setShowModal, story }) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  const [content, setContent] = useState();
-  const [errors, setErrors] = useState();
+  const [content, setContent] = useState("");
+  const [errors, setErrors] = useState([]);
 
-  // useEffect(() => {
-  //   const errors = [];
+  useEffect(() => {
+    const errors = [];
 
-  //   if (content.length > 2000)
-  //     errors.push("Comment must not exceed 2000 characters");
+    if (content.length > 2000)
+      errors.push("Comment must not exceed 2000 characters");
 
-  //   setErrors(errors);
-  // }, [content]);
+    setErrors(errors);
+  }, [content]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
       user_id: sessionUser.id,
+      story_id: story.id,
       content,
     };
 
-    // let newComment = await dispatch(addComment(payload));
+    let newComment;
 
-    // try {
-    //   newComment = await dispatch(addComment(payload));
-    // } catch (error) {
-    //   if (error instanceof ValidationError) setErrors(errors.error);
-    //   else setErrors(error.toString().slice(7));
-    // }
+    try {
+      newComment = await dispatch(createComment(payload));
+    } catch (error) {
+      if (error instanceof ValidationError) setErrors(errors.error);
+      else setErrors(error.toString().slice(7));
+    }
 
-    // if (newComment) {
-    //   setErrors([]);
-    //     return history.push(`/`);
-    // }
+    if (newComment) {
+      setErrors([]);
+        return history.push(`/`);
+    }
   };
 
   return (
@@ -50,7 +55,7 @@ function CreateComment({ setShowModal }) {
           onChange={(e) => setContent(e.target.value)}
           placeholder={"What are your thoughts?"}
         />
-        {/* <button type="submit" disabled={content.length < 1}>Respond</button> */}
+        <button type="submit" disabled={content.length < 1}>Respond</button>
         <button onClick={() => setShowModal(false)}>Cancel</button>
       </form>
     </>

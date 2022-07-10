@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import CreateComment from './CreateComment';
+import GetUser from '../GetUser';
 import { viewComments } from '../../store/comments';
 import './Comments.css'
 
@@ -23,11 +24,11 @@ function Comments({ setShowModal, story }) {
 
     return (
         <>
-        <CreateComment setShowModal={setShowModal}/>
+        <CreateComment setShowModal={setShowModal} story={story}/>
             {(storyComments) ? storyComments.map((comment) => (
                 <ul key={comment.id}>
+                    <GetUser userId={comment.user_id} />
                     <div>{comment.content}</div>
-
                 </ul>
             )) : null}
         </>

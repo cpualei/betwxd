@@ -24,6 +24,12 @@ function Comments({ setShowModal, story }) {
     dispatch(viewComments());
   }, [dispatch]);
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    // let deletedComment = await dispatch(removeComment(comment.id))
+  }
+
   return (
     <>
       <div className="entire-comments-container">
@@ -45,7 +51,7 @@ function Comments({ setShowModal, story }) {
                 <div className="comments-delete-btn-div">
                   <button
                     id="comments-delete-btn"
-                    onClick={() => dispatch(removeComment(comment.id))}
+                    onClick={(e) => dispatch(removeComment(comment.id))}
                   >
                     x
                   </button>

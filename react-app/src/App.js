@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Splash from './components/SplashPage';
 import Stories from './components/Stories';
 import CreateStory from './components/CreateStory';
 import ViewStory from './components/ViewStory';
@@ -44,12 +45,12 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
-        <ProtectedRoute path='/stories' exact={true} >
+        <Route path='/' exact={true} >
+          <Splash />
+        </Route>
+        <Route path='/stories' exact={true} >
           <Stories />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/new-story' exact={true} >
           <CreateStory />
         </ProtectedRoute>

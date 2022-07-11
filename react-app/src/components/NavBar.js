@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LogoutButton from "./auth/LogoutButton";
 import { demouser } from "../store/session";
+import "./NavBar.css";
+import logo from "../icons/logo.png";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -17,13 +19,23 @@ const NavBar = () => {
 
   if (!sessionUser) {
     sessionLinks = (
-      <div>
-        <div>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
-          </NavLink>
+      <div className="non-user-links-container">
+        <div className="left-side-nav">
+          <div className="betwxd-div">
+            <NavLink
+              to="/"
+              exact={true}
+              activeClassName="active"
+              className="non-user-links"
+              id="betwxd"
+              style={{ textDecoration: "none" }}
+            >
+              <img id="logo" src={logo} alt="logo"/> Betwx'd
+            </NavLink>
+          </div>
         </div>
-        {/* <div>
+        <div className="right-side-nav">
+          {/* <div>
           <NavLink>Our story</NavLink>
         </div>
         <div>
@@ -32,20 +44,40 @@ const NavBar = () => {
         <div>
           <NavLink>Write</NavLink>
         </div> */}
-        <div>
-          <button onClick={demoOnClick} activeClassName="active">
-            Demo user
-          </button>
-        </div>
-        <div>
-          <NavLink to="/login" activeClassName="active">
-            Sign In
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/sign-up" activeClassName="active">
-            Get started
-          </NavLink>
+          <div>
+            <a
+              onClick={demoOnClick}
+              activeClassName="active"
+              className="non-user-links"
+              id="demo-link"
+            >
+              Demo user
+            </a>
+          </div>
+          <div>
+            <NavLink
+              to="/login"
+              activeClassName="active"
+              className="non-user-links"
+              id="sign-in-link"
+              style={{ textDecoration: "none" }}
+            >
+              Sign In
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              to="/sign-up"
+              activeClassName="active"
+              // className="non-user-links"
+              // id="get-started-link"
+              // style={{textDecoration: 'none'}}
+            >
+              <button className="non-user-links" id="get-started-link">
+                Get started
+              </button>
+            </NavLink>
+          </div>
         </div>
       </div>
     );
@@ -72,7 +104,7 @@ const NavBar = () => {
   }
 
   return (
-    <nav>
+    <nav className="nav">
       {/* <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>

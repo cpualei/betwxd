@@ -38,15 +38,30 @@ export const createComment = (payload) => async (dispatch) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
-  const newComment = await res.json();
+  // const newComment = await res.json();
 
-  if (newComment) {
-    dispatch(create(newComment));
-    return newComment;
+  // if (newComment) {
+  //   dispatch(create(newComment));
+  //   return newComment;
+  // }
+  if (res.ok) {
+    const data = await res.json();
+    console.log("THIS IS THE DATA====", data)
+    dispatch(create(data));
+
+    return null;
+  } else if (res.status < 500) {
+    const data = await res.json();
+
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
   }
 };
 
-export const updateComment = (id, payload) => async (dispatch) => {
+export const updateComment = (payload, id) => async (dispatch) => {
   const res = await fetch(`/api/comments/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -80,7 +95,10 @@ const commentsReducer = (state = {}, action) => {
       });
       return { ...normalizedComments };
     case CREATE_COMMENT:
-      const createState = { ...state, [action.newComment]: action.newComment };
+      const createState = {
+        ...state,
+        [action.comment.id]: action.comment
+      };
       return createState;
     case UPDATE_COMMENT:
       const updateState = { ...state, [action.comment.id]: action.comment };

@@ -19,7 +19,7 @@ function Comments({ setShowModal, story }) {
 
   useEffect(() => {
     dispatch(viewComments());
-  }, [dispatch]);
+  }, [dispatch, storyComments]);
 
   return (
     <>

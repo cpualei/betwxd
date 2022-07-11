@@ -6,10 +6,11 @@ body {
     color: rgba(0,0,0,0.8);
     position: relative;
     min-height: 100vh;
+    font-size: 14px;
 }
 
 #stories-container {
-    margin: 0px 90px 0px 90px;
+    margin: 0px 60px 0px 60px;
 }
 
 .each-story-div {
@@ -19,6 +20,17 @@ body {
 
 .story-user-and-date-div {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#story-user {
+    /* display: flex; */
+    margin-right: 5px;
+}
+
+#story-date {
+    color: rgb(127, 127, 127);
 }
 
 .story-title-and-story-div {
@@ -28,23 +40,24 @@ body {
 
 .story-title {
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: bold;
     color: rgba(41, 41, 41, 1);
     inline-size: 500px;
     overflow-wrap: break-word;
+    margin-right: 10px
 }
 
 .story-story {
-    margin: 10px 0px 10px;
+    margin: 7px 0px 7px;
     letter-spacing: -0.003em;
-    line-height: 28px;
+    line-height: 24px;
     font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 18px;
+    font-size: 16px;
     /* color: rgba(41, 41, 41, 1); */
     color: rgba(117, 117, 117, 1);
     display: block;
-    width: 500px;
+    width: 470px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -53,10 +66,10 @@ body {
 }
 
 .story-img {
-    height: 150px;
-    width: 220px;
+    height: 134px;
+    width: 200px;
     object-fit: cover;
-    margin-left: 60px;
+    /* margin-left: 40px; */
 }
 
 .story-icons-div {

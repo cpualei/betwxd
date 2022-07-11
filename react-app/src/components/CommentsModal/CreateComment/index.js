@@ -44,6 +44,7 @@ function CreateComment({ setShowModal, story }) {
     if (newComment) {
       setErrors([]);
         // return history.push(`/`);
+        // window.location.reload(false);
     }
   };
 

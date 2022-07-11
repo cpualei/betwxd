@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { viewStories } from "../../store/stories.js";
+import GetUser from "../GetUser/index.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
 import "./Stories.css";
 
@@ -17,13 +18,13 @@ function Stories() {
 
   return (
     <>
-      <p>This is the feed of stories</p>
       <div id="stories-container">
         {stories.map((story) => (
           <ul key={story.id}>
             <div className="story-user-and-date-div">
-              <div>{story.user_id}</div>
-              <div>{story.created_at}</div>
+              {/* <div>{story.user_id}</div> */}
+              <div id="story-user"><GetUser userId={story.user_id}/></div>
+              <div id="story-date">· {story.created_at}</div>
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">

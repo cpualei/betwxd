@@ -18,7 +18,6 @@ function Stories() {
 
   return (
     <>
-      <p>This is the feed of stories</p>
       <div id="stories-container">
         {stories.map((story) => (
           <ul key={story.id}>

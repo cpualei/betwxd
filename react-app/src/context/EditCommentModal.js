@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import './Modal.css';
 
 const EditCommentModalContext = React.createContext();
-export const useModalContext = () => useContext(ModalContext)
+export const useModalContext = () => useContext(EditCommentModalContext)
 
-export function ModalProvider({ children }) {
+export function EditCommentModalProvider({ children }) {
   const modalRef = useRef();
   const [value, setValue] = useState();
 
@@ -16,16 +16,16 @@ export function ModalProvider({ children }) {
 
   return (
     <>
-      <ModalContext.Provider value={value}>
+      <EditCommentModalContext.Provider value={value}>
         {children}
-      </ModalContext.Provider>
+      </EditCommentModalContext.Provider>
       <div ref={modalRef} />
     </>
   );
 }
 
 export function EditCommentModal({ onClose, children }) {
-  const modalNode = useContext(ModalContext);
+  const modalNode = useContext(EditCommentModalContext);
   if (!modalNode) return null;
 
   return ReactDOM.createPortal(

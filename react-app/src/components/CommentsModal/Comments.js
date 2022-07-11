@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreateComment from "./CreateComment";
-import EditComment from "./EditComment";
+import EditComment from "./EditCommentModal/EditComment";
 import GetUser from "../GetUser";
 import DotsIconComments from "./DropdownMenu/DotsIconComments";
 import { viewComments, removeComment } from "../../store/comments";
 import "./Comments.css";
 
-function Comments({ setShowModal, story }) {
+function Comments({ setShowModal, setShowEditModal, story }) {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector(state => state.session.user)
@@ -45,7 +45,7 @@ function Comments({ setShowModal, story }) {
                 </div>
                 <div>
                   {sessionUser.id === comment.user_id ? (
-                    <EditComment story={story} comment={comment}/>
+                    <EditComment setShowEditModal={setShowEditModal} story={story} comment={comment}/>
                   ): null }
                 </div>
                 <div className="comments-delete-btn-div">

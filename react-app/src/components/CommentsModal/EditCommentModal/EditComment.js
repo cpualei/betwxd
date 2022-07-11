@@ -5,7 +5,7 @@ import { updateComment } from "../../../store/comments";
 import { ValidationError } from "../../../utils/validationErrors";
 import "./EditComment.css"
 
-function EditComment({ setShowModal, story, comment }) {
+function EditComment({ setShowEditModal, story, comment }) {
   const dispatch = useDispatch();
   // const history = useHistory();
 
@@ -69,8 +69,8 @@ function EditComment({ setShowModal, story, comment }) {
           </div>
         </div>
         <div className="edit-comment-btns-div">
-        {/* <button type="button" onClick={() => setShowModal(false)}>Cancel</button> */}
-        <button id="update-comment-btn" type="submit" disabled={content.length < 1}>Update</button>
+        <button type="button" onClick={() => setShowEditModal(false)}>Cancel</button>
+        <button id="update-comment-btn" type="submit">Update</button>
         </div>
       </form>
     </>

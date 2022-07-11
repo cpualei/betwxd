@@ -66,12 +66,12 @@ function CreateComment({ setShowModal, story }) {
               placeholder={"What are your thoughts?"}
             />
           </div>
-        </div>
         <div className="comment-btns-div">
-          <button type="button" onClick={() => setShowModal(false)}>
+          <button className="comment-btns" id="cancel-btn" type="button" onClick={() => setShowModal(false)}>
             Cancel
           </button>
-          <button type="submit">Respond</button>
+          <button className="comment-btns" id="respond-btn" type="submit">Respond</button>
+        </div>
         </div>
       </form>
     </>

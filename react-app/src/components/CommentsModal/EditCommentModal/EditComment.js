@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import { updateComment } from "../../../store/comments";
 import { ValidationError } from "../../../utils/validationErrors";
-import "./EditComment.css"
+import "./EditComment.css";
 
 function EditComment({ setShowEditModal, story, comment }) {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ function EditComment({ setShowEditModal, story, comment }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   const [content, setContent] = useState(comment.content);
+  const [edit, setEdit] = useState(false);
+  const [update, setUpdate] = useState(false);
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -43,15 +45,19 @@ function EditComment({ setShowEditModal, story, comment }) {
 
     if (updatedComment) {
       setErrors([]);
-        // return history.push(`/`);
-        // window.location.reload(false);
+      // return history.push(`/`);
+      // window.location.reload(false);
     }
   };
+
+  const toggle = () => {
+    if (update) setEdit(false)
+  }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-      <ul>
+        <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -59,18 +65,26 @@ function EditComment({ setShowEditModal, story, comment }) {
         <div className="">
           {/* <div>{sessionUser.username}</div> */}
           <div className="edit-comment-box-div">
-          <textarea
-            className="edit-comment-box"
-            type="textarea"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-
-          />
+            {sessionUser.id === comment.user_id ? (
+              <textarea
+                className="comment-content"
+                value={content}
+                disabled={(!edit) || (!update)}
+                onChange={(e) => setContent(e.target.value)}
+              />
+            ) : null}
           </div>
+          <button id="comment-edit-btn" onClick={(e) => setEdit(true)}>
+            Edit response
+          </button>
         </div>
         <div className="edit-comment-btns-div">
-        <button type="button" onClick={() => setShowEditModal(false)}>Cancel</button>
-        <button id="update-comment-btn" type="submit">Update</button>
+          <button
+            id="update-comment-btn"
+            type="submit"
+            onClick={(e) => {setUpdate(true); toggle()}}>
+            Update
+          </button>
         </div>
       </form>
     </>

@@ -4,6 +4,14 @@
     cursor: pointer;
 }
 
+.comment-content {
+    resize: none;
+    height: 100px;
+    width: 220px;
+    border: none;
+
+}
+
 .entire-comments-container {
 }
 

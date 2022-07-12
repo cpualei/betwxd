@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreateComment from "./CreateComment";
-import EditComment from "./EditCommentModal/EditComment";
+import EditComment from "./EditComment/EditComment";
 import GetUser from "../GetUser";
 import DotsIconComments from "./DropdownMenu/DotsIconComments";
 import { viewComments, removeComment } from "../../store/comments";

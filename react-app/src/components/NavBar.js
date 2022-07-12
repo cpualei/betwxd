@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LogoutButton from "./auth/LogoutButton";
-import Splash from "./SplashPage";
+import SignUpFormModal from "./auth/SignUpModal";
 import { demouser } from "../store/session";
 import "./NavBar.css";
 import logo from "../icons/logo.png";
@@ -71,17 +71,17 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div>
-            <NavLink
+            {/* <NavLink
               to="/sign-up"
               activeClassName="active"
               // className="non-user-links"
               // id="get-started-link"
               // style={{textDecoration: 'none'}}
-            >
-              <button className="non-user-links" id="get-started-link">
-                Get started
-              </button>
-            </NavLink>
+            > */}
+              {/* <button className="non-user-links" id="get-started-link"> */}
+                <SignUpFormModal />
+              {/* </button> */}
+            {/* </NavLink> */}
           </div>
         </div>
       </div>

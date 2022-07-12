@@ -2,9 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LogoutButton from "./auth/LogoutButton";
+import Splash from "./SplashPage";
 import { demouser } from "../store/session";
 import "./NavBar.css";
 import logo from "../icons/logo.png";
+import home from "../icons/home.png";
+import list from "../icons/list.png";
+import write from "../icons/write.png";
+import mediumLogo from "../icons/mediumLogo.png";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -30,7 +35,7 @@ const NavBar = () => {
               id="betwxd"
               style={{ textDecoration: "none" }}
             >
-              <img id="logo" src={logo} alt="logo"/> Betwx'd
+              <img id="logo" src={logo} alt="logo" /> Betwx'd
             </NavLink>
           </div>
         </div>
@@ -83,28 +88,34 @@ const NavBar = () => {
     );
   } else {
     sessionLinks = (
-      <div>
-        <div>
-          <NavLink to="/stories" exact={true} activeClassName="active">
-            Stories
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/your-stories" exact={true} activeClassName="active">
-            Your stories
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/new-story" exact={true} activeClassName="active">
-            New story
-          </NavLink>
+      <div className="side-nav-container">
+        <div className="side-nav-div">
+          <div className="top-icon-div">
+            <NavLink to="/stories" exact={true} activeClassName="active">
+              <img id="mediumLogo" src={mediumLogo} alt="mediumLogo" />
+            </NavLink>
+          </div>
+          <div className="middle-icons-div">
+            <NavLink to="/stories" exact={true} activeClassName="active">
+              <img id="home-icon" src={home} alt="home" />
+            </NavLink>
+            <NavLink to="/your-stories" exact={true} activeClassName="active">
+              <img id="list-icon" src={list} alt="list" />
+            </NavLink>
+            <NavLink to="/new-story" exact={true} activeClassName="active">
+              <img id="write-icon" src={write} alt="write" />
+            </NavLink>
+          </div>
+          <div className="logout-div">
+          <LogoutButton />
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <nav className="nav">
+    <nav>
       {/* <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
@@ -131,7 +142,7 @@ const NavBar = () => {
         </li>
       </ul> */}
       {sessionLinks}
-      {sessionUser ? <LogoutButton /> : null}
+      {/* {sessionUser ? <LogoutButton /> : null} */}
     </nav>
   );
 };

@@ -30,7 +30,7 @@ function DotsIcon({ story }) {
 
   return (
     <>
-      <div>
+      {/* <div> */}
         <button className="dots-icon-btn" onClick={openMenu}>
           <img
             className="dots-icon"
@@ -56,7 +56,7 @@ function DotsIcon({ story }) {
             </ul>
           </>
         )}
-      </div>
+      {/* </div> */}
     </>
   );
 }

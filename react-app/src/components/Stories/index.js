@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { viewStories } from "../../store/stories.js";
 import GetUser from "../GetUser/index.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
+// import NavBar from "../NavBar.js";
 import "./Stories.css";
 
 function Stories() {
@@ -41,7 +42,7 @@ function Stories() {
                     className="story-icons"
                     src="https://img.icons8.com/external-flat-icons-inmotus-design/344/external-dots-internet-messenger-flat-icons-inmotus-design.png"
                   /> */}
-                  <DotsIcon story={story} />
+                  <DotsIcon id="story-more-options" story={story} />
                 </div>
               </div>
               <a href={`/stories/${story.id - 1}`}>

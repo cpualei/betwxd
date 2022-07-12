@@ -69,7 +69,7 @@ function EditComment({ setShowEditModal, story, comment }) {
               <textarea
                 className="comment-content"
                 value={content}
-                disabled={(!edit) || (!update)}
+                disabled={!edit}
                 onChange={(e) => setContent(e.target.value)}
               />
             ) : null}

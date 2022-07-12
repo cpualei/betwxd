@@ -66,3 +66,77 @@
     font-size: 14px;
     cursor: pointer;
 }
+
+
+.side-nav-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    position: fixed;
+    top: -3px;
+    height: 100%;
+    padding-top: 40px;
+    padding-right: 3px;
+    border-right: 1px solid #e6e6e6;
+    left: 4px;
+    background-color: white;
+}
+
+.side-nav-div {
+    /* position: absolute; */
+    background: white;
+    /* top: 255px;
+    left: 36px;
+    align-items: center; */
+
+}
+
+#home-icon {
+    margin-bottom: 30px;
+}
+
+#list-icon {
+    margin-bottom: 30px;
+}
+
+#write-icon {
+    margin-bottom: 30px;
+}
+
+.top-icon-div {
+    display: flex;
+    justify-content: center;
+}
+
+#mediumLogo {
+    margin-bottom: 30px;
+    height: 30px;
+    /* bottom: 307px; */
+    /* position: absolute; */
+    /* left: -4px; */
+}
+
+
+
+.middle-icons-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 117px;
+}
+
+.logout-div {
+    margin-top: 278px;
+}
+
+#logout-btn {
+    /* position: absolute; */
+    /* top: 631px;
+    left: 22px; */
+    padding: 4px 10px 4px 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

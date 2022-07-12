@@ -1,31 +1,16 @@
-
-
 .non-user-links-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 20px 110px 20px 110px;
     background-color: #ffc116;
-    /* transition: background-color 300ms linear; */
     border-bottom: 1px solid black;
     align-items: center;
-}
-
-.non-user-links {
-    /* display: flex; */
-}
-
-.left-side-nav {
-}
-
-.betwxd-div {
-    /* display: flex; */
 }
 
 #logo {
     display: flex;
     height: 30px;
-
 }
 
 #betwxd {
@@ -43,7 +28,6 @@
 }
 
 #demo-link {
-    /* display: flex; */
     margin-right: 20px;
     cursor: pointer;
 }
@@ -53,23 +37,10 @@
     color: inherit;
 }
 
-/* #get-started-link {
-    transition: background-color 300ms linear, color 300ms linear;
-    border-width: 1px;
-    border-radius: 99em;
-    border-color: rgba(25, 25, 25, 1);
-    background: rgba(25, 25, 25, 1);
-    padding: 7px 16px 9px;
-    color: white;
-    line-height: 20px;
-    font-size: 14px;
-    cursor: pointer;
-} */
-
-
 .side-nav-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     /* justify-content: space-around; */
     position: fixed;
     top: -3px;
@@ -77,17 +48,13 @@
     padding-top: 40px;
     padding-right: 3px;
     border-right: 1px solid #e6e6e6;
-    left: 4px;
+    left: 0;
     background-color: white;
 }
 
 .side-nav-div {
-    /* position: absolute; */
     background: white;
-    /* top: 255px;
     left: 36px;
-    align-items: center; */
-
 }
 
 #home-icon {
@@ -110,9 +77,6 @@
 #mediumLogo {
     margin-bottom: 30px;
     height: 30px;
-    /* bottom: 307px; */
-    /* position: absolute; */
-    /* left: -4px; */
 }
 
 
@@ -129,10 +93,8 @@
 }
 
 #logout-btn {
-    /* position: absolute; */
-    /* top: 631px;
-    left: 22px; */
-    padding: 4px 10px 4px 10px;
+    padding: 4px 8px 4px 8px;
+    margin: 5px 5px 0px 8px;
     border: 1px solid black;
     border-radius: 15px;
     background-color: black;

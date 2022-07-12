@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 import { createComment } from "../../../store/comments";
 import { ValidationError } from "../../../utils/validationErrors";
-import "./CreateComment.css"
+import "./CreateComment.css";
 
 function CreateComment({ setShowModal, story }) {
   const dispatch = useDispatch();
@@ -32,40 +32,46 @@ function CreateComment({ setShowModal, story }) {
       content,
     };
 
-    let newComment;
+    // let newComment = await dispatch(createComment(payload));
 
-    try {
-      newComment = await dispatch(createComment(payload));
-    } catch (error) {
-      if (error instanceof ValidationError) setErrors(errors.error);
-      else setErrors(error.toString().slice(7));
-    }
-
-    if (newComment) {
+    const data = await dispatch(createComment(payload));
+    if (data) {
+      setErrors(data);
+    } else {  // received a valid request
       setErrors([]);
-        // return history.push(`/`);
-        // window.location.reload(false);
+      setContent("");
     }
+    // if (newComment) {
+    //   newComment.json();
+    //   setOnSubmit(true);
+    //     return history.push(`/`);
+    //     window.location.reload(false);
+    // }
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
+      {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
         <div className="comment-content-container">
           <div>{sessionUser.username}</div>
           <div className="comment-textarea-div">
-          <textarea
-            className="comment-textarea"
-            type="textarea"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder={"What are your thoughts?"}
-          />
+            <textarea
+              className="comment-textarea"
+              type="textarea"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder={"What are your thoughts?"}
+            />
           </div>
-        </div>
         <div className="comment-btns-div">
-        <button type="button" onClick={() => setShowModal(false)}>Cancel</button>
-        <button type="submit" disabled={content.length < 1}>Respond</button>
+          <button className="comment-btns" id="cancel-btn" type="button" onClick={() => setShowModal(false)}>
+            Cancel
+          </button>
+          <button className="comment-btns" id="respond-btn" type="submit">Respond</button>
+        </div>
         </div>
       </form>
     </>

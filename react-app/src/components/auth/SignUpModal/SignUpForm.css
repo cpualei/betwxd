@@ -72,3 +72,14 @@
     font-size: 15px;
     cursor: pointer;
 }
+
+#start-reading-btn {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    width: 213px;
+    padding: 7px 20px 9px;
+    border-radius: 99em;
+    border-width: 1px;
+    cursor: pointer;
+}

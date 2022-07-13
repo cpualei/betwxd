@@ -1,4 +1,4 @@
-#signup-modal {
+#auth-forms-modal {
     position: fixed;
     top: 0;
     right: 0;
@@ -10,7 +10,7 @@
     /* height: 80%; */
   }
 
-  #signup-modal-background {
+  #auth-forms-modal-background {
     position: fixed;
     top: 0;
     right: 0;
@@ -19,7 +19,7 @@
     background-color: rgba(255, 255, 255, 0.944);
   }
 
-  #signup-modal-content {
+  #auth-forms-modal-content {
     display: flex;
     border-radius: 3px;
     background-color: white;
@@ -33,3 +33,4 @@
     padding: 44px 56px;
     box-shadow: 2px 2px 10px 1px rgb(135 135 135 / 33%);
   }
+

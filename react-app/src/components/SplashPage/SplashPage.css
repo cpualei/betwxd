@@ -1,16 +1,18 @@
 .splash-container {
-    padding: 0px 10% 0px 10%;
-    background-color: #ffc116;
+    display: flex;
+    padding: 0 0 0 10%;
+    background-color: #feb714;
     border-bottom: 1px solid black;
     margin-bottom: 80px;
 }
 
-.first-container {
+.splash-div {
     display: flex;
     flex-direction: column;
-    background-color: #ffc116;
+    background-color: #feb714;
     padding: 93px 0px 93px 0px;
-    width: 550px;
+
+    width: 100%
 }
 
 #stay-curious {
@@ -29,4 +31,8 @@
     color: rgba(41, 41, 41, 1);
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: 50px;
+}
+
+#splash-img-div {
+    display: flex;
 }

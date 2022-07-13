@@ -4,35 +4,9 @@
     cursor: pointer;
 }
 
-.comment-content {
-    resize: none;
-    height: 100px;
-    width: 220px;
-    border: none;
-
-}
-
-.entire-comments-container {
-}
-
-.comments-content-btns-container {
-    display: flex;
-}
-
-.comments-content-div {
-    display: flex;
-}
-
-.comments-delete-btn-div {
-    display: flex;
-    /* justify-content: flex-end; */
-}
-
-#comments-delete-btn {
-    color: rgba(255, 0, 0, 0.698);
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    background: white;
-    cursor: pointer;
+.comments-ul {
+    border-bottom: 1px solid #e5e5e5;
+    width: 80%;
+    margin-left: 30px;
+    padding: 0px 0px 20px 0px;
 }

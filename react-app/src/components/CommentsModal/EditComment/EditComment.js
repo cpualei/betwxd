@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
 import { updateComment, removeComment } from "../../../store/comments";
 import { ValidationError } from "../../../utils/validationErrors";
 import "./EditComment.css";
 
-function EditComment({ setShowEditModal, story, comment }) {
+function EditComment({ story, comment }) {
   const dispatch = useDispatch();
-  // const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -45,14 +43,12 @@ function EditComment({ setShowEditModal, story, comment }) {
 
     if (updatedComment) {
       setErrors([]);
-      // return history.push(`/`);
-      // window.location.reload(false);
     }
   };
 
   const toggle = () => {
-    if (update) setEdit(false)
-  }
+    if (update) setEdit(false);
+  };
 
   return (
     <>
@@ -62,38 +58,46 @@ function EditComment({ setShowEditModal, story, comment }) {
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <div className="">
-          {/* <div>{sessionUser.username}</div> */}
-          <div className="edit-comment-box-div">
+        <div>
+          <div className="all-comments-div">
+            <div className="edit-comment-box-div">
               <textarea
                 className="comment-content"
                 value={content}
                 disabled={!edit}
                 onChange={(e) => setContent(e.target.value)}
-                />
+              />
+            </div>
+            {sessionUser.id === comment.user_id ? (
+              <div className="edit-comment-btns-div">
+                {edit == false ? (
+                  <button id="comment-edit-btn" onClick={(e) => setEdit(true)}>
+                    Edit response
+                  </button>
+                ) : (
+                  <button
+                    id="update-comment-btn"
+                    type="submit"
+                    onClick={(e) => {
+                      setUpdate(true);
+                      toggle();
+                    }}
+                  >
+                    Update response
+                  </button>
+                )}
+                {/* <div className="comments-delete-btn-div"> */}
+                {/* </div> */}
+                  <button
+                    id="comments-delete-btn"
+                    onClick={(e) => dispatch(removeComment(comment.id))}
+                  >
+                    x
+                  </button>
+              </div>
+            ) : null}
           </div>
         </div>
-                {sessionUser.id === comment.user_id ? (
-        <div className="edit-comment-btns-div">
-          <button id="comment-edit-btn" onClick={(e) => setEdit(true)}>
-            Edit response
-          </button>
-          <button
-            id="update-comment-btn"
-            type="submit"
-            onClick={(e) => {setUpdate(true); toggle()}}>
-            Update
-          </button>
-          <div className="comments-delete-btn-div">
-                    <button
-                      id="comments-delete-btn"
-                      onClick={(e) => dispatch(removeComment(comment.id))}
-                    >
-                      x
-                    </button>
-                  </div>
-        </div>
-          ) : null}
       </form>
     </>
   );

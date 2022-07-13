@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
-import { updateComment } from "../../../store/comments";
+import { updateComment, removeComment } from "../../../store/comments";
 import { ValidationError } from "../../../utils/validationErrors";
 import "./EditComment.css";
 
@@ -65,27 +65,35 @@ function EditComment({ setShowEditModal, story, comment }) {
         <div className="">
           {/* <div>{sessionUser.username}</div> */}
           <div className="edit-comment-box-div">
-            {sessionUser.id === comment.user_id ? (
               <textarea
                 className="comment-content"
                 value={content}
                 disabled={!edit}
                 onChange={(e) => setContent(e.target.value)}
-              />
-            ) : null}
+                />
           </div>
+        </div>
+                {sessionUser.id === comment.user_id ? (
+        <div className="edit-comment-btns-div">
           <button id="comment-edit-btn" onClick={(e) => setEdit(true)}>
             Edit response
           </button>
-        </div>
-        <div className="edit-comment-btns-div">
           <button
             id="update-comment-btn"
             type="submit"
             onClick={(e) => {setUpdate(true); toggle()}}>
             Update
           </button>
+          <div className="comments-delete-btn-div">
+                    <button
+                      id="comments-delete-btn"
+                      onClick={(e) => dispatch(removeComment(comment.id))}
+                    >
+                      x
+                    </button>
+                  </div>
         </div>
+          ) : null}
       </form>
     </>
   );

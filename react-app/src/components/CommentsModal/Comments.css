@@ -17,7 +17,6 @@
 
 .comments-content-btns-container {
     display: flex;
-    justify-content: space-between;
 }
 
 .comments-content-div {

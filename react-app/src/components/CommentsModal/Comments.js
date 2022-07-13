@@ -4,7 +4,7 @@ import CreateComment from "./CreateComment";
 import EditComment from "./EditComment/EditComment";
 import GetUser from "../GetUser";
 import DotsIconComments from "./DropdownMenu/DotsIconComments";
-import { viewComments, removeComment } from "../../store/comments";
+import { viewComments } from "../../store/comments";
 import "./Comments.css";
 
 function Comments({ setShowModal, setShowEditModal, story }) {
@@ -65,14 +65,14 @@ function Comments({ setShowModal, setShowEditModal, story }) {
                   <div>
                     <EditComment story={story} comment={comment}/>
                 </div>
-                  <div className="comments-delete-btn-div">
+                  {/* <div className="comments-delete-btn-div">
                     <button
                       id="comments-delete-btn"
                       onClick={(e) => dispatch(removeComment(comment.id))}
                     >
                       x
                     </button>
-                  </div>
+                  </div> */}
                 </div>
                 {/* <DotsIconComments commentId={comment.id} /> */}
               </ul>

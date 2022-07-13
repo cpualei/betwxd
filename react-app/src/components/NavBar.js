@@ -20,7 +20,7 @@ const NavBar = () => {
   const demoOnClick = async (e) => {
     e.preventDefault();
     await dispatch(demouser("demo@aa.io", "password"));
-    await history.push("/stories")
+    await history.push("/stories");
   };
 
   let sessionLinks;
@@ -43,15 +43,6 @@ const NavBar = () => {
           </div>
         </div>
         <div className="right-side-nav">
-          {/* <div>
-          <NavLink>Our story</NavLink>
-        </div>
-        <div>
-          <NavLink>Membership</NavLink>
-        </div>
-        <div>
-          <NavLink>Write</NavLink>
-        </div> */}
           <div>
             <a
               onClick={demoOnClick}
@@ -63,29 +54,10 @@ const NavBar = () => {
             </a>
           </div>
           <div>
-            {/* <NavLink
-              to="/login"
-              activeClassName="active"
-              className="non-user-links"
-              id="sign-in-link"
-              style={{ textDecoration: "none" }}
-            >
-              Sign In
-            </NavLink> */}
             <LoginFormModal />
           </div>
           <div>
-            {/* <NavLink
-              to="/sign-up"
-              activeClassName="active"
-              // className="non-user-links"
-              // id="get-started-link"
-              // style={{textDecoration: 'none'}}
-            > */}
-              {/* <button className="non-user-links" id="get-started-link"> */}
-                <SignUpFormModal />
-              {/* </button> */}
-            {/* </NavLink> */}
+            <SignUpFormModal />
           </div>
         </div>
       </div>
@@ -111,44 +83,14 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className="logout-div">
-          <LogoutButton />
+            <LogoutButton />
           </div>
         </div>
       </div>
     );
   }
 
-  return (
-    <nav>
-      {/* <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul> */}
-      {sessionLinks}
-      {/* {sessionUser ? <LogoutButton /> : null} */}
-    </nav>
-  );
+  return <nav>{sessionLinks}</nav>;
 };
 
 export default NavBar;

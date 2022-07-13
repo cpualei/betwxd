@@ -41,12 +41,11 @@ const LoginForm = () => {
       </div>
       <h1 id="form-h1">Welcome Back.</h1>
       <div className="form-labels-inputs-div">
-        <label className="form-labels" htmlFor='email'>Email</label>
+        <label className="form-labels" htmlFor='email'>Your email</label>
         <input
           className='form-inputs'
           name='email'
           type='text'
-          placeholder='Email'
           value={email}
           onChange={updateEmail}
         />
@@ -55,7 +54,7 @@ const LoginForm = () => {
           className='form-inputs'
           name='password'
           type='password'
-          placeholder='Password'
+          // placeholder='Password'
           value={password}
           onChange={updatePassword}
         />

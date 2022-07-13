@@ -4,9 +4,8 @@ import { viewStories } from "../../store/stories.js";
 import GetUser from "../GetUser/index.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
 import ReactTimeAgo from "react-time-ago";
-
-// import NavBar from "../NavBar.js";
 import "./Stories.css";
+
 
 function Stories() {
   const dispatch = useDispatch();
@@ -14,14 +13,6 @@ function Stories() {
   const stories = useSelector((state) => {
     return Object?.values(state?.stories);
   });
-
-  // const story = stories[1]
-  // console.log("STORY", story)
-  // const dateObj = new Date(story?.created_at)
-  // const date = dateObj.toDateString()
-  // console.log("DATE ONLY", date)
-
-  // let date = new Date(story.created_at)
 
   useEffect(() => {
     dispatch(viewStories());
@@ -33,13 +24,8 @@ function Stories() {
         {stories?.map((story) => (
           <ul key={story.id}>
             <div className="story-user-and-date-div">
-              {/* <div>{story.user_id}</div> */}
               <div id="story-user"><GetUser userId={story.user_id}/></div>
-              {/* <div id="story-date">· {story.created_at}</div> */}
-              {/* <div id="story-date">· {date}</div> */}
-              <div>
               <ReactTimeAgo date={story.created_at} locale="en-US"/>
-              </div>
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
@@ -48,14 +34,6 @@ function Stories() {
                   <div className="story-story">{story.story}</div>
                 </a>
                 <div className="story-icons-div">
-                  {/* <img
-                    className="story-icons"
-                    src="https://tinyurl.com/yuyx6hf9">
-                </img> */}
-                  {/* <img
-                    className="story-icons"
-                    src="https://img.icons8.com/external-flat-icons-inmotus-design/344/external-dots-internet-messenger-flat-icons-inmotus-design.png"
-                  /> */}
                   <DotsIcon id="story-more-options" story={story} />
                 </div>
               </div>

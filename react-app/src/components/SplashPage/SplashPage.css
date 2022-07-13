@@ -1,5 +1,5 @@
 .splash-container {
-    padding: 0px 110px 0px 110px;
+    padding: 0px 10% 0px 10%;
     background-color: #ffc116;
     border-bottom: 1px solid black;
     margin-bottom: 80px;
@@ -14,7 +14,6 @@
 }
 
 #stay-curious {
-    /* display: flex; */
     margin-bottom: 30px;
     letter-spacing: -0.05em;
     line-height: 95px;
@@ -22,25 +21,12 @@
     color: rgba(8, 8, 8, 1);
     font-feature-settings: 'pnum' on, 'lnum' on;
     font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, serif;
-    /* font-weight: 400; */
 }
 
 #discover-stories {
-    /* display: flex; */
     font-size: 24px;
     line-height: 24px;
     color: rgba(41, 41, 41, 1);
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: 50px;
 }
-/* 
-#start-reading-btn {
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    width: 213px;
-    padding: 7px 20px 9px;
-    border-radius: 99em;
-    border-width: 1px;
-    cursor: pointer;
-} */

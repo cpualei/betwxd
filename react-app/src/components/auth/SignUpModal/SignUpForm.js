@@ -44,42 +44,42 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className="form-container" onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
+      <h1 id="form-h1">Join Betwx'd.</h1>
+      <h3 id="form-h3">Finish creating your account for the full Medium experience.</h3>
+      <div className="form-labels-inputs-div">
+        <label className="form-labels">Your name</label>
         <input
+          className='form-inputs'
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
-      </div>
-      <div>
-        <label>Email</label>
+        <label className="form-labels">Email</label>
         <input
+          className='form-inputs'
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
-      </div>
-      <div>
-        <label>Password</label>
+        <label className="form-labels">Password</label>
         <input
+          className='form-inputs'
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
+        <label className="form-labels">Repeat password</label>
         <input
+          className='form-inputs'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -87,7 +87,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button id="form-submit-btn" type='submit'>Create account</button>
     </form>
   );
 };

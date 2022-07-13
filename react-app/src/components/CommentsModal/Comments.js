@@ -4,6 +4,7 @@ import CreateComment from "./CreateComment";
 import EditComment from "./EditComment/EditComment";
 import GetUser from "../GetUser";
 import { viewComments } from "../../store/comments";
+import ReactTimeAgo from "react-time-ago";
 import "./Comments.css";
 
 function Comments({ setShowModal, story }) {
@@ -29,7 +30,7 @@ function Comments({ setShowModal, story }) {
           ? storyComments.map((comment) => (
               <ul className="comments-ul" key={comment.id}>
                 <GetUser userId={comment.user_id} />
-                <div>{comment.created_at}</div>
+                <ReactTimeAgo id="comments-date" date={comment.created_at}/>
                 <EditComment story={story} comment={comment} />
               </ul>
             ))

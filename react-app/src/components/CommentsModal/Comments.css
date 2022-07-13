@@ -6,7 +6,11 @@
 
 .comments-ul {
     border-bottom: 1px solid #e5e5e5;
-    width: 80%;
+    width: 85%;
     margin-left: 30px;
-    padding: 0px 0px 20px 0px;
+    padding: 0px 0px 15px 0px;
+}
+
+#comments-date {
+    color: rgba(117, 117, 117, 1);
 }

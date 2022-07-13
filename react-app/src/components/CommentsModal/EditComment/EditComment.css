@@ -15,12 +15,12 @@
     background-color: white;
 }
 
-#update-comment-btn {
-    background-color: rgb(26, 137, 23);
+#comment-update-btn {
+    background-color: rgb(255, 255, 255);
     padding: 4px 12px 6px;
     border: 1px solid rgb(26, 137, 23);
     border-radius: 99em;
-    color: rgba(255, 255, 255, 1);
+    color: rgb(26, 137, 23);
     cursor: pointer;
 }
 
@@ -43,10 +43,13 @@
 }
 
 #comments-delete-btn {
-    color: rgba(255, 0, 0, 0.698);
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    background: white;
+    color: rgba(0, 0, 0, 0.698);
+    /* background-color: rgb(26, 137, 23); */
+    padding: 4px 12px 6px;
+    border: 1px solid rgb(26, 137, 23);
+    border-radius: 99em;
+    /* color: rgba(255, 255, 255, 1); */
     cursor: pointer;
+    border: none;
+    margin-right: 3px;
 }

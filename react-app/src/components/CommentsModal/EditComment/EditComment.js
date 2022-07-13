@@ -70,13 +70,19 @@ function EditComment({ story, comment }) {
             </div>
             {sessionUser.id === comment.user_id ? (
               <div className="edit-comment-btns-div">
+                <button
+                  id="comments-delete-btn"
+                  onClick={(e) => dispatch(removeComment(comment.id))}
+                >
+                  Delete response
+                </button>
                 {edit == false ? (
                   <button id="comment-edit-btn" onClick={(e) => setEdit(true)}>
                     Edit response
                   </button>
                 ) : (
                   <button
-                    id="update-comment-btn"
+                    id="comment-update-btn"
                     type="submit"
                     onClick={(e) => {
                       setUpdate(true);
@@ -86,14 +92,6 @@ function EditComment({ story, comment }) {
                     Update response
                   </button>
                 )}
-                {/* <div className="comments-delete-btn-div"> */}
-                {/* </div> */}
-                  <button
-                    id="comments-delete-btn"
-                    onClick={(e) => dispatch(removeComment(comment.id))}
-                  >
-                    x
-                  </button>
               </div>
             ) : null}
           </div>

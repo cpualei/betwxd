@@ -1,3 +1,8 @@
 #comment-username-ul {
     padding: 0px;
 }
+
+#comment-username {
+    margin: 0px;
+    line-height: 20px;
+}

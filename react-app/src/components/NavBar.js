@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LogoutButton from "./auth/LogoutButton";
+import LoginFormModal from "./auth/LoginModal";
 import SignUpFormModal from "./auth/SignUpModal";
 import { demouser } from "../store/session";
 import "./NavBar.css";
@@ -62,7 +63,7 @@ const NavBar = () => {
             </a>
           </div>
           <div>
-            <NavLink
+            {/* <NavLink
               to="/login"
               activeClassName="active"
               className="non-user-links"
@@ -70,7 +71,8 @@ const NavBar = () => {
               style={{ textDecoration: "none" }}
             >
               Sign In
-            </NavLink>
+            </NavLink> */}
+            <LoginFormModal />
           </div>
           <div>
             {/* <NavLink

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { AuthFormsModal } from '../../../context/AuthFormsModal';
-import SignUpForm from './SignUpForm';
+import SignUpForm from '../SignUpModal/SignUpForm';
 import "../SignUp&Login.css"
 
-function SignUpFormModal() {
+function SignUpFormModal2() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button id="get-started-link" onClick={() => setShowModal(true)}>Get started</button>
+      <button id="start-reading-btn" onClick={() => setShowModal(true)}>Start reading</button>
       {showModal && (
         <AuthFormsModal onClose={() => setShowModal(false)}>
           <SignUpForm setShowModal={setShowModal}/>
@@ -18,4 +18,4 @@ function SignUpFormModal() {
   );
 }
 
-export default SignUpFormModal;
+export default SignUpFormModal2;

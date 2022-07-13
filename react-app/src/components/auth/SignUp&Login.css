@@ -1,0 +1,91 @@
+#get-started-link {
+    /* margin-right: 20px; */
+    transition: background-color 300ms linear, color 300ms linear;
+    border-width: 1px;
+    border-radius: 99em;
+    border-color: rgba(25, 25, 25, 1);
+    background: rgba(25, 25, 25, 1);
+    padding: 7px 16px 9px;
+    color: white;
+    line-height: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form-h1 {
+    font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, serif;
+    color: rgba(8, 8, 8, 1);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    font-size: 28px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+#form-h3 {
+    letter-spacing: -.02em;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0;
+    font-size: 16px;
+    line-height: 24px;
+    -webkit-transform: translateY(-1.32px);
+    transform: translateY(-1.32px);
+}
+
+.form-labels-inputs-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    line-height: 20px;
+}
+
+.form-inputs {
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    width: 400px;
+    margin: 0px 0 12px 0;
+    font-size: 18px;
+    height: 35px;
+}
+
+.form-labels {
+    font-size: 14px;
+    color: rgba(0,0,0,.54);
+}
+
+#form-submit-btn {
+    background-color: rgb(26, 137, 23);
+    border: 1px solid rgb(26, 137, 23);
+    border-radius: 99em;
+    color: rgba(255, 255, 255, 1);
+    height: 37px;
+    line-height: 37px;
+    padding: 0 18px;
+    font-weight: 500px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#start-reading-btn {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    width: 213px;
+    padding: 7px 20px 9px;
+    border-radius: 99em;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+#sign-in-link {
+    margin-right: 20px;
+    color: inherit;
+    cursor: pointer;
+}

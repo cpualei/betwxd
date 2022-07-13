@@ -22,7 +22,7 @@ function Stories() {
     <>
       <div id="stories-container">
         {stories?.map((story) => (
-          <ul key={story.id}>
+          <ul className="stories-ul" key={story.id}>
             <div className="story-user-and-date-div">
               <div id="story-user"><GetUser userId={story.user_id}/></div>
               <ReactTimeAgo date={story.created_at} locale="en-US"/>

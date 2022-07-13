@@ -1,4 +1,6 @@
 {
   "dependencies": {
+    "react-redux": "^8.0.2",
+    "react-time-ago": "^7.2.1"
   }
 }

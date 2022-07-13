@@ -67,7 +67,7 @@ const SignUpForm = () => {
           ))}
         </div>
       <h1 id="form-h1">Join Betwx'd.</h1>
-      <h3 id="form-h3">Finish creating your account for the full Medium experience.</h3>
+      <h3 id="form-h3">Finish creating your account for the full Betwx'd experience.</h3>
       <div className="form-labels-inputs-div">
         <label className="form-labels">Your name</label>
         <input

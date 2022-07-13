@@ -16,6 +16,7 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     await history.push('/stories');
     if (data) {
+      await history.push('/');
       setErrors(data);
     }
   };
@@ -54,7 +55,6 @@ const LoginForm = () => {
           className='form-inputs'
           name='password'
           type='password'
-          // placeholder='Password'
           value={password}
           onChange={updatePassword}
         />

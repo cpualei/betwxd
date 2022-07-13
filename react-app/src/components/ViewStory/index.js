@@ -6,6 +6,7 @@ import { viewStories } from "../../store/stories.js";
 import Stories from "../Stories"
 import CommentsModal from "../CommentsModal/index.js";
 import "./ViewStory.css"
+import ReactTimeAgo from "react-time-ago";
 
 function ViewStory() {
     const { id } = useParams();
@@ -16,7 +17,9 @@ function ViewStory() {
     });
 
     const story = stories[id]
-    // const createdAt = story?.created_at
+    const createdAt = new Date(story?.created_at)
+    const date = createdAt.toDateString()
+    // console.log(date)
 
     useEffect(() => {
       dispatch(viewStories(id));
@@ -26,11 +29,11 @@ function ViewStory() {
       <>
         <div className="viewstory-container">
           <div id="viewstory-user"><GetUser userId={story?.user_id}/></div>
-          <div id="viewstory-date">{story?.created_at}</div>
+          <div id="viewstory-date">{date}</div>
+          {/* <ReactTimeAgo date={story?.created_at} locale="en-US"/> */}
           <div id="viewstory-title">{story?.title}</div>
           <div><img id="viewstory-img" src={story?.img} alt="story-img"/></div>
           <div id="viewstory-story">{story?.story}</div>
-          {/* <div id="viewstory-comments-icon"><CommentsModal story={story}/></div> */}
           <div id="viewstory-comments-floating-icon-div">
             <div id="viewstory-comments-floating-icon">
               <CommentsModal story={story}/>

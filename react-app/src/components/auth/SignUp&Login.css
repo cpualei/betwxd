@@ -83,3 +83,9 @@
     border-width: 1px;
     cursor: pointer;
 }
+
+#sign-in-link {
+    margin-right: 20px;
+    color: inherit;
+    cursor: pointer;
+}

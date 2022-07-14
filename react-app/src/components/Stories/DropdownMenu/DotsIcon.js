@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeStory } from "../../../store/stories";
-import dots from '../../../icons/dots.png'
+import dots from "../../../icons/dots.png";
 import "./DotsButton.css";
 
 function DotsIcon({ story }) {
@@ -30,33 +30,32 @@ function DotsIcon({ story }) {
 
   return (
     <>
-      {/* <div> */}
-        <button className="dots-icon-btn" onClick={openMenu}>
-          <img
-            className="dots-icon"
-            src={dots}
-            alt="dots"
-          />
-        </button>
-        {showMenu && (
-          <>
-            <ul className="dots-dropdown">
-              <>
-                <a href={`/edit-story/${storyId}`}>
-                  <p id="edit-story-btn">Edit story</p>
-                </a>
-                <a href="/stories">
-                  <p
-                    id="delete-story-btn"
-                    onClick={() => dispatch(removeStory(storyId))}
-                    >Delete story
-                  </p>
-                </a>
-              </>
-            </ul>
-          </>
-        )}
-      {/* </div> */}
+      <button className="dots-icon-btn" onClick={openMenu}>
+        <img className="dots-icon" src={dots} alt="dots" />
+      </button>
+      {showMenu && (
+        <>
+          <ul className="dots-dropdown">
+            <>
+              <a
+                href={`/edit-story/${storyId}`}
+                id="edit-story-btn"
+                style={{ textDecoration: "none" }}
+              >
+                Edit story
+              </a>
+              <a
+                href="/stories"
+                id="delete-story-btn"
+                style={{ textDecoration: "none" }}
+                onClick={() => dispatch(removeStory(storyId))}
+              >
+                Delete story
+              </a>
+            </>
+          </ul>
+        </>
+      )}
     </>
   );
 }

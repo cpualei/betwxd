@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStory } from "../../store/stories.js";
-import { ValidationError } from "../../utils/validationErrors";
+// import { ValidationError } from "../../utils/validationErrors";
 // import logo from "../../icons/logo.png"
 import "./CreateStory.css";
 
@@ -37,18 +37,18 @@ function CreateStory() {
       img,
     };
 
-    let newStory;
+    let data = await dispatch(createStory(payload));
 
-    try {
-      newStory = await dispatch(createStory(payload));
-    } catch (error) {
-      if (error instanceof ValidationError) setErrors(errors.error);
-      else setErrors(error.toString().slice(7));
-    }
+    // if (newStory) {
+    //   setErrors([]);
+    // }
 
-    if (newStory) {
+    if (data) {
+      setErrors(data);
+    } else {
+      // received a valid request
       setErrors([]);
-      return history.push(`/`);
+      return history.push(`/stories`);
     }
   };
 
@@ -57,22 +57,28 @@ function CreateStory() {
       {/* <div>
           <img className="form-logo" src={logo} alt="logo" />
         </div> */}
-      <div className="story-form-top-div">
-        <div className="story-form-top-div-left">
-          <p className="draft-in-user">Draft in {sessionUser.username}</p>
+      {/* <ul>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+            ))}
+          </ul> */}
+      <form onSubmit={handleSubmit}>
+        <div className="story-form-top-div">
+          <div className="story-form-top-div-left">
+            <p className="draft-in-user">Draft in {sessionUser.username}</p>
+          </div>
+          <div className="story-form-top-div-right">
+            <button
+              className="publish-btn"
+              type="submit"
+              // disabled={title.length < 1 && story.length < 1}
+            >
+              Publish
+            </button>
+          </div>
         </div>
-        <div className="story-form-top-div-right">
-          <button
-            className="publish-btn"
-            type="submit"
-            disabled={title.length < 1 && story.length < 1}
-          >
-            Publish
-          </button>
-        </div>
-      </div>
-      <form className="story-form" onSubmit={handleSubmit}>
         {/* <div> */}
+        <div className="story-form">
           <input
             className="story-form-inputs"
             id="story-form-title"
@@ -80,10 +86,10 @@ function CreateStory() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder={"Title"}
-            required
+            // required
           ></input>
-        {/* </div> */}
-        {/* <div> */}
+          {/* </div> */}
+          {/* <div> */}
           <textarea
             className="story-form-inputs"
             id="story-form-story"
@@ -91,9 +97,9 @@ function CreateStory() {
             value={story}
             onChange={(e) => setStory(e.target.value)}
             placeholder={"Tell your story..."}
-            required
+            // required
           ></textarea>
-        {/* </div>
+          {/* </div>
         <div> */}
           <input
             className="story-form-img"
@@ -101,16 +107,11 @@ function CreateStory() {
             value={img}
             onChange={(e) => setImg(e.target.value)}
             placeholder={"Image URL goes here..."}
-            required
+            // required
           ></input>
-        {/* </div> */}
-        <div>
-          {/* <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul> */}
         </div>
+        {/* </div> */}
+        <div></div>
       </form>
     </div>
   );

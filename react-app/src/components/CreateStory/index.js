@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStory } from "../../store/stories.js";
 import { ValidationError } from "../../utils/validationErrors";
+// import logo from "../../icons/logo.png"
+import "./CreateStory.css";
 
 function CreateStory() {
   const dispatch = useDispatch();
@@ -51,40 +53,57 @@ function CreateStory() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="story-form-container">
+      {/* <div>
+          <img className="form-logo" src={logo} alt="logo" />
+        </div> */}
+      <div className="story-form-top-div">
+        <div className="story-form-top-div-left">
+          <p className="draft-in-user">Draft in {sessionUser.username}</p>
+        </div>
+        <div className="story-form-top-div-right">
+          <button
+            className="publish-btn"
+            type="submit"
+            disabled={title.length < 1 && story.length < 1}
+          >
+            Publish
+          </button>
+        </div>
+      </div>
+      <form className="story-form" onSubmit={handleSubmit}>
+        {/* <div> */}
           <input
+            className="story-form-inputs"
+            id="story-form-title"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder={"Title"}
             required
           ></input>
-        </div>
-        <div>
-          <input
+        {/* </div> */}
+        {/* <div> */}
+          <textarea
+            className="story-form-inputs"
+            id="story-form-story"
             type="text"
             value={story}
             onChange={(e) => setStory(e.target.value)}
             placeholder={"Tell your story..."}
             required
-          ></input>
-        </div>
-        <div>
+          ></textarea>
+        {/* </div>
+        <div> */}
           <input
+            className="story-form-img"
             type="text"
             value={img}
             onChange={(e) => setImg(e.target.value)}
             placeholder={"Image URL goes here..."}
             required
           ></input>
-        </div>
-        <div>
-          <button type="submit" disabled={title.length < 1 && story.length < 1}>
-            Submit
-          </button>
-        </div>
+        {/* </div> */}
         <div>
           {/* <ul>
             {errors.map((error, idx) => (

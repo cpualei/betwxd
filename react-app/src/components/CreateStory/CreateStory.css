@@ -1,0 +1,92 @@
+.story-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-form-top-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.story-form-top-div-left {
+    display: flex;
+    margin-left: 15%;
+}
+
+.story-form-top-div-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15%;
+}
+
+p.draft-in-user {
+    font-size: 16px;
+    background: #fff;
+    color: rgba(0,0,0,.54);
+    font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.story-form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    max-width: 740px;
+    padding-right: 20px;
+}
+
+.story-form-inputs {
+    font-family: medium-content-title-font,Georgia,Cambria,"Times New Roman",Times,serif;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+}
+
+#story-form-title {
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0;
+    margin-top: 20px;
+}
+
+#story-form-story {
+    font-size: 21px;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    resize: none;
+    height: 300px;
+}
+
+.story-form-img {
+    padding: 10px;
+    margin-top: 30px;
+    width: 200px;
+    border-style: double;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.publish-btn {
+    color: #fff;
+    background: #1a8917;
+    border: none;
+    font-size: 14px;
+    border-radius: 99em;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 11px;
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStory } from "../../store/stories.js";
 // import { ValidationError } from "../../utils/validationErrors";
-// import logo from "../../icons/logo.png"
+import invalid from "../../icons/invalid.png";
 import "./CreateStory.css";
 
 function CreateStory() {
@@ -19,13 +19,18 @@ function CreateStory() {
 
   useEffect(() => {
     const errors = [];
+    const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
-    if (title.length > 100) errors.push("Title must not exceed 100 characters");
-    if (story.length > 5000)
-      errors.push("Story must not exceed 5000 characters");
+    // if (title.length > 100) errors.push("Title must not exceed 100 characters")
+    //   else if (title.lengh < 1) errors.push("Please provide a title.");
+    // if (story.length > 5000) errors.push("Story must not exceed 5000 characters")
+    //   else if (story.length < 1) errors.push("Please provide a story.")
+    if (!img.match(validateImgUrl)) {
+      errors.push("*Please provide an image in PNG, JPG or JPEG format.");
+    }
 
     setErrors(errors);
-  }, [title, story]);
+  }, [img]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,11 +62,6 @@ function CreateStory() {
       {/* <div>
           <img className="form-logo" src={logo} alt="logo" />
         </div> */}
-      {/* <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-            ))}
-          </ul> */}
       <form onSubmit={handleSubmit}>
         <div className="story-form-top-div">
           <div className="story-form-top-div-left">
@@ -71,7 +71,7 @@ function CreateStory() {
             <button
               className="publish-btn"
               type="submit"
-              // disabled={title.length < 1 && story.length < 1}
+              // disabled={(errors.length > 0)}
             >
               Publish
             </button>
@@ -80,6 +80,7 @@ function CreateStory() {
         {/* <div> */}
         <div className="story-form">
           <input
+            name="title"
             className="story-form-inputs"
             id="story-form-title"
             type="text"
@@ -91,6 +92,7 @@ function CreateStory() {
           {/* </div> */}
           {/* <div> */}
           <textarea
+            name="story"
             className="story-form-inputs"
             id="story-form-story"
             type="text"
@@ -99,16 +101,23 @@ function CreateStory() {
             placeholder={"Tell your story..."}
             // required
           ></textarea>
-          {/* </div>
-        <div> */}
+        <div style={{textAlign:"center"}}>
           <input
+            name="img"
             className="story-form-img"
             type="text"
             value={img}
             onChange={(e) => setImg(e.target.value)}
             placeholder={"Image URL goes here..."}
+            // onError={invalidImg}
             // required
           ></input>
+          </div>
+        <ul style={{textAlign:"center", listStyleType: "none", padding:"0px"}}>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
         </div>
         {/* </div> */}
         <div></div>

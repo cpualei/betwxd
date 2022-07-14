@@ -33,18 +33,34 @@ export const viewStories = () => async (dispatch) => {
 };
 
 export const createStory = (payload) => async (dispatch) => {
+    console.log("THIS IS THE THUNK")
     const res = await fetch('/api/stories/new-story', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
     });
 
-    const newStory = await res.json();
+    // const newStory = await res.json();
 
-    if (newStory) {
-        dispatch(create(newStory));
-        return newStory;
-    }
+    // if (newStory) {
+    //     dispatch(create(newStory));
+    //     return newStory;
+    // }
+    if (res.ok) {
+        const data = await res.json();
+        console.log("THIS IS THE DATA====", data)
+        dispatch(create(data));
+
+        return null;
+      } else if (res.status < 500) {
+        const data = await res.json();
+
+        if (data.errors) {
+          return data.errors;
+        }
+      } else {
+        return ["An error occurred. Please try again."];
+      }
 }
 
 export const updateStory = (id, payload) => async (dispatch) => {
@@ -81,7 +97,7 @@ const storiesReducer = (state = {}, action) => {
             });
             return { ...normalizedStories };
         case CREATE_STORY:
-            const createState = { ...state, [action.newStory.id]: action.newStory };
+            const createState = { ...state, [action.story.id]: action.story };
             return createState;
         case UPDATE_STORY:
             const updateState = { ...state, [action.story.id]: action.story };

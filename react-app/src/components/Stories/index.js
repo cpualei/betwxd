@@ -7,12 +7,22 @@ import ReactTimeAgo from "react-time-ago";
 import "./Stories.css";
 
 
-function Stories() {
+function Stories(id) {
   const dispatch = useDispatch();
 
   const stories = useSelector((state) => {
     return Object?.values(state?.stories);
   });
+
+  const storiesFiltered = stories.filter(
+    (story) => story?.id == id
+  );
+  console.log(storiesFiltered)
+
+  // const story = storiesFiltered[0];
+  // const storyCreated = new Date(story?.created_at);
+  // const date = storyCreated.toDateString()
+  // console.log(date)
 
   useEffect(() => {
     dispatch(viewStories());
@@ -29,7 +39,8 @@ function Stories() {
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user"><GetUser userId={story?.user_id}/></div>
-              <ReactTimeAgo date={story?.created_at} locale="en-US"/>
+              {/* <ReactTimeAgo date={story?.created_at} locale="en-US"/> */}
+              {/* <div>{story.created_at}</div> */}
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">

@@ -56,7 +56,7 @@ function ViewStory() {
               <CommentsModal story={story}/>
               </div>
           </div>
-          <div className="viewstory-stories"><Stories date={date}/></div>
+          <div className="viewstory-stories"><Stories /></div>
         </div>
 
       </>

@@ -12,6 +12,7 @@ function EditComment({ story, comment }) {
   const [content, setContent] = useState(comment.content);
   const [edit, setEdit] = useState(false);
   const [update, setUpdate] = useState(false);
+  // const [disable, setDisabled] = useState(false);
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -50,6 +51,10 @@ function EditComment({ story, comment }) {
     if (update) setEdit(false);
   };
 
+  // const disableBtn = () => {
+  //   if (errors.length > 0) setDisabled(true);
+  // }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -77,7 +82,7 @@ function EditComment({ story, comment }) {
                   Delete response
                 </button>
                 {edit == false ? (
-                  <button id="comment-edit-btn" onClick={(e) => setEdit(true)}>
+                  <button id="comment-edit-btn" onClick={(e) => {setEdit(true)}}>
                     Edit response
                   </button>
                 ) : (
@@ -88,6 +93,7 @@ function EditComment({ story, comment }) {
                       setUpdate(true);
                       toggle();
                     }}
+                    // onChange={(e) => {disableBtn()}}
                   >
                     Update response
                   </button>

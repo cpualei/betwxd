@@ -38,19 +38,25 @@ function EditStory() {
       img,
     };
 
-    let editStory;
+    let editStory = await dispatch(updateStory(id, payload));
 
-    try {
-      editStory = await dispatch(updateStory(id, payload));
-    } catch (error) {
-      if (error instanceof ValidationError) setErrors(errors.error);
-      else setErrors(error.toString().slice(7));
-    }
+    // try {
+    //   editStory = await dispatch(updateStory(id, payload));
+    // } catch (error) {
+    //   if (error instanceof ValidationError) setErrors(errors.error);
+    //   else setErrors(error.toString().slice(7));
+    // }
 
     if (editStory) {
       setErrors([]);
-      return history.push(`/stories`);
+      history.push(`/stories/${id}`);
     }
+
+    // if (data) {
+    //   setErrors(data);
+    // } else {
+    //   setErrors([]);
+    // }
   };
 
   return (
@@ -67,13 +73,18 @@ function EditStory() {
             <button
               className="publish-btn"
               type="submit"
-              disabled={title.length < 1 && story.length < 1}
+              // disabled={title.length < 1 && story.length < 1}
             >
               Publish
             </button>
           </div>
         </div>
         <div className="story-form">
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
           <input
             className="story-form-inputs"
             id="story-form-title"
@@ -81,7 +92,6 @@ function EditStory() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder={"Title"}
-            required
           ></input>
           {/* </div> */}
           {/* <div> */}
@@ -92,7 +102,6 @@ function EditStory() {
             value={story}
             onChange={(e) => setStory(e.target.value)}
             placeholder={"Tell your story..."}
-            required
           ></textarea>
           {/* </div>
         <div> */}
@@ -102,15 +111,7 @@ function EditStory() {
             value={img}
             onChange={(e) => setImg(e.target.value)}
             placeholder={"Image URL goes here..."}
-            required
           ></input>
-        </div>
-        <div>
-          {/* <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul> */}
         </div>
       </form>
     </div>

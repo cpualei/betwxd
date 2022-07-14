@@ -64,6 +64,7 @@ function CreateComment({ setShowModal, story }) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder={"What are your thoughts?"}
+              required
             />
           </div>
         <div className="comment-btns-div">

@@ -3,13 +3,18 @@ body {
 }
 
 .dots-dropdown {
-    border: 1px solid #999999;
-    height: 39px;
-    padding: 17px;
-    position: sticky;
-    top: 350px;
-    right: -54px;
+    display: flex;
+    border: 1px solid #9999993b;
+    height: 68px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px 1px rgb(135 135 135 / 25%);
+    padding: 8px 0 8px 0;
+    width: 115px;
     background-color: white;
+    flex-direction: column;
+    position: relative;
+    top: 4px;
+    left: 43px;
 }
 
 .dots-icon-btn {
@@ -29,10 +34,13 @@ body {
 
 #edit-story-btn {
     margin: 0px;
+    color: rgba(117, 117, 117, 1);
+    padding: 8px 20px;
 }
 
 #delete-story-btn {
     color: rgb(201, 74, 74);
     margin: 0px;
     cursor: pointer;
+    padding: 8px 20px;
 }

@@ -14,15 +14,6 @@ function EditStory() {
   const stories = useSelector((state) => state?.stories);
   const storyContent = stories[id];
 
-  console.log(stories)
-  // const thisStory = stories
-
-  // const oneStory = stories[id];
-  // console.log(oneStory)
-  // const storiesFiltered = stories.filter((story) => {
-  //   return story.id === story
-  // })
-
   const [title, setTitle] = useState(storyContent?.title);
   const [story, setStory] = useState(storyContent?.story);
   const [img, setImg] = useState(storyContent?.img);
@@ -58,18 +49,6 @@ function EditStory() {
     };
 
     let data = await dispatch(updateStory(id, payload));
-
-    // try {
-    //   editStory = await dispatch(updateStory(id, payload));
-    // } catch (error) {
-    //   if (error instanceof ValidationError) setErrors(errors.error);
-    //   else setErrors(error.toString().slice(7));
-    // }
-
-    // if (editStory) {
-    //   setErrors([]);
-    //   history.push(`/stories/${id}`);
-    // }
 
     if (data) {
       setErrors(data);

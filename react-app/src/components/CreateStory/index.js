@@ -46,10 +46,6 @@ function CreateStory() {
 
     let data = await dispatch(createStory(payload));
 
-    // if (newStory) {
-    //   setErrors([]);
-    // }
-
     if (data) {
       setErrors(data);
     } else {
@@ -101,7 +97,6 @@ function CreateStory() {
               value={img}
               onChange={(e) => setImg(e.target.value)}
               placeholder={"Image URL goes here..."}
-              // onError={invalidImg}
               required
             ></input>
           </div>

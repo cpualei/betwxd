@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { viewStories } from "../../store/stories.js";
+import { NavLink } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
+import { viewStories } from "../../store/stories.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
 import ReactTimeAgo from "react-time-ago";
 import "./Stories.css";
@@ -38,19 +38,19 @@ function Stories() {
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
-                <a style={{textDecoration: 'none'}} href={`/stories/${story.id-1}`}>
+                <NavLink style={{textDecoration: 'none'}} to={`/stories/${story.id}`}>
                   <div className="story-title">{story?.title}</div>
                   <div className="story-story">{story?.story}</div>
-                </a>
+                </NavLink>
                 <div className="story-icons-div">
                   {sessionUser?.id === story?.user_id ?
                   <DotsIcon id="story-more-options" story={story} />
                   : null}
                   </div>
               </div>
-              <a href={`/stories/${story.id}`}>
+              <NavLink to={`/stories/${story.id}`}>
                 <img onError={invalidImg} src={story?.img} alt="story-img" className="story-img" />
-              </a>
+              </NavLink>
             </div>
           </ul>
         ))}

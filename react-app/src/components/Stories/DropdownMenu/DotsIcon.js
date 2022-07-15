@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeStory } from "../../../store/stories";
+import EditStory from "../../EditStory";
+import { Link } from "react-router-dom";
 import dots from "../../../icons/dots.png";
 import "./DotsButton.css";
 
@@ -37,21 +39,27 @@ function DotsIcon({ story }) {
         <>
           <ul className="dots-dropdown">
             <>
-              <a
-                href={`/edit-story/${storyId}`}
+              <Link
+                to={`/edit-story/${storyId}`}
                 id="edit-story-btn"
                 style={{ textDecoration: "none" }}
               >
                 Edit story
-              </a>
-              <a
+              </Link>
+              {/* <a
+                onClick={(e) => <EditStory />}
+                id="edit-story-btn"
+                style={{ textDecoration: "none" }}
+              /> */}
+
+              <Link
                 href="/stories"
                 id="delete-story-btn"
                 style={{ textDecoration: "none" }}
                 onClick={() => dispatch(removeStory(storyId))}
               >
                 Delete story
-              </a>
+              </Link>
             </>
           </ul>
         </>

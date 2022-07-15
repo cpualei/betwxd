@@ -4,19 +4,18 @@ import { useHistory, useParams } from "react-router-dom";
 import { updateStory } from "../../store/stories.js";
 import "./EditStory.css";
 
-function EditStory({ storyContent }) {
+function EditStory() {
   const { id } = useParams();
   console.log(id)
   const dispatch = useDispatch();
   const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const stories = useSelector((state) => state?.stories)[id]
+  const stories = useSelector((state) => state?.stories);
+  const storyContent = stories[id];
 
   console.log(stories)
   // const thisStory = stories
-
-  // console.log(storyContent[id])
 
   // const oneStory = stories[id];
   // console.log(oneStory)
@@ -24,24 +23,24 @@ function EditStory({ storyContent }) {
   //   return story.id === story
   // })
 
-  const [title, setTitle] = useState("");
-  const [story, setStory] = useState("");
-  const [img, setImg] = useState("");
+  const [title, setTitle] = useState(storyContent?.title);
+  const [story, setStory] = useState(storyContent?.story);
+  const [img, setImg] = useState(storyContent?.img);
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     const errors = [];
     const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
-    if (title.length > 100)
+    if (title?.length > 100)
       errors.push("*Title must not exceed 100 characters");
-    else if (title.length < 1)
+    else if (title?.length < 1)
       errors.push("*Please provide a title for your story.");
-    if (story.length > 5000)
+    if (story?.length > 5000)
       errors.push("*Story must not exceed 5000 characters");
-    else if (story.length < 1)
+    else if (story?.length < 1)
       errors.push("*Please provide a story to publish.");
-    if (!img.match(validateImgUrl)) {
+    if (!img?.match(validateImgUrl)) {
       errors.push("*Please provide an image in PNG, JPG or JPEG format.");
     }
 

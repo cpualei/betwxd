@@ -7,7 +7,7 @@ import ReactTimeAgo from "react-time-ago";
 import "./Stories.css";
 
 
-function Stories({ date }) {
+function Stories() {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state?.session?.user);
@@ -37,7 +37,7 @@ function Stories({ date }) {
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
-                <a style={{textDecoration: 'none'}} href={`/stories/${story.id}`}>
+                <a style={{textDecoration: 'none'}} href={`/stories/${story.id-1}`}>
                   <div className="story-title">{story?.title}</div>
                   <div className="story-story">{story?.story}</div>
                 </a>

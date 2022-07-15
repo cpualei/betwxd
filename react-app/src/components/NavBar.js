@@ -29,42 +29,56 @@ const NavBar = () => {
   if (!sessionUser) {
     sessionLinks = (
       <>
-      <div className="non-user-links-container">
-        <div className="left-side-nav">
-          <div className="betwxd-div">
-            <NavLink
-              to="/"
-              exact={true}
+        <div className="non-user-links-container">
+          <div className="left-side-nav">
+            <div className="betwxd-div">
+              <NavLink
+                to="/"
+                exact={true}
+                activeClassName="active"
+                className="non-user-links"
+                id="betwxd"
+                style={{ textDecoration: "none" }}
+              >
+                <img id="logo" src={logo} alt="logo" /> Betwx'd
+              </NavLink>
+            </div>
+          </div>
+          <div className="right-side-nav">
+            <div>
+              <a
               activeClassName="active"
-              className="non-user-links"
-              id="betwxd"
-              style={{ textDecoration: "none" }}
-            >
-              <img id="logo" src={logo} alt="logo" /> Betwx'd
-            </NavLink>
+                className="non-user-links"
+                id="linkedin-link"
+                href="https://www.linkedin.com/in/caitlin-buen-lucas/"
+              >
+                Linkedin
+              </a>
+            </div>
+            <div>
+              <a activeClassName="active" className="non-user-links" id="github-link" href="https://github.com/cpualei/">
+                Github
+              </a>
+            </div>
+            <div>
+              <a
+                onClick={demoOnClick}
+                activeClassName="active"
+                className="non-user-links"
+                id="demo-link"
+              >
+                Demo user
+              </a>
+            </div>
+            <div>
+              <LoginFormModal />
+            </div>
+            <div>
+              <SignUpFormModal />
+            </div>
           </div>
         </div>
-        <div className="right-side-nav">
-          <div>
-            <a
-              onClick={demoOnClick}
-              activeClassName="active"
-              className="non-user-links"
-              id="demo-link"
-            >
-              Demo user
-            </a>
-          </div>
-          <div>
-            <LoginFormModal />
-          </div>
-          <div>
-            <SignUpFormModal />
-          </div>
-        </div>
-      </div>
       </>
-
     );
   } else {
     sessionLinks2 = (
@@ -94,7 +108,11 @@ const NavBar = () => {
     );
   }
 
-  return <nav>{sessionLinks} {sessionLinks2} </nav>;
+  return (
+    <nav>
+      {sessionLinks} {sessionLinks2}{" "}
+    </nav>
+  );
 };
 
 export default NavBar;

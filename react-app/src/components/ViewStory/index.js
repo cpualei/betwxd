@@ -18,6 +18,7 @@ function ViewStory() {
   const stories = useSelector((state) => {
     return Object.values(state.stories);
   });
+  console.log(stories)
 
   const storiesFiltered = stories.filter((story) => story?.id == id);
 
@@ -48,7 +49,6 @@ function ViewStory() {
           <GetUser userId={story?.user_id} />
           {/* {sessionUserId === story?.user_id ? <DotsIcon /> : null} */}
         </div>
-        {/* <div id="viewstory-date">{date}</div> */}
         <div id="viewstory-date">{date}</div>
         {/* <ReactTimeAgo date={date} locale="en-US"/> */}
         <div id="viewstory-title">{story?.title}</div>

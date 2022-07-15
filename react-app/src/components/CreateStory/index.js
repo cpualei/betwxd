@@ -21,16 +21,16 @@ function CreateStory() {
     const errors = [];
     const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
-    // if (title.length > 100) errors.push("Title must not exceed 100 characters")
-    //   else if (title.lengh < 1) errors.push("Please provide a title.");
-    // if (story.length > 5000) errors.push("Story must not exceed 5000 characters")
-    //   else if (story.length < 1) errors.push("Please provide a story.")
+    if (title.length > 100) errors.push("*Title must not exceed 100 characters")
+      else if (title.length < 1) errors.push("*Please provide a title for your story.");
+    if (story.length > 5000) errors.push("*Story must not exceed 5000 characters")
+      else if (story.length < 1) errors.push("*Please provide a story to publish.")
     if (!img.match(validateImgUrl)) {
       errors.push("*Please provide an image in PNG, JPG or JPEG format.");
     }
 
     setErrors(errors);
-  }, [img]);
+  }, [title, story, img]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -113,11 +113,13 @@ function CreateStory() {
             // required
           ></input>
           </div>
-        <ul style={{textAlign:"center", listStyleType: "none", padding:"0px"}}>
+          <div className="story-errors-div">
+        <ul className="story-errors" style={{listStyleType: "none", padding:"0px"}}>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
+        </div>
         </div>
         {/* </div> */}
         <div></div>

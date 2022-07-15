@@ -5,7 +5,6 @@
 
 .story-form-top-div {
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: space-between;
     margin: 10px;
@@ -13,13 +12,14 @@
 
 .story-form-top-div-left {
     display: flex;
-    margin-left: 15%;
+    /* margin-left: 15%; */
+    margin-left: 200px;
 }
 
 .story-form-top-div-right {
     display: flex;
     justify-content: flex-end;
-    margin-right: 15%;
+    margin-right: 200px;
 }
 
 p.draft-in-user {
@@ -35,7 +35,8 @@ p.draft-in-user {
 .story-form {
     display: flex;
     flex-direction: column;
-    margin-left: 25%;
+    /* margin-left: 25%; */
+    margin-left: 340px;
     max-width: 740px;
     padding-right: 20px;
 }
@@ -69,7 +70,6 @@ p.draft-in-user {
     padding: 10px;
     margin-top: 30px;
     width: 329px;
-    border-style: double;
 }
 
 input:focus,
@@ -77,6 +77,16 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+.story-errors-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.story-errors {
+    line-height: 1.4;
 }
 
 .publish-btn {

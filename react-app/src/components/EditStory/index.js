@@ -20,6 +20,7 @@ function EditStory() {
 
   useEffect(() => {
     const errors = [];
+    const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
     if (title.length > 100) errors.push("Title must not exceed 100 characters");
     if (story.length > 5000)
@@ -38,7 +39,7 @@ function EditStory() {
       img,
     };
 
-    let editStory = await dispatch(updateStory(id, payload));
+    let data = await dispatch(updateStory(id, payload));
 
     // try {
     //   editStory = await dispatch(updateStory(id, payload));
@@ -47,16 +48,16 @@ function EditStory() {
     //   else setErrors(error.toString().slice(7));
     // }
 
-    if (editStory) {
-      setErrors([]);
-      history.push(`/stories/${id}`);
-    }
-
-    // if (data) {
-    //   setErrors(data);
-    // } else {
+    // if (editStory) {
     //   setErrors([]);
+    //   history.push(`/stories/${id}`);
     // }
+
+    if (data) {
+      setErrors(data);
+    } else {
+      setErrors([]);
+    }
   };
 
   return (

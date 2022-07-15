@@ -12,6 +12,7 @@ import Stories from "./components/Stories";
 import CreateStory from "./components/CreateStory";
 import ViewStory from "./components/ViewStory";
 import EditStory from "./components/EditStory";
+import YourStories from "./components/YourStories";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -64,6 +65,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/edit-story/:id" exact={true}>
           <EditStory />
+        </ProtectedRoute>
+        <ProtectedRoute path="/your-stories" exact={true}>
+          <YourStories />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -11,8 +11,10 @@ function EditStory() {
   const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const stories = useSelector((state) => state.stories)[id]
+  const stories = useSelector((state) => state?.stories)[id]
+
   console.log(stories)
+  const thisStory = stories
 
   // const oneStory = stories[id];
   // console.log(oneStory)

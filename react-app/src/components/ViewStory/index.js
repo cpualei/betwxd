@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
 import Stories from "../Stories";
-import DotsIcon from "../Stories/DropdownMenu/DotsIcon.js";
 import CommentsModal from "../CommentsModal/index.js";
 import { viewStories } from "../../store/stories.js";
-import ReactTimeAgo from "react-time-ago";
+// import ReactTimeAgo from "react-time-ago";
 import "./ViewStory.css";
 
 function ViewStory() {
@@ -18,21 +17,10 @@ function ViewStory() {
   const stories = useSelector((state) => {
     return Object.values(state?.stories);
   });
-  console.log(stories)
-
-  // const storiesFiltered = stories.filter((story) => story?.id == id);
-
-  // const story = storiesFiltered[0];
-  // const storyCreated = new Date(story?.created_at);
-  // const date = storyCreated.toDateString();
 
   const story = stories[id];
   const createdAt = new Date(story?.created_at)
-  console.log(createdAt)
   const date = createdAt.toDateString();
-  // console.log("this is the story",story)
-
-  // console.log(date)
 
   useEffect(() => {
     dispatch(viewStories(id));

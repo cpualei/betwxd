@@ -16,20 +16,21 @@ function ViewStory() {
   const sessionUserId = useSelector((state) => state.session.user.id);
 
   const stories = useSelector((state) => {
-    return Object.values(state.stories);
+    return Object.values(state?.stories);
   });
   console.log(stories)
 
-  const storiesFiltered = stories.filter((story) => story?.id == id);
+  // const storiesFiltered = stories.filter((story) => story?.id == id);
 
-  const story = storiesFiltered[0];
-  const storyCreated = new Date(story?.created_at);
-  const date = storyCreated.toDateString();
+  // const story = storiesFiltered[0];
+  // const storyCreated = new Date(story?.created_at);
+  // const date = storyCreated.toDateString();
 
-  // const storyId = stories[id];
-  // const createdAt = new Date(story?.created_at)
-  // console.log(createdAt)
-  // const date = createdAt.toDateString();
+  const story = stories[id];
+  const createdAt = new Date(story?.created_at)
+  console.log(createdAt)
+  const date = createdAt.toDateString();
+  // console.log("this is the story",story)
 
   // console.log(date)
 
@@ -50,7 +51,7 @@ function ViewStory() {
           {/* {sessionUserId === story?.user_id ? <DotsIcon /> : null} */}
         </div>
         <div id="viewstory-date">{date}</div>
-        {/* <ReactTimeAgo date={date} locale="en-US"/> */}
+        {/* <ReactTimeAgo date={story?.created_at} locale="en-US"/> */}
         <div id="viewstory-title">{story?.title}</div>
         <img
           id="viewstory-img"
@@ -65,7 +66,7 @@ function ViewStory() {
           </div>
         </div>
         <div className="viewstory-stories">
-          <Stories date={date} sessionUserId={sessionUserId} />
+          <Stories sessionUserId={sessionUserId} />
         </div>
       </div>
     </>

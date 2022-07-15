@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { updateStory } from "../../store/stories.js";
 import "./EditStory.css";
 
-function EditStory() {
+function EditStory({ storyContent }) {
   const { id } = useParams();
   console.log(id)
   const dispatch = useDispatch();
@@ -14,7 +14,9 @@ function EditStory() {
   const stories = useSelector((state) => state?.stories)[id]
 
   console.log(stories)
-  const thisStory = stories
+  // const thisStory = stories
+
+  // console.log(storyContent[id])
 
   // const oneStory = stories[id];
   // console.log(oneStory)

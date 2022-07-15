@@ -32,12 +32,12 @@ function Stories() {
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user"><GetUser userId={story?.user_id}/></div>
-              {/* <ReactTimeAgo date={story?.created_at} locale="en-US"/> */}
+              <ReactTimeAgo date={story?.created_at} locale="en-US"/>
               {/* <div>{date}</div> */}
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
-                <a style={{textDecoration: 'none'}} href={`/stories/${story.id}`}>
+                <a style={{textDecoration: 'none'}} href={`/stories/${story.id-1}`}>
                   <div className="story-title">{story?.title}</div>
                   <div className="story-story">{story?.story}</div>
                 </a>

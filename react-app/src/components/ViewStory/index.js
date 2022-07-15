@@ -10,15 +10,17 @@ import "./ViewStory.css";
 
 function ViewStory() {
   const { id } = useParams();
+  console.log("THIS IS THE ID=====>", id)
   const dispatch = useDispatch();
 
   const sessionUserId = useSelector((state) => state.session.user.id);
 
-  const stories = useSelector((state) => {
-    return Object.values(state?.stories);
-  });
+  const stories = useSelector((state) => state.stories)
+  
+  console.log("THIS IS THE STORIES", stories)
 
   const story = stories[id];
+  console.log("THIS IS THE STORY>>>>>>>>>>", story)
   const createdAt = new Date(story?.created_at)
   const date = createdAt.toDateString();
 

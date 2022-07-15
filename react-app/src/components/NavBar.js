@@ -28,6 +28,7 @@ const NavBar = () => {
 
   if (!sessionUser) {
     sessionLinks = (
+      <>
       <div className="non-user-links-container">
         <div className="left-side-nav">
           <div className="betwxd-div">
@@ -62,6 +63,8 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      </>
+
     );
   } else {
     sessionLinks2 = (

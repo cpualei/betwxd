@@ -10,7 +10,7 @@ import "./Stories.css";
 function Stories() {
   const dispatch = useDispatch();
 
-  const sessionUserId = useSelector((state) => state.session.user.id);
+  const sessionUser = useSelector((state) => state?.session?.user);
 
   const stories = useSelector((state) => {
     return Object?.values(state?.stories);
@@ -42,7 +42,7 @@ function Stories() {
                   <div className="story-story">{story?.story}</div>
                 </a>
                 <div className="story-icons-div">
-                  {sessionUserId === story.user_id ?
+                  {sessionUser?.id === story?.user_id ?
                   <DotsIcon id="story-more-options" story={story} />
                   : null}
                   </div>

@@ -16,7 +16,8 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     await history.push('/stories');
     if (data) {
-      await history.push('/');
+      await history.goBack()
+      // await history.push('/');
       setErrors(data);
     }
   };

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { viewStories } from "../../store/stories.js";
 import GetUser from "../GetUser/index.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";

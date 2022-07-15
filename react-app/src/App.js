@@ -47,14 +47,15 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        {sessionUser ? null : (
+        {!sessionUser ?
           <Route path="/" exact={true}>
             <Splash />
           </Route>
-        )}
+          :
         <Route path="/stories" exact={true}>
           <Stories />
         </Route>
+        }
         <ProtectedRoute path="/new-story" exact={true}>
           <CreateStory />
         </ProtectedRoute>

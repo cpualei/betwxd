@@ -70,26 +70,26 @@ export const updateStory = (id, payload) => async (dispatch) => {
     body: JSON.stringify(payload),
   });
 
-  if (res.ok) {
-      const story = await res.json();
-      dispatch(update(story));
-      return story;
-  }
-
   // if (res.ok) {
-  //   const data = await res.json();
-  //   dispatch(update(data));
-
-  //   return;
-  // } else if (res.status < 500) {
-  //   const data = await res.json();
-
-  //   if (data.errors) {
-  //     return data.errors;
-  //   }
-  // } else {
-  //   return ["An error occurred. Please try again."];
+  //     const story = await res.json();
+  //     dispatch(update(story));
+  //     return story;
   // }
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(update(data));
+
+    return;
+  } else if (res.status < 500) {
+    const data = await res.json();
+
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
+  }
 };
 
 export const removeStory = (id) => async (dispatch) => {

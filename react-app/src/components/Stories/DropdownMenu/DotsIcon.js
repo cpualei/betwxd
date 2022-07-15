@@ -9,7 +9,7 @@ function DotsIcon({ story }) {
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const storyId = story.id; // prop for Edit and Delete features
+  const storyId = story?.id; // prop for Edit and Delete features
 
   const openMenu = () => {
     if (showMenu) return;
@@ -31,7 +31,7 @@ function DotsIcon({ story }) {
   return (
     <>
       <button className="dots-icon-btn" onClick={openMenu}>
-        <img className="dots-icon" src={dots} alt="dots" />
+        <img className="dots-icon" onClick={openMenu} src={dots} alt="dots" />
       </button>
       {showMenu && (
         <>

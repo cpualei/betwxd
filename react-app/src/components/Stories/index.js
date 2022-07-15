@@ -7,22 +7,15 @@ import ReactTimeAgo from "react-time-ago";
 import "./Stories.css";
 
 
-function Stories(id) {
+function Stories() {
   const dispatch = useDispatch();
+
+  const sessionUserId = useSelector((state) => state.session.user.id);
 
   const stories = useSelector((state) => {
     return Object?.values(state?.stories);
   });
 
-  const storiesFiltered = stories.filter(
-    (story) => story?.id == id
-  );
-  console.log(storiesFiltered)
-
-  // const story = storiesFiltered[0];
-  // const storyCreated = new Date(story?.created_at);
-  // const date = storyCreated.toDateString()
-  // console.log(date)
 
   useEffect(() => {
     dispatch(viewStories());
@@ -40,7 +33,7 @@ function Stories(id) {
             <div className="story-user-and-date-div">
               <div id="story-user"><GetUser userId={story?.user_id}/></div>
               {/* <ReactTimeAgo date={story?.created_at} locale="en-US"/> */}
-              {/* <div>{story.created_at}</div> */}
+              {/* <div>{date}</div> */}
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
@@ -49,8 +42,10 @@ function Stories(id) {
                   <div className="story-story">{story?.story}</div>
                 </a>
                 <div className="story-icons-div">
+                  {sessionUserId === story.user_id ?
                   <DotsIcon id="story-more-options" story={story} />
-                </div>
+                  : null}
+                  </div>
               </div>
               <a href={`/stories/${story.id}`}>
                 <img onError={invalidImg} src={story?.img} alt="story-img" className="story-img" />

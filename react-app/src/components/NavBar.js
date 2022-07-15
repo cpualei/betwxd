@@ -71,12 +71,12 @@ const NavBar = () => {
       <div className="side-nav-container">
         <div className="side-nav-div">
           <div className="top-icon-div">
-            <NavLink to="/stories" exact={true} activeClassName="active">
+            <NavLink to="/" exact={true} activeClassName="active">
               <img id="mediumLogo" src={mediumLogo} alt="mediumLogo" />
             </NavLink>
           </div>
           <div className="middle-icons-div">
-            <NavLink to="/stories" exact={true} activeClassName="active">
+            <NavLink to="/" exact={true} activeClassName="active">
               <img id="home-icon" src={home} alt="home" />
             </NavLink>
             <NavLink to="/your-stories" exact={true} activeClassName="active">

@@ -12,14 +12,16 @@ function EditComment({ story, comment }) {
   const [content, setContent] = useState(comment.content);
   const [edit, setEdit] = useState(false);
   const [update, setUpdate] = useState(false);
-  // const [disable, setDisabled] = useState(false);
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     const errors = [];
 
     if (content.length > 2000)
-      errors.push("Comment must not exceed 2000 characters");
+      errors.push("*Comment must not exceed 2000 characters");
+    else if (content.length < 1)
+    // e.preventDefault()
+      errors.push("*Comment length must be greater than 1 character.")
 
     setErrors(errors);
   }, [content]);
@@ -51,16 +53,12 @@ function EditComment({ story, comment }) {
     if (update) setEdit(false);
   };
 
-  // const disableBtn = () => {
-  //   if (errors.length > 0) setDisabled(true);
-  // }
-
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <ul>
+        <ul style={{padding: "0px"}}>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <p key={idx}>{error}</p>
           ))}
         </ul>
         <div>
@@ -71,6 +69,7 @@ function EditComment({ story, comment }) {
                 value={content}
                 disabled={!edit}
                 onChange={(e) => setContent(e.target.value)}
+                required
               />
             </div>
             {sessionUser.id === comment.user_id ? (
@@ -92,8 +91,8 @@ function EditComment({ story, comment }) {
                     onClick={(e) => {
                       setUpdate(true);
                       toggle();
+                      // disabled={errors}
                     }}
-                    // onChange={(e) => {disableBtn()}}
                   >
                     Update response
                   </button>

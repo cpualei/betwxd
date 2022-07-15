@@ -24,9 +24,11 @@ const NavBar = () => {
   };
 
   let sessionLinks;
+  let sessionLinks2;
 
   if (!sessionUser) {
     sessionLinks = (
+      <>
       <div className="non-user-links-container">
         <div className="left-side-nav">
           <div className="betwxd-div">
@@ -61,9 +63,11 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      </>
+
     );
   } else {
-    sessionLinks = (
+    sessionLinks2 = (
       <div className="side-nav-container">
         <div className="side-nav-div">
           <div className="top-icon-div">
@@ -90,7 +94,7 @@ const NavBar = () => {
     );
   }
 
-  return <nav>{sessionLinks}</nav>;
+  return <nav>{sessionLinks} {sessionLinks2} </nav>;
 };
 
 export default NavBar;

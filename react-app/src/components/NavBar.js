@@ -20,7 +20,7 @@ const NavBar = () => {
   const demoOnClick = async (e) => {
     e.preventDefault();
     await dispatch(demouser("demo@aa.io", "password"));
-    await history.push("/stories");
+    await history.push("/");
   };
 
   let sessionLinks;

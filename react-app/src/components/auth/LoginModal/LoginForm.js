@@ -14,7 +14,7 @@ const LoginForm = () => {
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    await history.push('/stories');
+    await history.push('/');
     if (data) {
       await history.goBack()
       // await history.push('/');

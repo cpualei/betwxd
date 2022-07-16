@@ -1,5 +1,5 @@
 .trending-stories-container {
-    padding: 0 0 40px 10%;
+    padding: 0 10% 40px 10%;
     border-bottom: 1px solid rgb(230 230 230);
 }
 
@@ -23,9 +23,9 @@
 
 .trending-ul-div {
     display: grid;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 20% 20% 20%;
-    grid-gap: 0px 12%;
+    grid-template-rows: 110px 110px;
+    grid-template-columns: 27% 27% 27%;
+    grid-gap: 0 8%;
 }
 
 .trending-ul {
@@ -42,5 +42,10 @@
 #trending-story-title {
     font-size: 16px;
     font-weight: bold;
-    /* line-height: 5; */
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

@@ -17,6 +17,7 @@ function Stories() {
     return Object?.values(state?.stories);
   });
 
+  const newerStoriesFirst = stories.reverse();
 
   useEffect(() => {
     dispatch(viewStories());
@@ -33,7 +34,7 @@ function Stories() {
   return (
     <>
       <div id="stories-container">
-        {stories?.map((story) => (
+        {newerStoriesFirst?.map((story) => (
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user"><GetUser userId={story?.user_id}/></div>

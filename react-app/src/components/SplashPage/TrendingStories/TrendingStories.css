@@ -1,12 +1,32 @@
 .trending-stories-container {
+    margin-left: 10%;
+}
+
+.trending-stories-header {
     display: flex;
     align-items: center;
 }
 
-.trending-imgs {
+.trending-icon {
     display: flex;
+    padding-right: 15px;
 }
 
 .trending-on-medium-text {
     display: flex;
+    letter-spacing: 0.083em;
+    font-size: 12px;
+    font-weight: 700;
+    color: inherit;
+}
+
+.trending-ul-div {
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 20% 20% 20%;
+    grid-gap: 0px 12%;
+}
+
+.trending-ul {
+    padding: 0px;
 }

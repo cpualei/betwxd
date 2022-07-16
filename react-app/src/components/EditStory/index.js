@@ -54,7 +54,7 @@ function EditStory() {
       setErrors(data);
     } else {
       setErrors([]);
-      return history.push(`/stories`);
+      return history.push(`/`);
     }
   };
 

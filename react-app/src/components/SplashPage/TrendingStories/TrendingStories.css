@@ -1,0 +1,12 @@
+.trending-stories-container {
+    display: flex;
+    align-items: center;
+}
+
+.trending-imgs {
+    display: flex;
+}
+
+.trending-on-medium-text {
+    display: flex;
+}

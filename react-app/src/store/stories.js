@@ -119,6 +119,7 @@ const storiesReducer = (state = {}, action) => {
       return updateState;
     case REMOVE_STORY:
       const removeState = { ...state };
+      delete removeState[action.storyId]
       return removeState;
     default:
       return state;

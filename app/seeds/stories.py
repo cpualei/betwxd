@@ -36,12 +36,20 @@ def seed_stories():
         img='https://www.onlyinyourstate.com/wp-content/uploads/2018/07/lake-tahoe-2183724_1920.jpg',
         created_at='2022-06-20 16:10:21',
         updated_at='2022-06-20 16:10:21')
+    story6 = Story(
+        user_id=1,
+        title='How to Care for Succulents (And Not Kill Them): 9 Plant-Care Tips',
+        story="1. Make Sure Your Succulents Get Enough Light: Succulents love light and need about six hours of sun per day, depending on the type of succulent. Newly planted succulents can scorch in direct sunlight, so you may need to gradually introduce them to full sun exposure or provide shade with a sheer curtain. 2. Rotate Succulents Frequently: Succulents love direct sun, but if yours is sitting in the same exact spot day after day, it's likely that only one side is getting enough light. Langton and Ray suggest rotating the plant often. Succulents will lean towards the sun, so rotating them will help them stand up straight. (Leaning may also be a sign that they need to be in a sunnier spot.) 3. Water According to the Season: Just like us, succulents need more energy when they're in a period of growth. During the spring and summer, the plants are thriving and drinking up much more water than when they're resting in the fall and winter. Langton and Ray recommend testing the soil with a finger—when the top 1.25 inches are dry, grab your watering can. Overwatering can kill your succulent, so make sure you let the soil dry between waterings. 4. Water the Soil Directly: When you water your succulents, soak the soil until water runs out of the drainage holes. (If your container doesn’t have drainage holes, use less water.) Don’t use a spray bottle to water your succulents—misting can cause brittle roots and moldy leaves . You can also place pots in a pan of water and allow the water to absorb through the drainage hole. Once the top of the soil is moist, remove from the pan. 5. Keep Succulents Clean: 'Inevitably, your indoor plants will gradually pick up dust on their surface, which can inhibit their growth,' write Langton and Ray. Wipe off the leaves and spines gently with a damp cloth (use a soft paintbrush to get at hard-to-reach spots). 6. Choose a Container with Drainage: Succulents don’t like to sit in waterlogged soil, so drainage is important to prevent rot. Your container should have a drainage hole to allow excess water to escape. Terra-cotta pots are ideal for beginners. 7. Plant Succulents in the Right Soil: Succulents need soil that drains, so regular potting soil—or dirt from your yard—won’t do. Choose cactus soil or mix potting soil with sand, pumice, or perlite. Succulent roots are very fragile so be gentle when repotting. 8. Get Rid of Bugs: Pests shouldn’t be a problem for indoor succulents, but occasionally you may have to deal with bugs. Gnats are attracted to succulents that are planted in soil that is too wet and doesn’t have proper drainage. To get rid of eggs and larvae, spray the soil with 70 percent isopropyl alcohol. Mealybugs are another pest succulent owners have to deal with. Overwatering and overfertilizing are the common causes of mealybugs. Move infected plants away from other succulents and spray with 70 percent isopropyl alcohol. 9. Fertilize Succulents in the Summer: Succulents don’t need much fertilizer, but you can give them light feedings during the spring and summer growing season. Be careful not to overfertilize—this can cause your succulent to grow too quickly and become weak.",
+        img='https://media.architecturaldigest.com/photos/61b7b1b580cb28672bc5848e/1:1/w_1280,c_limit/il_1588xN.3299732509_ld66.jpg',
+        created_at='2022-07-14 17:10:22',
+        updated_at='2022-06-20 17:10:22')
 
     db.session.add(story1)
     db.session.add(story2)
     db.session.add(story3)
     db.session.add(story4)
     db.session.add(story5)
+    db.session.add(story6)
 
     db.session.commit()
 

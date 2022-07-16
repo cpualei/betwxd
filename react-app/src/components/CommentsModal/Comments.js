@@ -28,7 +28,7 @@ function Comments({ setShowModal, story }) {
     <>
       <div>
         {!sessionUser ? (
-          <p>Please log in to leave a comment.</p>
+          <p id="please-login-text">If you'd like to leave a comment please log in to your account or sign up for one now!</p>
         ) : (
           <CreateComment setShowModal={setShowModal} story={story} />
         )}
@@ -43,7 +43,7 @@ function Comments({ setShowModal, story }) {
             </ul>
           ))
         ) : (
-          <p>There are no comments for this story!</p>
+          <p id="no-comments-text">There are no comments for this story!</p>
         )}
       </div>
     </>

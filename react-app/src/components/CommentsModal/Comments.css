@@ -14,3 +14,16 @@
 #comments-date {
     color: rgba(117, 117, 117, 1);
 }
+
+#no-comments-text {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#please-login-text {
+    text-align: center;
+    margin: 40px 14px 40px 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e5e5e5;
+    width: 85%;
+}

@@ -17,10 +17,15 @@ function Stories() {
     return Object?.values(state?.stories);
   });
 
+  const newerStoriesFirst = stories.reverse();
 
   useEffect(() => {
     dispatch(viewStories());
   }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [viewStories()])
 
   const invalidImg = (e) => {
     e.currentTarget.src = "https://w7.pngwing.com/pngs/756/477/png-transparent-circle-close-cross-incorrect-invalid-x-delete-flat-actions-icon-thumbnail.png";
@@ -29,7 +34,7 @@ function Stories() {
   return (
     <>
       <div id="stories-container">
-        {stories?.map((story) => (
+        {newerStoriesFirst?.map((story) => (
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user"><GetUser userId={story?.user_id}/></div>

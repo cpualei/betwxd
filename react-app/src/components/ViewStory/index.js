@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
 import Stories from "../Stories";
 import CommentsModal from "../CommentsModal/index.js";
@@ -10,19 +10,18 @@ import "./ViewStory.css";
 
 function ViewStory() {
   const { id } = useParams();
-  console.log("THIS IS THE ID=====>", id)
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const sessionUserId = useSelector((state) => state.session.user.id);
+  const sessionUserId = useSelector((state) => state?.session?.user?.id);
 
   const stories = useSelector((state) => state.stories)
 
-  console.log("THIS IS THE STORIES", stories)
-
   const story = stories[id];
-  console.log("THIS IS THE STORY>>>>>>>>>>", story)
   const createdAt = new Date(story?.created_at)
   const date = createdAt.toDateString();
+
+  // if (!sessionUserId) history.push("/login")
 
   useEffect(() => {
     dispatch(viewStories(id));

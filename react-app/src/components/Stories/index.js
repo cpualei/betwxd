@@ -43,7 +43,11 @@ function Stories() {
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
-                <NavLink style={{textDecoration: 'none'}} to={`/stories/${story.id}`}>
+                <NavLink style={{textDecoration: 'none'}} to={{
+                  // `/stories/${story.id}`,
+                  pathname: `/stories/${story.id}`,
+                  state: {title: "from login page"}
+                  }}>
                   <div className="story-title">{story?.title}</div>
                   <div className="story-story">{story?.story}</div>
                 </NavLink>

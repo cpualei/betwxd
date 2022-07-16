@@ -72,7 +72,8 @@ function EditComment({ story, comment }) {
                 required
               />
             </div>
-            {sessionUser.id === comment.user_id ? (
+
+            {sessionUser && sessionUser.id === comment.user_id ? (
               <div className="edit-comment-btns-div">
                 <button
                   id="comments-delete-btn"
@@ -88,10 +89,10 @@ function EditComment({ story, comment }) {
                   <button
                     id="comment-update-btn"
                     type="submit"
+                    disabled={errors.length > 0}
                     onClick={(e) => {
                       setUpdate(true);
                       toggle();
-                      // disabled={errors}
                     }}
                   >
                     Update response

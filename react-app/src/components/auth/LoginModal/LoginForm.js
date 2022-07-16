@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import { login } from '../../../store/session';
 
 const LoginForm = () => {
@@ -10,13 +10,16 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
+  let location = useLocation();
+  console.log(location)
 
   const onLogin = async (e) => {
+
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    await history.push('/');
+    // await history.push('/');
     if (data) {
-      await history.goBack()
+      // await history.goBack()
       // await history.push('/');
       setErrors(data);
     }
@@ -31,7 +34,8 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/stories' />;
+    // return <Redirect to='/' />;
+    history.goBack()
   }
 
   return (

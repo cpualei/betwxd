@@ -34,7 +34,8 @@ function YourStories() {
   return (
     <>
       <div id="stories-container">
-        {yourStories?.map((story) => (
+        {!yourStories.length ? <p>You have no stories. Create one now!</p> :
+        yourStories?.map((story) => (
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user">
@@ -67,6 +68,7 @@ function YourStories() {
             </div>
           </ul>
         ))}
+
       </div>
     </>
   );

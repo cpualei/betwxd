@@ -42,6 +42,7 @@ function CreateComment({ setShowModal, story }) {
 
   return (
     <>
+    {sessionUser ?
       <form onSubmit={handleSubmit}>
         <ul style={{textDecoration: "none"}}>
         {errors.map((error, idx) => (
@@ -75,6 +76,7 @@ function CreateComment({ setShowModal, story }) {
           </div>
         </div>
       </form>
+      : null }
     </>
   );
 }

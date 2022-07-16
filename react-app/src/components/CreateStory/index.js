@@ -51,7 +51,7 @@ function CreateStory() {
     } else {
       // received a valid request
       setErrors([]);
-      return history.push(`/stories`);
+      return history.push(`/`);
     }
   };
 

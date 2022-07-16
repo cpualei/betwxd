@@ -32,6 +32,20 @@
     padding: 0px;
 }
 
+.trending-img-user-container {
+    display: flex;
+    align-items: center;
+}
+
+.trending-img-div {
+    display: flex;
+    padding-right: 8px;
+}
+
+.trending-user-div {
+    display: flex;
+}
+
 #trending-imgs {
     height: 23px;
     width: 23px;

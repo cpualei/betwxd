@@ -1,8 +1,10 @@
-#comment-username-ul {
-    padding: 0px;
+#username-ul {
+    font-size: 13px;
+    padding-left: 0px;
 }
 
-#comment-username {
+#username {
     margin: 0px;
-    line-height: 20px;
+    font-weight: 500;
+    padding: 0px;
 }

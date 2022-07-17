@@ -17,7 +17,7 @@ function Stories() {
     return Object?.values(state?.stories);
   });
 
-  const newerStoriesFirst = stories.reverse();
+  const newerStoriesFirst = stories?.reverse();
 
   useEffect(() => {
     dispatch(viewStories());
@@ -38,7 +38,7 @@ function Stories() {
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user"><GetUser userId={story?.user_id}/></div>
-              <ReactTimeAgo date={story?.created_at} locale="en-US"/>
+              {/* <ReactTimeAgo date={story?.created_at} locale="en-US"/> */}
               {/* <div>{date}</div> */}
             </div>
             <div className="each-story-div">

@@ -66,7 +66,7 @@ function EditStory() {
             <p className="draft-in-user">Draft in {sessionUser.username}</p>
           </div>
           <div className="story-form-top-div-right">
-            <button className="publish-btn" type="submit">
+            <button className="publish-btn" type="submit" disabled={errors.length > 0}>
               Publish
             </button>
           </div>

@@ -28,7 +28,7 @@ function CreateStory() {
     else if (story.length < 1)
       errors.push("*Please provide a story to publish.");
     if (!img.match(validateImgUrl)) {
-      errors.push("*Please provide an image in PNG, JPG or JPEG format.");
+      errors.push("*Please provide an image that ends in PNG, JPG or JPEG format.");
     }
 
     setErrors(errors);
@@ -63,7 +63,7 @@ function CreateStory() {
             <p className="draft-in-user">Draft in {sessionUser.username}</p>
           </div>
           <div className="story-form-top-div-right">
-            <button className="publish-btn" type="submit">
+            <button className="publish-btn" type="submit" disabled={errors.length > 0}>
               Publish
             </button>
           </div>

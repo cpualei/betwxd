@@ -32,7 +32,7 @@ function EditStory() {
     else if (story?.length < 1)
       errors.push("*Please provide a story to publish.");
     if (!img?.match(validateImgUrl)) {
-      errors.push("*Please provide an image in PNG, JPG or JPEG format.");
+      errors.push("*Please provide an image that begins with http or https and ends in PNG, JPG or JPEG format.");
     }
 
     setErrors(errors);

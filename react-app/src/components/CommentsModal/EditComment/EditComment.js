@@ -16,12 +16,12 @@ function EditComment({ story, comment }) {
 
   useEffect(() => {
     const errors = [];
+    const validComment = /.*\S.*/
 
     if (content.length > 2000)
       errors.push("*Comment must not exceed 2000 characters");
-    else if (content.length < 1)
-    // e.preventDefault()
-      errors.push("*Comment length must be greater than 1 character.")
+    if (!content.match(validComment))
+      errors.push("*Comment length must be greater than 1 character.");
 
     setErrors(errors);
   }, [content]);

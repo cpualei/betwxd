@@ -17,6 +17,20 @@
 
 <br>
 
+##
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/93879557/179378583-5c6c2806-ab92-42b4-b3c2-36f37786b636.gif" />
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/93879557/179379204-cfbbca4e-a37c-443b-ba1c-14e9e2fdd17b.gif" />
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/93879557/179379242-2bf5d04a-2eaa-4d1d-9ecc-91134bd6de41.gif" />
+</p>
+
 ## Getting started
 1. Clone the main repository
 

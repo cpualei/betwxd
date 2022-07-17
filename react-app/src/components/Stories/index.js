@@ -28,7 +28,7 @@ function Stories() {
   }, [viewStories()])
 
   const invalidImg = (e) => {
-    e.currentTarget.src = "https://w7.pngwing.com/pngs/756/477/png-transparent-circle-close-cross-incorrect-invalid-x-delete-flat-actions-icon-thumbnail.png";
+    e.currentTarget.src = "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";
   };
 
   return (

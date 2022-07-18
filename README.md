@@ -19,8 +19,6 @@
 
 <br>
 
-##
-
 <p align="center">
   <img src="https://user-images.githubusercontent.com/93879557/179378583-5c6c2806-ab92-42b4-b3c2-36f37786b636.gif" />
 </p>

@@ -35,7 +35,7 @@
 1. Clone the main repository
 
    ```bash
-   git clone https://github.com/ukiukica/splitzy.git
+   git clone https://github.com/cpualei/betwxd.git
    ```
 
 2. Install the dependencies

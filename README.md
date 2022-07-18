@@ -31,6 +31,24 @@
   <img src="https://user-images.githubusercontent.com/93879557/179379274-97a4d58e-fff4-4166-b4fb-e38b93d0991d.gif" />
 </p>
 
+<br>
+
+### Application Architecture
+
+Betwx'd is built with Flask (backend), React and Redux (frontend), and PostgresSQL (database).
+
+<br>
+
+### Future Features
+To reflect the features Medium provides, I plan to implement a search function which allows writers to search other writers and articles, a "claps" feature which allows writers to "clap" (or like) a story, and profile pages for existing users where other users can view all stories that a particular writer has written.
+
+<br>
+
+### Contact Me
+<a href="https://www.linkedin.com/in/caitlin-buen-lucas/">Linkedin</a> | <a href="https://github.com/cpualei/">Github</a>
+
+<br>
+
 ## Getting started
 1. Clone the main repository
 
@@ -67,19 +85,3 @@
    ```
 
 6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-<br>
-
-### Application Architecture
-
-Betwx'd is built with Flask (backend), React and Redux (frontend), and PostgresSQL (database).
-
-<br>
-
-### Future Features
-To reflect the features Medium provides, I plan to implement a search function which allows writers to search other writers and articles, a "claps" feature which allows writers to "clap" (or like) a story, and profile pages for existing users where other users can view all stories that a particular writer has written.
-
-<br>
-
-### Contact
-<a href="https://www.linkedin.com/in/caitlin-buen-lucas/">Linkedin</a> | <a href="https://github.com/cpualei/">Github</a>

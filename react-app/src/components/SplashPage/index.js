@@ -3,8 +3,9 @@ import Stories from "../Stories";
 import SignUpFormModal2 from "../auth/SignUpModal2";
 import { useSelector } from "react-redux";
 import splashGif from "../../icons/splashGif.gif";
-import "./SplashPage.css";
 import TrendingStories from "./TrendingStories";
+import DiscoverMore from "./DiscoverMore";
+import "./SplashPage.css";
 
 function Splash() {
   return (
@@ -24,7 +25,14 @@ function Splash() {
         </div>
       </div>
       <TrendingStories />
-      <Stories />
+      <div className="stories-discover-more-container">
+        <div id="stories-div">
+          <Stories />
+        </div>
+        <div id="discover-more-div">
+          <DiscoverMore />
+        </div>
+      </div>
     </div>
   );
 }

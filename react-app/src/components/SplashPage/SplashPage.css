@@ -36,3 +36,17 @@
 #splash-img-div {
     display: flex;
 }
+
+.stories-discover-more-container {
+    display: flex;
+    margin: 0 0 0 3.5%;
+}
+
+#stories-div {
+    display: flex;
+}
+
+#discover-more-div {
+    display: flex;
+    margin: 35px 0 0 150px
+}

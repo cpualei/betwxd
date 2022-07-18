@@ -1,0 +1,25 @@
+.discover-more-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#discover-more {
+    display: flex;
+    letter-spacing: 0.083em;
+    font-size: 12px;
+    font-weight: 700;
+    color: inherit;
+    margin-bottom: 16px;
+}
+.discover-more-links-div {
+    display: flex;
+}
+
+.discover-more-links {
+    margin: 0 8px 8px 0;
+    padding: 6px 16px 6px 16px;
+    border: 1px solid rgba(230, 230, 230, 1);
+    border-radius: 3px;
+    text-decoration: none;
+    color: rgb(117 117 117);
+}

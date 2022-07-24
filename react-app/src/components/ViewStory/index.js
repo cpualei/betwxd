@@ -5,23 +5,18 @@ import GetUser from "../GetUser/index.js";
 import Stories from "../Stories";
 import CommentsModal from "../CommentsModal/index.js";
 import { viewStories } from "../../store/stories.js";
-// import ReactTimeAgo from "react-time-ago";
+import moment from "moment";
 import "./ViewStory.css";
 
 function ViewStory() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const sessionUserId = useSelector((state) => state?.session?.user?.id);
 
   const stories = useSelector((state) => state.stories)
 
   const story = stories[id];
-  const createdAt = new Date(story?.created_at)
-  const date = createdAt.toDateString();
-
-  // if (!sessionUserId) history.push("/login")
 
   useEffect(() => {
     dispatch(viewStories(id));
@@ -37,10 +32,8 @@ function ViewStory() {
       <div className="viewstory-container">
         <div id="viewstory-user">
           <GetUser userId={story?.user_id} />
-          {/* {sessionUserId === story?.user_id ? <DotsIcon /> : null} */}
         </div>
-        <div id="viewstory-date">{date}</div>
-        {/* <ReactTimeAgo date={story?.created_at} locale="en-US"/> */}
+        <div id="viewstory-date">{moment(story?.created_at).format("MMM Do")}</div>
         <div id="viewstory-title">{story?.title}</div>
         <img
           id="viewstory-img"

@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { viewStories } from "../../../store/stories";
 import GetUser from "../../GetUser";
-import ReactTimeAgo from "react-time-ago";
 import trending from "../../../icons/trending.png";
+import moment from "moment";
 import "./TrendingStories.css";
 
 function TrendingStories() {
@@ -42,7 +42,7 @@ function TrendingStories() {
               <div id="trending-story-title">{story.title}</div>
             </NavLink>
             <div>
-              <ReactTimeAgo date={story?.created_at} locale="en-US" />
+              <p id="story-date">{moment(story?.created_at).format("MMM Do")}</p>
             </div>
           </ul>
         ))}

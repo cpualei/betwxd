@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+// import User from "../User.js";
 import GetUser from "../GetUser/index.js";
 import { viewStories } from "../../store/stories.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
@@ -12,7 +13,6 @@ function Stories() {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state?.session?.user);
-
   const stories = useSelector((state) => {
     return Object?.values(state?.stories);
   });
@@ -39,7 +39,9 @@ function Stories() {
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user">
-                <GetUser userId={story?.user_id} />
+                <NavLink style={{ textDecoration: "none", color: "black" }} to={`/users/${story?.user_id}`}>
+                  <GetUser userId={story?.user_id} />
+                </NavLink>
               </div>
               <p id="story-date">· {moment(story?.created_at).format("MMM Do")}</p>
             </div>

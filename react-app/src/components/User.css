@@ -1,0 +1,18 @@
+.user-page-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 8% 0 8%;
+}
+
+.users-stories-div {
+    display: flex;
+    padding-right: 200px;
+    border-right: 1px solid #e6e6e6;
+    height: 100vh;
+}
+
+.users-profile-div {
+    display: flex;
+    padding: 40px;
+}

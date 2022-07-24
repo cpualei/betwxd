@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-// import User from "../User.js";
 import GetUser from "../GetUser/index.js";
 import { viewStories } from "../../store/stories.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
-import ReactTimeAgo from "react-time-ago";
 import moment from "moment";
 import "./Stories.css";
 

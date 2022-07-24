@@ -37,7 +37,9 @@ function YourStories() {
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user">
+              <NavLink style={{ textDecoration: "none", color: "black" }} to={`/users/${story?.user_id}`}>
                 <GetUser userId={story?.user_id} />
+              </NavLink>
               </div>
               <p id="story-date">· {moment(story?.created_at).format("MMM Do")}</p>
             </div>

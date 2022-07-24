@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
 import { viewStories } from "../../store/stories.js";
 import DotsIcon from "../Stories/DropdownMenu/DotsIcon";
-import ReactTimeAgo from "react-time-ago";
+import moment from "moment";
 import "../Stories/Stories.css";
 
 function YourStories() {
@@ -19,8 +19,6 @@ function YourStories() {
   const yourStories = stories.filter(
     (story) => sessionUser.id === story.user_id
   );
-
-  console.log("THESE ARE YOUR STORIES", yourStories);
 
   useEffect(() => {
     dispatch(viewStories());
@@ -41,8 +39,7 @@ function YourStories() {
               <div id="story-user">
                 <GetUser userId={story?.user_id} />
               </div>
-              <ReactTimeAgo date={story?.created_at} locale="en-US" />
-              {/* <div>{date}</div> */}
+              <p id="story-date">{moment(story?.created_at).format("MMM Do")}</p>
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">

@@ -14,7 +14,9 @@ function TrendingStories() {
 
   const reversedTrending = trendingStories.reverse();
 
-  //   const numbers = ["01", "02", "03", "04", "05", "06"];
+  const invalidImg = (e) => {
+    e.currentTarget.src = "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";
+  };
 
   return (
     <div className="trending-stories-container">
@@ -27,7 +29,7 @@ function TrendingStories() {
           <ul className="trending-ul" key={story?.id}>
             <div className="trending-img-user-container">
               <div className="trending-img-div">
-                <img id="trending-imgs" src={story.img} />
+                <img id="trending-imgs" onError={invalidImg} src={story.img} />
               </div>
               <div className="trending-user-div">
                 <GetUser id="trending-user" userId={story?.user_id} />

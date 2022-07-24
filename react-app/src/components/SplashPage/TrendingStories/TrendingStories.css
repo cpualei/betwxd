@@ -23,7 +23,7 @@
 
 .trending-ul-div {
     display: grid;
-    grid-template-rows: 110px 110px;
+    grid-template-rows: 150px 120px;
     grid-template-columns: 27% 27% 27%;
     grid-gap: 0 8%;
 }

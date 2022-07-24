@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { viewStories } from "../../../store/stories";
 import GetUser from "../../GetUser";
 import trending from "../../../icons/trending.png";
 import moment from "moment";
@@ -32,7 +31,9 @@ function TrendingStories() {
                 <img id="trending-imgs" onError={invalidImg} src={story.img} />
               </div>
               <div className="trending-user-div">
+              <NavLink style={{ textDecoration: "none", color: "black" }} to={`/users/${story?.user_id}`}>
                 <GetUser id="trending-user" userId={story?.user_id} />
+              </NavLink>
               </div>
             </div>
             <NavLink

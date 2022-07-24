@@ -39,7 +39,7 @@ function YourStories() {
               <div id="story-user">
                 <GetUser userId={story?.user_id} />
               </div>
-              <p id="story-date">{moment(story?.created_at).format("MMM Do")}</p>
+              <p id="story-date">· {moment(story?.created_at).format("MMM Do")}</p>
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">

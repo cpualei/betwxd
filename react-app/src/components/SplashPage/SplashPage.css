@@ -1,18 +1,16 @@
 .splash-container {
     display: flex;
-    padding: 0 0 0 10%;
     background-color: #feb714;
     border-bottom: 1px solid black;
     margin-bottom: 50px;
+    justify-content: space-between;
 }
 
 .splash-div {
     display: flex;
     flex-direction: column;
     background-color: #feb714;
-    padding: 93px 0px 93px 0px;
-
-    width: 100%
+    padding: 93px 0px 93px 10%;
 }
 
 #stay-curious {
@@ -35,6 +33,7 @@
 
 #splash-img-div {
     display: flex;
+    overflow: hidden;
 }
 
 .stories-discover-more-container {

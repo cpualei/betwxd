@@ -30,8 +30,8 @@ function YourStories() {
   };
 
   return (
-    <>
-      <div id="stories-container">
+    <div className="stories-container">
+      <div className="stories-div">
         {!yourStories.length ? <p>You have no stories. Create one now!</p> :
         yourStories?.map((story) => (
           <ul className="stories-ul" key={story?.id}>
@@ -69,7 +69,7 @@ function YourStories() {
         ))}
 
       </div>
-    </>
+    </div>
   );
 }
 

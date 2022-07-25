@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
+import SearchBar from "../SearchBar/index.js";
 import { viewStories } from "../../store/stories.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
 import moment from "moment";
@@ -31,8 +32,8 @@ function Stories() {
   };
 
   return (
-    <>
-      <div id="stories-container">
+    <div className="stories-container">
+      <div className="stories-div">
         {newerStoriesFirst?.map((story) => (
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
@@ -70,7 +71,10 @@ function Stories() {
           </ul>
         ))}
       </div>
-    </>
+      {sessionUser ?
+        <div className="stories-misc-div"><SearchBar /></div>
+      : null }
+    </div>
   );
 }
 

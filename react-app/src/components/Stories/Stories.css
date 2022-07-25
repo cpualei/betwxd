@@ -11,15 +11,15 @@ body {
 
 .stories-container {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
-    margin: 2.5% 10% 0% 10%;
+    padding: 40px 4% 0% 10%;
 }
 
 .stories-div {
     display: flex;
     flex-direction: column;
-    padding-right: 10%;
+    padding-right: 5%;
 }
 
 .stories-ul {
@@ -95,9 +95,38 @@ body {
     align-items: flex-end;
 }
 
+.stories-misc-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .stories-misc-div {
     display: flex;
     border-left: 1px solid #e6e6e6;
-    width: 300px;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 40px;
+}
+
+.what-were-reading-today-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 25px;
+    padding-left: 40px;
+}
+
+#green-dot {
+    display: flex;
+    height: 8px;
+    color: green;
+    margin-right: 10px;
+}
+
+#what-were-reading-today {
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

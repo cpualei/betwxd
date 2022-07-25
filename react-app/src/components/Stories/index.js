@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/index.js";
 import { viewStories } from "../../store/stories.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
 import moment from "moment";
+import greendot from "../../icons/greendot.png";
 import "./Stories.css";
 
 function Stories() {
@@ -38,11 +39,16 @@ function Stories() {
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
               <div id="story-user">
-                <NavLink style={{ textDecoration: "none", color: "black" }} to={`/users/${story?.user_id}`}>
+                <NavLink
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={`/users/${story?.user_id}`}
+                >
                   <GetUser userId={story?.user_id} />
                 </NavLink>
               </div>
-              <p id="story-date">· {moment(story?.created_at).format("MMM Do")}</p>
+              <p id="story-date">
+                · {moment(story?.created_at).format("MMM Do")}
+              </p>
             </div>
             <div className="each-story-div">
               <div className="story-title-and-story-div">
@@ -71,9 +77,17 @@ function Stories() {
           </ul>
         ))}
       </div>
-      {sessionUser ?
-        <div className="stories-misc-div"><SearchBar /></div>
-      : null }
+      {sessionUser ? (
+        <div className="stories-misc-container">
+        <div className="stories-misc-div">
+          <SearchBar />
+        </div>
+          <div className="what-were-reading-today-div">
+            <img id="green-dot" src={greendot} />
+            <p id="what-were-reading-today">What We're Reading Today</p>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

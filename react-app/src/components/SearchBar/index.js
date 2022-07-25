@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import search from "../../icons/search.png"
+import "./SearchBar.css"
 
 function SearchBar() {
   const [users, setUsers] = useState([]);
@@ -24,10 +26,13 @@ function SearchBar() {
   }, []);
 
   return (
-    <div className="nav-search-div">
+    <>
+    <button id="get-unlimitied-access-btn">Get unlimited access</button>
+    <div className="search-div">
+        <img id="search-img" src={search} alt="search" />
       <input
-        id="nav-search"
-        placeholder="Search Users"
+        id="search"
+        placeholder="Search"
         onChange={(e) => setQuery(e.target.value)}
       />
       {query
@@ -46,6 +51,7 @@ function SearchBar() {
             ))
         : null}
     </div>
+    </>
   );
 }
 

@@ -1,0 +1,30 @@
+.search-div {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #e6e6e6;
+    padding: 10px 130px 10px 15px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+#search {
+    display: flex;
+    border: none;
+}
+
+#search-img {
+    display: flex;
+    height: 18px;
+    padding-right: 10px;
+}
+
+#get-unlimitied-access-btn {
+    border: 1px solid rgba(25, 25, 25, 1);;
+    color: white;
+    padding: 10px 90px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: rgba(25, 25, 25, 1);
+    cursor: pointer;
+}

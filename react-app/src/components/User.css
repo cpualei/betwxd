@@ -7,7 +7,7 @@
 
 .users-stories-div {
     display: flex;
-    padding-right: 12%;
+    /* padding-right: 12%; */
     border-right: 1px solid #e6e6e6;
     height: 100vh;
 }

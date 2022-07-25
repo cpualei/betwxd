@@ -9,8 +9,17 @@ body {
     font-size: 14px;
 }
 
-#stories-container {
+.stories-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
     margin: 2.5% 10% 0% 10%;
+}
+
+.stories-div {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10%;
 }
 
 .stories-ul {
@@ -84,4 +93,11 @@ body {
     margin-right: 40px;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.stories-misc-div {
+    display: flex;
+    border-left: 1px solid #e6e6e6;
+    width: 300px;
+    justify-content: center;
 }

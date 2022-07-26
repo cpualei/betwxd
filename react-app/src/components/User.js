@@ -19,9 +19,9 @@ function User() {
     })();
   }, [userId]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [viewStories()]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [viewStories()]);
 
   if (!user) {
     return null;

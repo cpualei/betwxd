@@ -14,7 +14,7 @@ function ViewStory() {
 
   const sessionUserId = useSelector((state) => state?.session?.user?.id);
 
-  const stories = useSelector((state) => state.stories)
+  const stories = useSelector((state) => state?.stories)
 
   const story = stories[id];
 

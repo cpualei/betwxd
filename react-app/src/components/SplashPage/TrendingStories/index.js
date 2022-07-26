@@ -8,10 +8,10 @@ import "./TrendingStories.css";
 
 function TrendingStories() {
   const trendingStories = useSelector((state) => {
-    return Object.values(state.stories);
+    return Object?.values(state?.stories);
   });
 
-  const reversedTrending = trendingStories.reverse();
+  const reversedTrending = trendingStories?.reverse();
 
   const invalidImg = (e) => {
     e.currentTarget.src = "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";
@@ -24,11 +24,11 @@ function TrendingStories() {
         <div className="trending-on-medium-text">TRENDING ON MEDIUM</div>
       </div>
       <div className="trending-ul-div">
-        {reversedTrending.map((story) => (
+        {reversedTrending?.map((story) => (
           <ul className="trending-ul" key={story?.id}>
             <div className="trending-img-user-container">
               <div className="trending-img-div">
-                <img id="trending-imgs" onError={invalidImg} src={story.img} />
+                <img id="trending-imgs" onError={invalidImg} src={story?.img} />
               </div>
               <div className="trending-user-div">
               <NavLink style={{ textDecoration: "none", color: "black" }} to={`/users/${story?.user_id}`}>
@@ -38,9 +38,9 @@ function TrendingStories() {
             </div>
             <NavLink
               style={{ textDecoration: "none", color: "rgba(41, 41, 41, 1)" }}
-              to={`/stories/${story.id}`}
+              to={`/stories/${story?.id}`}
             >
-              <div id="trending-story-title">{story.title}</div>
+              <div id="trending-story-title">{story?.title}</div>
             </NavLink>
             <div>
               <p id="story-date">{moment(story?.created_at).format("MMM Do")}</p>

@@ -17,7 +17,7 @@ function YourStories() {
   });
 
   const yourStories = stories.filter(
-    (story) => sessionUser.id === story.user_id
+    (story) => sessionUser?.id === story?.user_id
   );
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function YourStories() {
   return (
     <div className="stories-container">
       <div className="stories-div">
-        {!yourStories.length ? <p>You have no stories. Create one now!</p> :
+        {!yourStories?.length ? <p>You have no stories. Create one now!</p> :
         yourStories?.map((story) => (
           <ul className="stories-ul" key={story?.id}>
             <div className="story-user-and-date-div">
@@ -47,7 +47,7 @@ function YourStories() {
               <div className="story-title-and-story-div">
                 <NavLink
                   style={{ textDecoration: "none" }}
-                  to={`/stories/${story.id}`}
+                  to={`/stories/${story?.id}`}
                 >
                   <div className="story-title">{story?.title}</div>
                   <div className="story-story">{story?.story}</div>
@@ -56,7 +56,7 @@ function YourStories() {
                   <DotsIcon id="story-more-options" story={story} />
                 </div>
               </div>
-              <NavLink to={`/stories/${story.id}`}>
+              <NavLink to={`/stories/${story?.id}`}>
                 <img
                   onError={invalidImg}
                   src={story?.img}

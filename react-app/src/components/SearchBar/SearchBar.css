@@ -28,3 +28,18 @@
     background-color: rgba(25, 25, 25, 1);
     cursor: pointer;
 }
+
+.username-search-result {
+    display: flex;
+    border: 1px solid #9999993b;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px 1px rgb(135 135 135 / 25%);
+    padding: 8px 0 8px 24px;
+    width: 287px;
+    background-color: white;
+    flex-direction: column;
+    position: absolute;
+    top: 162px;
+    left: 907px;
+}

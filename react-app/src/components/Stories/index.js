@@ -54,7 +54,7 @@ function Stories() {
               <div className="story-title-and-story-div">
                 <NavLink
                   style={{ textDecoration: "none" }}
-                  to={`/stories/${story.id}`}
+                  to={`/stories/${story?.id}`}
                 >
                   <div className="story-title">{story?.title}</div>
                   <div className="story-story">{story?.story}</div>

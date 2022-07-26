@@ -11,7 +11,7 @@ function SearchBar() {
     async function fetchData() {
       const response = await fetch("/api/users/");
       const responseData = await response.json();
-      setUsers(responseData.users);
+      setUsers(responseData?.users);
     }
     fetchData();
   }, []);
@@ -20,7 +20,7 @@ function SearchBar() {
     async function fetchData() {
       const response = await fetch("/api/stories/");
       const responseData = await response.json();
-      setStories(responseData.stories);
+      setStories(responseData?.stories);
     }
     fetchData();
   }, []);
@@ -38,14 +38,14 @@ function SearchBar() {
       {query
         ? users
             .filter((user) => {
-              if (user.username.toLowerCase().includes(query.toLowerCase())) {
+              if (user?.username?.toLowerCase()?.includes(query?.toLowerCase())) {
                 return user;
               }
             })
             .map((user) => (
-              <div className="username-search-result" key={user.id}>
-                <a href={`/users/${user.id}`} className="username-result">
-                  <p className="username-result">{`${user.username}`}</p>
+              <div className="username-search-result" key={user?.id}>
+                <a href={`/users/${user?.id}`} className="username-result">
+                  <p className="username-result">{`${user?.username}`}</p>
                 </a>
               </div>
             ))

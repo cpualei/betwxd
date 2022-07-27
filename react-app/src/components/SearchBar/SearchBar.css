@@ -5,6 +5,7 @@
     padding: 10px 130px 10px 15px;
     border-radius: 20px;
     font-size: 15px;
+    margin-top: 40px;
 }
 
 #search {
@@ -18,11 +19,10 @@
     padding-right: 10px;
 }
 
-#get-unlimitied-access-btn {
+#begin-writing-a-story-btn {
     border: 1px solid rgba(25, 25, 25, 1);;
     color: white;
     padding: 10px 90px;
-    margin-bottom: 40px;
     border-radius: 20px;
     font-size: 14px;
     background-color: rgba(25, 25, 25, 1);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import search from "../../icons/search.png"
-import "./SearchBar.css"
+import { NavLink } from "react-router-dom";
+import search from "../../icons/search.png";
+import "./SearchBar.css";
 
 function SearchBar() {
   const [users, setUsers] = useState([]);
@@ -27,30 +28,34 @@ function SearchBar() {
 
   return (
     <>
-    <button id="get-unlimitied-access-btn">Get unlimited access</button>
-    <div className="search-div">
+      <NavLink to="/new-story">
+        <button id="begin-writing-a-story-btn">Begin writing a story</button>
+      </NavLink>
+      <div className="search-div">
         <img id="search-img" src={search} alt="search" />
-      <input
-        id="search"
-        placeholder="Search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      {query
-        ? users
-            .filter((user) => {
-              if (user?.username?.toLowerCase()?.includes(query?.toLowerCase())) {
-                return user;
-              }
-            })
-            .map((user) => (
-              <div className="username-search-result" key={user?.id}>
-                <a href={`/users/${user?.id}`} className="username-result">
-                  <p className="username-result">{`${user?.username}`}</p>
-                </a>
-              </div>
-            ))
-        : null}
-    </div>
+        <input
+          id="search"
+          placeholder="Search"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        {query
+          ? users
+              .filter((user) => {
+                if (
+                  user?.username?.toLowerCase()?.includes(query?.toLowerCase())
+                ) {
+                  return user;
+                }
+              })
+              .map((user) => (
+                <div className="username-search-result" key={user?.id}>
+                  <a href={`/users/${user?.id}`} className="username-result">
+                    <p className="username-result">{`${user?.username}`}</p>
+                  </a>
+                </div>
+              ))
+          : null}
+      </div>
     </>
   );
 }

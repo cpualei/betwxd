@@ -1,6 +1,12 @@
 .viewstory-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.viewstory-div {
+    display: flex;
     width: 690px;
-    margin-left: 15%;
+    margin-left: 190px;
     display: flex;
     justify-content: center;
     flex-direction: column;

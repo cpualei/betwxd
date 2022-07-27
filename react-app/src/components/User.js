@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { viewStories } from '../store/stories';
 import UsersStories from './UsersStories';
 import "./User.css"
 

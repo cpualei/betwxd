@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Splash from "./components/SplashPage";
-import Stories from "./components/Stories";
+import StoriesPage from "./components/StoriesPage";
 import CreateStory from "./components/CreateStory";
 import ViewStory from "./components/ViewStory";
 import EditStory from "./components/EditStory";
@@ -54,7 +54,7 @@ function App() {
           </Route>
         ) : (
           <Route path="/" exact={true}>
-            <Stories />
+            <StoriesPage />
           </Route>
         )}
         <ProtectedRoute path="/new-story" exact={true}>

@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
 import Stories from "../Stories";
 import CommentsModal from "../CommentsModal/index.js";
+import RightSideMisc from "../RightSideMisc/index.js";
 import { viewStories } from "../../store/stories.js";
 import moment from "moment";
 import "./ViewStory.css";
@@ -28,8 +29,8 @@ function ViewStory() {
   };
 
   return (
-    <>
-      <div className="viewstory-container">
+    <div className="viewstory-container">
+      <div className="viewstory-div">
         <div id="viewstory-user">
           <GetUser userId={story?.user_id} />
         </div>
@@ -51,7 +52,10 @@ function ViewStory() {
           <Stories sessionUserId={sessionUserId} />
         </div>
       </div>
-    </>
+      <div className="right-side-misc-div">
+        <RightSideMisc />
+      </div>
+    </div>
   );
 }
 

@@ -1,0 +1,10 @@
+#user-photo-ul {
+    padding: 0px
+}
+
+#user-photo {
+    height: 23px;
+    width: 23px;
+    object-fit: cover;
+    border-radius: 50%;
+}

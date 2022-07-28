@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import UsersStories from "./UsersStories";
 import ProfileRightSideMisc from "./ProfileRightSideMisc";
@@ -7,6 +8,8 @@ import "./UserProfiles.css";
 function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
+
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     if (!userId) {
@@ -42,6 +45,7 @@ function User() {
           />
           <p id="profile-username">{user.username}</p>
           <p id="profile-bio">{user.bio}</p>
+          {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null}
         </div>
       </div>
     </div>

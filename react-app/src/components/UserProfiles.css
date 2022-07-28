@@ -1,7 +1,6 @@
 .user-page-container {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     flex-direction: row;
     margin-left: 190px;
     height: 100vh;
@@ -10,18 +9,19 @@
 .users-stories-div {
     display: flex;
     padding-top: 40px;
+    margin-right: 90px;
 }
 
 .users-profile-div {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     border-left: 1px solid #e6e6e6;
 }
 
 .users-profile-info {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     padding: 0 40px;
     width: 318px;
 }
@@ -41,4 +41,18 @@
 
 #profile-bio {
     margin: 0;
+}
+
+#profile-edit-link {
+    color: rgba(26, 137, 23, 1);
+    line-height: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 25px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+#profile-edit-link:hover {
+    color: rgba(0,0,0,0.8);
 }

@@ -6,7 +6,7 @@ import SignUpForm from "./components/auth/SignUpModal/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
-import User from "./components/User";
+import UserProfiles from "./components/UserProfiles";
 import Splash from "./components/SplashPage";
 import StoriesPage from "./components/StoriesPage";
 import CreateStory from "./components/CreateStory";
@@ -46,7 +46,7 @@ function App() {
           <UsersList />
         </ProtectedRoute>
         <Route path="/users/:userId" exact={true}>
-          <User />
+          <UserProfiles />
         </Route>
         {!sessionUser ? (
           <Route path="/" exact={true}>

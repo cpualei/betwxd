@@ -8,6 +8,7 @@ import DotsIcon from "../Stories/DropdownMenu/DotsIcon";
 import RightSideMisc from "../RightSideMisc/index.js";
 import moment from "moment";
 import "../Stories/Stories.css";
+import "./YourStories.css";
 
 function YourStories() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function YourStories() {
 
   return (
     <div className="stories-container">
-      <div className="stories-div">
+      <div className="your-stories-div">
         {!yourStories?.length ? (
           <p>You have no stories. Create one now!</p>
         ) : (

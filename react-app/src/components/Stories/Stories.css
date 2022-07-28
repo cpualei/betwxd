@@ -18,7 +18,7 @@ body {
 .stories-div {
     display: flex;
     flex-direction: column;
-    padding: 40px 4% 0% 190px;
+    /* padding: 40px 4% 0% 190px; */
     /* margin-right: 90px; */
 }
 

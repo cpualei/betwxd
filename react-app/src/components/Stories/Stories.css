@@ -40,12 +40,24 @@ body {
     align-items: center;
 }
 
-#story-user {
-    /* display: flex; */
+.story-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-profile-photo {
+    display: flex;
+    margin-right: 10px;
+}
+
+.user-username {
+    display: flex;
     margin-right: 5px;
 }
 
 #story-date {
+    display: flex;
     color: rgb(127, 127, 127);
 }
 

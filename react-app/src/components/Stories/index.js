@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
+import GetImg from "../GetImg/index.js";
 import { viewStories } from "../../store/stories.js";
 import DotsIcon from "./DropdownMenu/DotsIcon.js";
 import moment from "moment";
@@ -36,14 +37,19 @@ function Stories() {
       {newerStoriesFirst?.map((story) => (
         <ul className="stories-ul" key={story?.id}>
           <div className="story-user-and-date-div">
-            <div id="story-user">
-              <NavLink
-                style={{ textDecoration: "none", color: "black" }}
-                to={`/users/${story?.user_id}`}
-              >
-                <GetUser userId={story?.user_id} />
-              </NavLink>
-            </div>
+            <NavLink
+              style={{ textDecoration: "none", color: "black" }}
+              to={`/users/${story?.user_id}`}
+            >
+              <div className="story-user">
+                <div className="user-profile-photo">
+                  <GetImg userId={story?.user_id} />
+                </div>
+                <div className="user-username">
+                  <GetUser userId={story?.user_id} />
+                </div>
+              </div>
+            </NavLink>
             <p id="story-date">
               · {moment(story?.created_at).format("MMM Do")}
             </p>

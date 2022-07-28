@@ -1,21 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import GetUser from "../../GetUser";
+import GetImg from "../../GetImg";
 import trending from "../../../icons/trending.png";
 import moment from "moment";
 import "./TrendingStories.css";
 
 function TrendingStories() {
+
   const trendingStories = useSelector((state) => {
     return Object?.values(state?.stories);
   });
 
   const reversedTrending = trendingStories?.reverse();
-
-  const invalidImg = (e) => {
-    e.currentTarget.src = "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";
-  };
 
   return (
     <div className="trending-stories-container">
@@ -28,7 +26,7 @@ function TrendingStories() {
           <ul className="trending-ul" key={story?.id}>
             <div className="trending-img-user-container">
               <div className="trending-img-div">
-                <img id="trending-imgs" onError={invalidImg} src={story?.img} />
+                <GetImg userId={story?.user_id} />
               </div>
               <div className="trending-user-div">
               <NavLink style={{ textDecoration: "none", color: "black" }} to={`/users/${story?.user_id}`}>

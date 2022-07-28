@@ -3,7 +3,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: row;
-    margin: 0 190px;
+    margin-left: 190px;
     height: 100vh;
 }
 
@@ -13,7 +13,8 @@
 }
 
 .users-profile-div {
-    display: flex;
-    padding: 40px;
+    /* display: flex;
+    padding: 40px; */
     border-left: 1px solid #e6e6e6;
+    /* width: 317px; */
 }

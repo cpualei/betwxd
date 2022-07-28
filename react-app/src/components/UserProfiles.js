@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UsersStories from './UsersStories';
-import "./User.css"
+import ProfileRightSideMisc from './ProfileRightSideMisc';
+import "./UserProfiles.css"
 
 function User() {
   const [user, setUser] = useState({});
@@ -32,6 +33,7 @@ function User() {
         <UsersStories userId={userId} />
       </div>
       <div className="users-profile-div">
+        <ProfileRightSideMisc />
       <p>
         <strong>{user.username}</strong>
       </p>

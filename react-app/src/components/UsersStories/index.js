@@ -17,7 +17,6 @@ function UsersStories({ userId }) {
   const usersStories = stories?.filter(
     (story) => Number(userId) === story?.user_id
   );
-  console.log(usersStories)
 
   useEffect(() => {
     dispatch(viewStories());
@@ -37,14 +36,6 @@ function UsersStories({ userId }) {
           usersStories?.map((story) => (
             <ul className="stories-ul" key={story?.id}>
               <div className="story-user-and-date-div">
-                {/* <div id="story-user">
-                  <NavLink
-                    style={{ textDecoration: "none", color: "black" }}
-                    to={`/users/${story?.user_id}`}
-                  >
-                    <GetUser userId={story?.user_id} />
-                  </NavLink>
-                </div> */}
                 <p id="story-date">
                   {moment(story?.created_at).format("MMM Do")}
                 </p>

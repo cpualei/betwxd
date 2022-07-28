@@ -3,16 +3,22 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    Demo = User(
+        username='Demo', email='demo@aa.io', password='password', profile_photo='https://seeklogo.com/images/M/medium-2020-new-icon-logo-454E46D050-seeklogo.com.png', bio='Welcome to the demo profile page. Have fun demo-ing!')
+    Marnie = User(
+        username='Marnie', email='marnie@aa.io', password='password', profile_photo='https://abovethelaw.com/wp-content/uploads/2017/04/Marnie-Michaels-Girls-300x198.jpg', bio='Lover of water, despiser or mosquitos')
+    Bobbie = User(
+        username='Bobbie', email='bobbie@aa.io', password='password', profile_photo='https://upload.wikimedia.org/wikipedia/commons/b/b9/Bobby_Cannavale_2009.jpg', bio='I am an animal advocator - a voice for those that do not have one.')
+    Rihanna = User(
+        username='Rihanna', email='rihanna@aa.io', password='password', profile_photo='https://assets.teenvogue.com/photos/604b63245a8c47a0fc860da0/4:3/w_2332,h_1749,c_limit/rihanna-lede.jpg', bio='You already know who I am.')
+    Caitlin = User(
+        username='Caitlin', email='caitlin@aa.io', password='password', profile_photo='https://caitlinbuenlucas.com/assets/img/portfolio/me.png', bio='Welcome! Hope you are enjoying my full-stack pixel-perfect clone of Medium. Thanks for stopping by!')
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(Demo)
+    db.session.add(Marnie)
+    db.session.add(Bobbie)
+    db.session.add(Rihanna)
+    db.session.add(Caitlin)
 
     db.session.commit()
 

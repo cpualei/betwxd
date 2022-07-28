@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import UsersStories from './UsersStories';
-import ProfileRightSideMisc from './ProfileRightSideMisc';
-import "./UserProfiles.css"
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import UsersStories from "./UsersStories";
+import ProfileRightSideMisc from "./ProfileRightSideMisc";
+import "./UserProfiles.css";
 
 function User() {
   const [user, setUser] = useState({});
-  const { userId }  = useParams();
+  const { userId } = useParams();
 
   useEffect(() => {
     if (!userId) {
@@ -34,9 +34,15 @@ function User() {
       </div>
       <div className="users-profile-div">
         <ProfileRightSideMisc />
-      <p>
-        <strong>{user.username}</strong>
-      </p>
+        <div className="users-profile-info">
+          <img
+            id="profile-photo"
+            src={user.profile_photo}
+            alt="profile-photo"
+          />
+          <p id="profile-username">{user.username}</p>
+          <p id="profile-bio">{user.bio}</p>
+        </div>
       </div>
     </div>
   );

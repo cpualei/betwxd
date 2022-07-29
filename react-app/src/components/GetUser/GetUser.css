@@ -1,5 +1,5 @@
 #username-ul {
-    font-size: 13px;
+    /* font-size: 13px; */
     padding-left: 0px;
 }
 
@@ -7,4 +7,5 @@
     margin: 0px;
     font-weight: 500;
     padding: 0px;
+    font-size: inherit;
 }

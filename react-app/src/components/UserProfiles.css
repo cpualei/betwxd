@@ -53,3 +53,10 @@
 #profile-edit-link:hover {
     color: rgba(0,0,0,0.8);
 }
+
+#technologies-used {
+    color: rgba(117, 117, 117, 1);
+    margin-top: 50px;
+    font-size: 12px;
+    line-height: 1.5;
+}

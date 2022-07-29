@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import UsersStories from "./UsersStories";
-import RecommendedTopics from "./RightSideMisc/RecommendedTopics"
+import RecommendedTopics from "./RightSideMisc/RecommendedTopics";
 import ProfileRightSideMisc from "./ProfileRightSideMisc";
 import "./UserProfiles.css";
 
@@ -47,7 +47,7 @@ function User() {
           <p id="profile-username">{user.username}</p>
           <p id="profile-bio">{user.bio}</p>
           {/* {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null} */}
-        <RecommendedTopics />
+          <RecommendedTopics />
         </div>
       </div>
     </div>

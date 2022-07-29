@@ -44,7 +44,18 @@
     left: 1067px;
 }
 
+.profile-photo-and-username-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-photo-div {
+    display: flex;
+}
+
 .username-result {
+    display: flex;
     width: fit-content;
     color: black;
     font-size: 14px;

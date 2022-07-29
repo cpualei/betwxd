@@ -12,26 +12,5 @@
 
 .what-were-reading-recommended-container {
     padding: 0 40px 40px 40px;
-}
-
-.what-were-reading-today-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-bottom: 40px;
-}
-
-#green-dot {
-    display: flex;
-    height: 8px;
-    color: green;
-    margin-right: 10px;
-}
-
-#what-were-reading-today {
-    display: flex;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0;
+    width: 318px;
 }

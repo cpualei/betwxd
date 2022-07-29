@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import GetImg from "../GetImg";
 import search from "../../icons/search.png";
 import "./SearchBar.css";
 
@@ -50,7 +51,12 @@ function SearchBar() {
               .map((user) => (
                 <div className="username-search-result" key={user?.id}>
                   <a href={`/users/${user?.id}`}  style={{textDecoration: "none"}} className="username-result">
+                    <div className="profile-photo-and-username-container">
+                      <div className="profile-photo-div">
+                    <GetImg userId={user?.id} />
+                    </div>
                     <p className="username-result">{`${user?.username}`}</p>
+                    </div>
                   </a>
                 </div>
               ))

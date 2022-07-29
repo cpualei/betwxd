@@ -48,6 +48,7 @@ function User() {
           <p id="profile-bio">{user.bio}</p>
           {/* {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null} */}
           <RecommendedTopics />
+          <p id="technologies-used">Javascript Python React.js Redux Flask SQLAlchemy Sequelize</p>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
 import Stories from "../Stories";
 import CommentsModal from "../CommentsModal/index.js";
@@ -15,7 +15,7 @@ function ViewStory() {
 
   const sessionUserId = useSelector((state) => state?.session?.user?.id);
 
-  const stories = useSelector((state) => state?.stories)
+  const stories = useSelector((state) => state?.stories);
 
   const story = stories[id];
 
@@ -32,9 +32,16 @@ function ViewStory() {
     <div className="viewstory-container">
       <div className="viewstory-div">
         <div id="viewstory-user">
-          <GetUser userId={story?.user_id} />
+          <NavLink
+            to={`/users/${story?.user_id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <GetUser userId={story?.user_id} />
+          </NavLink>
         </div>
-        <div id="viewstory-date">{moment(story?.created_at).format("MMM Do")}</div>
+        <div id="viewstory-date">
+          {moment(story?.created_at).format("MMM Do")}
+        </div>
         <div id="viewstory-title">{story?.title}</div>
         <img
           id="viewstory-img"

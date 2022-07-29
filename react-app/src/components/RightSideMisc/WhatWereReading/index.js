@@ -4,22 +4,18 @@ import GetImg from "../../GetImg";
 import GetUser from "../../GetUser";
 import greendot from "../../../icons/greendot.png";
 import "./WhatWereReading.css";
+import { NavLink } from "react-router-dom";
 
 function WhatWereReading() {
-
   const stories = useSelector((state) => {
     return Object.values(state.stories);
   });
-
-  console.log(stories)
 
   const storyOne = stories[2];
   const storyTwo = stories[0];
   const storyThree = stories[3];
 
-  const threeStories = [storyOne, storyTwo, storyThree]
-  console.log(threeStories)
-//   const threeStories = [ ...storyOne, ...storyTwo, ...storyThree ]
+  const threeStories = [storyOne, storyTwo, storyThree];
 
   return (
     <div className="what-were-reading-container">
@@ -31,10 +27,20 @@ function WhatWereReading() {
         <div className="what-were-reading-stories-container">
           <div className="profile-photo-and-username-container">
             <div className="profile-photo-and-username-div">
-              <GetImg userId={story?.user_id} />
+              <NavLink
+                to={`/users/${story?.user_id}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <GetImg userId={story?.user_id} />
+              </NavLink>
             </div>
             <div className="profile-photo-and-username-div">
-              <GetUser userId={story?.user_id} />
+              <NavLink
+                to={`/users/${story?.user_id}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <GetUser userId={story?.user_id} />
+              </NavLink>
             </div>
           </div>
           <p id="what-were-reading-story-titles">{story?.title}</p>

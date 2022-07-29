@@ -49,7 +49,7 @@ function SearchBar() {
               })
               .map((user) => (
                 <div className="username-search-result" key={user?.id}>
-                  <a href={`/users/${user?.id}`} className="username-result">
+                  <a href={`/users/${user?.id}`}  style={{textDecoration: "none"}} className="username-result">
                     <p className="username-result">{`${user?.username}`}</p>
                   </a>
                 </div>

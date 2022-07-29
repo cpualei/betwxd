@@ -41,5 +41,11 @@
     flex-direction: column;
     position: absolute;
     top: 162px;
-    left: 907px;
+    left: 1067px;
+}
+
+.username-result {
+    width: fit-content;
+    color: black;
+    font-size: 14px;
 }

@@ -14,6 +14,7 @@ function TrendingStories() {
   });
 
   const reversedTrending = trendingStories?.reverse();
+  const sixStoriesOnly = reversedTrending.slice(0, 6);
 
   return (
     <div className="trending-stories-container">
@@ -22,7 +23,7 @@ function TrendingStories() {
         <div className="trending-on-medium-text">TRENDING ON MEDIUM</div>
       </div>
       <div className="trending-ul-div">
-        {reversedTrending?.map((story) => (
+        {sixStoriesOnly?.map((story) => (
           <ul className="trending-ul" key={story?.id}>
             <div className="trending-img-user-container">
               <div className="trending-img-div">

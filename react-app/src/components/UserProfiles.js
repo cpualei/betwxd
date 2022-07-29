@@ -45,7 +45,7 @@ function User() {
           />
           <p id="profile-username">{user.username}</p>
           <p id="profile-bio">{user.bio}</p>
-          {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null}
+          {/* {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null} */}
         </div>
       </div>
     </div>

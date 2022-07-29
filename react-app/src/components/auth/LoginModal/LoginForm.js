@@ -63,18 +63,16 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
+        </div>
         <button id="form-submit-btn" type="submit">
           Sign in
         </button>
           <div className="sign-up-instead-div">
         <div className="sign-up-instead">
           <p id="no-account-text">No account?</p>{" "}
-          <NavLink to="/" component={SignUpModal3}>
-            <p id="create-one-text">Create one</p>
-          </NavLink>
+          <NavLink to="/" component={SignUpModal3}/>
         </div>
           <p id="bottom-text">Click “Sign In” to agree to Betwxd’s non-existent Terms of Service and acknowledge that Betwxd’s non-existent Privacy Policy applies to you.</p>
-        </div>
       </div>
     </form>
   );

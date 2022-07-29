@@ -7,7 +7,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 80%; */
   }
 
   #auth-forms-modal-background {
@@ -23,8 +22,7 @@
     display: flex;
     border-radius: 3px;
     background-color: white;
-    height: 75%;
-    /* width: 360px; */
+    height: 85%;
     width: 550px;
     flex-direction: column;
     align-items: center;
@@ -32,5 +30,5 @@
     justify-content: center;
     padding: 44px 56px;
     box-shadow: 2px 2px 10px 1px rgb(135 135 135 / 33%);
+    overflow: scroll;
   }
-

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
+import LoginModal2 from '../LoginModal2';
 
 
 const SignUpForm = () => {
@@ -107,6 +108,11 @@ const SignUpForm = () => {
           ></input>
       </div>
       <button id="form-submit-btn" type='submit'>Create account</button>
+      <div className="sign-up-instead">
+          <p id="no-account-text">No account?</p>{" "}
+      <NavLink to="/" component={LoginModal2} />
+        </div>
+      <p id="bottom-text">Click “Sign Up” to agree to Betwxd’s non-existent Terms of Service and acknowledge that Betwxd’s non-existent Privacy Policy applies to you.</p>
     </form>
   );
 };

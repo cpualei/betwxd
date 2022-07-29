@@ -89,3 +89,48 @@
     color: inherit;
     cursor: pointer;
 }
+
+.sign-up-instead-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-instead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#no-account-text {
+    display: flex;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+#create-one-link {
+    display: flex;
+    color: rgb(26, 137, 23);
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: fit-content;
+    padding: 0;
+}
+
+#create-one-text {
+    display: flex;
+    border: none;
+}
+
+#bottom-text {
+    margin-top: 50px;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: rgba(117, 117, 117, 1);
+}

@@ -1,0 +1,45 @@
+.what-were-reading-container {
+    padding-bottom: 20px;
+}
+
+.what-were-reading-today-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#green-dot {
+    display: flex;
+    height: 8px;
+    color: green;
+    margin-right: 10px;
+}
+
+#what-were-reading-today {
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+.what-were-reading-stories-container {
+    display: flex;
+    flex-direction: column;
+    /* padding-bottom: 40px; */
+}
+
+.profile-photo-and-username-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile-photo-and-username-div {
+    display: flex;
+}
+
+#what-were-reading-story-titles {
+    display: flex;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+}

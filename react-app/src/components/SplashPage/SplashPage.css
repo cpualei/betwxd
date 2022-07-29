@@ -39,16 +39,16 @@
 .stories-discover-more-container {
     display: flex;
     margin-left: 10%;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    margin-top: 30px;
 }
 
 .stories-div {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
 }
 
 #discover-more-div {
     display: flex;
-    margin: 35px 0 0 10%;
+    margin: 10px 0 0 10%;
 }

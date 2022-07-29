@@ -27,3 +27,17 @@
     border-bottom: 1px solid #e5e5e5;
     width: 85%;
 }
+
+.comments-profile-photo-username-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comments-profile-photo {
+    display: flex;
+}
+
+.comments-username {
+    display: flex;
+}

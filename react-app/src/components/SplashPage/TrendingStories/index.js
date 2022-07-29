@@ -14,7 +14,7 @@ function TrendingStories() {
   });
 
   const reversedTrending = trendingStories?.reverse();
-  const sixStoriesOnly = reversedTrending.slice(0, 6);
+  const sixStoriesOnly = reversedTrending?.slice(0, 6);
 
   return (
     <div className="trending-stories-container">

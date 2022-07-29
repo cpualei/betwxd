@@ -15,7 +15,8 @@ function WhatWereReading() {
   const storyTwo = stories[0];
   const storyThree = stories[3];
 
-  const threeStories = [storyOne, storyTwo, storyThree];
+  // const threeStories = [storyOne, storyTwo, storyThree];
+  const threeStories = stories.splice(1, 3).reverse();
 
   return (
     <div className="what-were-reading-container">
@@ -43,7 +44,12 @@ function WhatWereReading() {
               </NavLink>
             </div>
           </div>
-          <p id="what-were-reading-story-titles">{story?.title}</p>
+          <NavLink
+            to={`/stories/${story?.id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <p id="what-were-reading-story-titles">{story?.title}</p>
+          </NavLink>
         </div>
       ))}
     </div>

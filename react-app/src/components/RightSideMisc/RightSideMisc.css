@@ -10,10 +10,15 @@
     padding: 40px;
 }
 
+.what-were-reading-recommended-container {
+    padding: 0 40px 40px 40px;
+}
+
 .what-were-reading-today-div {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    padding-left: 40px;
+    padding-bottom: 40px;
 }
 
 #green-dot {

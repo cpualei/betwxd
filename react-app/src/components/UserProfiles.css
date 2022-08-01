@@ -13,8 +13,12 @@
     flex-direction: column;
 }
 
-.users-profile-div {
+.users-profile-inner-div {
     border-left: 1px solid #e6e6e6;
+}
+
+.users-profile-div {
+    height: 100vh;
 }
 
 .users-profile-info {
@@ -49,9 +53,14 @@
     color: rgba(0,0,0,0.8);
 }
 
-#technologies-used {
+.users-profile-technologies-div {
+    display: flex;
+}
+
+#users-profile-technologies {
     color: rgba(117, 117, 117, 1);
-    padding-top: 50px;
     font-size: 12px;
     line-height: 1.5;
+    padding: 50px 40px 0;
+    width: 318px;
 }

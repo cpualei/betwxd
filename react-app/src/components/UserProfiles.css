@@ -2,14 +2,15 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    height: 100vh;
 }
 
 .users-stories-div {
     display: flex;
-    padding: 40px 225px 0;
+    margin-right: 20px;
+    padding: 40px 80px 0 200px;
     width: 100%;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .users-profile-div {
@@ -34,10 +35,6 @@
     line-height: 20px;
 }
 
-#profile-bio {
-    margin: 0 0 40px 0;
-}
-
 #profile-edit-link {
     color: rgba(26, 137, 23, 1);
     line-height: 20px;
@@ -54,7 +51,7 @@
 
 #technologies-used {
     color: rgba(117, 117, 117, 1);
-    margin-top: 50px;
+    padding-top: 50px;
     font-size: 12px;
     line-height: 1.5;
 }

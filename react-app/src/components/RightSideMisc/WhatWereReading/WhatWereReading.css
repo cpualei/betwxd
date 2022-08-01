@@ -1,11 +1,12 @@
-.what-were-reading-container {
+/* .what-were-reading-container {
     padding-bottom: 20px;
-}
+} */
 
 .what-were-reading-today-div {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-bottom: 16px;
 }
 
 #green-dot {
@@ -30,8 +31,7 @@
 }
 
 .profile-photo-and-username-container {
-    display: flex;
-    align-items: center;
+    height: 35px;
 }
 
 .profile-photo-and-username-div {
@@ -42,4 +42,5 @@
     display: flex;
     margin: 0 0 15px 0;
     font-weight: bold;
+    font-size: 15px;
 }

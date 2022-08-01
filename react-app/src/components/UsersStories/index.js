@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import GetUser from "../GetUser/index.js";
 import { viewStories } from "../../store/stories.js";
 import DotsIcon from "../Stories/DropdownMenu/DotsIcon";
 import moment from "moment";
@@ -28,7 +27,6 @@ function UsersStories({ userId }) {
   };
 
   return (
-    <>
       <div id="stories-container">
         {!usersStories.length ? (
           <p>You have no stories. Create one now!</p>
@@ -66,7 +64,6 @@ function UsersStories({ userId }) {
           ))
         )}
       </div>
-    </>
   );
 }
 

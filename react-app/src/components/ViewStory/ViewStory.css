@@ -4,9 +4,9 @@
 
 .viewstory-outer-div {
     display: flex;
-    padding: 40px 2% 0 21%;
+    padding: 40px 225px 0;
     width: 100%;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 

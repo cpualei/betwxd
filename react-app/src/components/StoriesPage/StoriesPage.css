@@ -6,7 +6,9 @@
 
 .stories-feed-div {
     display: flex;
-    padding: 40px 4% 0% 190px;
+    padding: 40px 0 0 60px;
+    width: 100%;
+    justify-content: center;
 }
 
 .right-side-misc-div {

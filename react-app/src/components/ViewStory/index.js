@@ -30,33 +30,35 @@ function ViewStory() {
 
   return (
     <div className="viewstory-container">
-      <div className="viewstory-div">
-        <div id="viewstory-user">
-          <NavLink
-            to={`/users/${story?.user_id}`}
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <GetUser userId={story?.user_id} />
-          </NavLink>
-        </div>
-        <div id="viewstory-date">
-          {moment(story?.created_at).format("MMM Do")}
-        </div>
-        <div id="viewstory-title">{story?.title}</div>
-        <img
-          id="viewstory-img"
-          onError={invalidImg}
-          src={story?.img}
-          alt="story-img"
-        />
-        <div id="viewstory-story">{story?.story}</div>
-        <div id="viewstory-comments-floating-icon-div">
-          <div id="viewstory-comments-floating-icon">
-            <CommentsModal story={story} />
+      <div className="viewstory-outer-div">
+        <div className="viewstory-inner-div">
+          <div id="viewstory-user">
+            <NavLink
+              to={`/users/${story?.user_id}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <GetUser userId={story?.user_id} />
+            </NavLink>
           </div>
-        </div>
-        <div className="viewstory-stories">
-          <Stories sessionUserId={sessionUserId} />
+          <div id="viewstory-date">
+            {moment(story?.created_at).format("MMM Do")}
+          </div>
+          <div id="viewstory-title">{story?.title}</div>
+          <img
+            id="viewstory-img"
+            onError={invalidImg}
+            src={story?.img}
+            alt="story-img"
+          />
+          <div id="viewstory-story">{story?.story}</div>
+          <div id="viewstory-comments-floating-icon-div">
+            <div id="viewstory-comments-floating-icon">
+              <CommentsModal story={story} />
+            </div>
+          </div>
+          <div className="viewstory-stories">
+            <Stories sessionUserId={sessionUserId} />
+          </div>
         </div>
       </div>
       <div className="right-side-misc-div">

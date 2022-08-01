@@ -1,15 +1,17 @@
 .viewstory-container {
     display: flex;
-    justify-content: space-between;
 }
 
-.viewstory-div {
+.viewstory-outer-div {
     display: flex;
-    width: 690px;
-    margin-left: 190px;
-    display: flex;
+    padding: 40px 2% 0 21%;
+    width: 100%;
     justify-content: center;
     flex-direction: column;
+}
+
+.viewstory-inner-div {
+    width: 690px;
 }
 
 #viewstory-user {

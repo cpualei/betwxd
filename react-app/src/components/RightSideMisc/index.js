@@ -8,13 +8,20 @@ import "./RightSideMisc.css";
 function RightSideMisc() {
   return (
     <div className="stories-misc-container">
-      <div className="stories-misc-div">
-        <SearchBar />
+      <div className="stories-misc-outter-div">
+        <div className="stories-misc-div">
+          <SearchBar />
+        </div>
+        <div className="what-were-reading-recommended-container">
+          <WhatWereReading />
+          <RecommendedTopics />
+          <UsersList />
+        </div>
       </div>
-      <div className="what-were-reading-recommended-container">
-        <WhatWereReading />
-        <RecommendedTopics />
-        <UsersList />
+      <div className="technologies-div">
+        <p id="technologies-used">
+          Javascript Python React.js Redux Flask SQLAlchemy Sequelize
+        </p>
       </div>
     </div>
   );

@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: column;
     background-color: white;
+    justify-content: space-between;
+}
+
+.stories-misc-outter-div {
+    display: flex;
+    flex-direction: column;
 }
 
 .stories-misc-div {
@@ -13,5 +19,17 @@
 
 .what-were-reading-recommended-container {
     padding: 0 40px 40px 40px;
+    width: 318px;
+}
+
+.technologies-div {
+    display: flex;
+}
+
+#technologies-used {
+    color: rgba(117, 117, 117, 1);
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 0 40px;
     width: 318px;
 }

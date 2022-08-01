@@ -37,18 +37,24 @@ function User() {
         <UsersStories userId={userId} />
       </div>
       <div className="users-profile-div">
-        <ProfileRightSideMisc />
-        <div className="users-profile-info">
-          <img
-            id="profile-photo"
-            src={user.profile_photo}
-            alt="profile-photo"
-          />
-          <p id="profile-username">{user.username}</p>
-          <p id="profile-bio">{user.bio}</p>
-          {/* {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null} */}
-          <RecommendedTopics />
-          <p id="technologies-used">Javascript Python React.js Redux Flask SQLAlchemy Sequelize</p>
+        <div className="users-profile-inner-div">
+          <ProfileRightSideMisc />
+          <div className="users-profile-info">
+            <img
+              id="profile-photo"
+              src={user.profile_photo}
+              alt="profile-photo"
+            />
+            <p id="profile-username">{user.username}</p>
+            <p id="profile-bio">{user.bio}</p>
+            {/* {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null} */}
+            <RecommendedTopics />
+          </div>
+        </div>
+        <div className="users-profile-technologies-div">
+          <p id="users-profile-technologies">
+            Javascript Python React.js Redux Flask SQLAlchemy Sequelize
+          </p>
         </div>
       </div>
     </div>

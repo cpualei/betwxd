@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateStory } from "../../store/stories.js";
-import "./EditStory.css";
+import "../CreateStory/CreateStory.css";
 
 function EditStory() {
   const { id } = useParams();
-  console.log(id)
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -64,6 +63,7 @@ function EditStory() {
         <div className="story-form-top-div">
           <div className="story-form-top-div-left">
             <p className="draft-in-user">Draft in {sessionUser.username}</p>
+            <p className="new-story-edit-story-text">Editing...</p>
           </div>
           <div className="story-form-top-div-right">
             <button className="publish-btn" type="submit" disabled={errors.length > 0}>

@@ -61,6 +61,7 @@ function CreateStory() {
         <div className="story-form-top-div">
           <div className="story-form-top-div-left">
             <p className="draft-in-user">Draft in {sessionUser.username}</p>
+            <p className="new-story-edit-story-text">Creating...</p>
           </div>
           <div className="story-form-top-div-right">
             <button className="publish-btn" type="submit" disabled={errors.length > 0}>

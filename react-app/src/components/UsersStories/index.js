@@ -9,6 +9,8 @@ import "../Stories/Stories.css";
 function UsersStories({ userId }) {
   const dispatch = useDispatch();
 
+  const sessionUser = useSelector((state) => state?.session?.user);
+
   const stories = useSelector((state) => {
     return Object?.values(state?.stories);
   });
@@ -29,7 +31,7 @@ function UsersStories({ userId }) {
   return (
       <div id="stories-container">
         {!usersStories.length ? (
-          <p>You have no stories. Create one now!</p>
+          <p>This user has no stories to share.</p>
         ) : (
           usersStories?.map((story) => (
             <ul className="stories-ul" key={story?.id}>
@@ -47,9 +49,11 @@ function UsersStories({ userId }) {
                     <div className="story-title">{story?.title}</div>
                     <div className="story-story">{story?.story}</div>
                   </NavLink>
+                  {sessionUser?.id === story?.user_id ?
                   <div className="story-icons-div">
                     <DotsIcon id="story-more-options" story={story} />
                   </div>
+                  : null}
                 </div>
                 <NavLink to={`/stories/${story.id}`}>
                   <img

@@ -40,11 +40,13 @@ function User() {
         <div className="users-profile-inner-div">
           <ProfileRightSideMisc />
           <div className="users-profile-info">
+            {user.profile_photo ?
             <img
               id="profile-photo"
               src={user.profile_photo}
               alt="profile-photo"
             />
+            : <img src={`https://ui-avatars.com/api/?name=${user.username}&rounded=true&background=a0a0a0`} />}
             <p id="profile-username">{user.username}</p>
             <p id="profile-bio">{user.bio}</p>
             {/* {sessionUser.id === user.id ? <p id="profile-edit-link">Edit profile</p> : null} */}

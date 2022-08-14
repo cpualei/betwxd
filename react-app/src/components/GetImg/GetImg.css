@@ -2,7 +2,7 @@
     padding: 0px
 }
 
-#user-photo {
+.user-photo {
     height: 23px;
     width: 23px;
     object-fit: cover;

@@ -18,20 +18,20 @@ function UsersList() {
     fetchData();
   }, []);
 
-  const userComponents = users.map((user) => {
+  const userComponents = users?.map((user) => {
     return (
-      <li key={user.id}>
+      <li key={user?.id}>
         <NavLink
           style={{ textDecoration: "none", color: "black" }}
-          to={`/users/${user.id}`}
+          to={`/users/${user?.id}`}
           >
           <div className="list-of-users-container">
             <div className="list-of-users-prof-photos">
-              <GetImg userId={user.id} />
+              <GetImg userId={user?.id} />
             </div>
-            <div className="list-of-users-usernames">{user.username}</div>
+            <div className="list-of-users-usernames">{user?.username}</div>
           </div>
-          <div className="list-of-users-bios">{user.bio}</div>
+          <div className="list-of-users-bios">{user?.bio}</div>
         </NavLink>
       </li>
     );

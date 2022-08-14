@@ -14,7 +14,8 @@ function GetImg({ userId }) {
   }, []);
 
   const invalidImg = (e) => {
-    e.currentTarget.src = "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";
+    e.currentTarget.src =
+      "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";
   };
 
   return (
@@ -22,7 +23,21 @@ function GetImg({ userId }) {
       {users?.map((user) => (
         <ul id="user-photo-ul" key={user?.id}>
           {user?.id === userId ? (
-            <img id="user-photo" src={user?.profile_photo} alt="profile-photo" onError={invalidImg}></img>
+            <>
+              {user?.profile_photo ? (
+                <img
+                  className="user-photo"
+                  src={user?.profile_photo}
+                  alt="profile-photo"
+                  onError={invalidImg}
+                />
+              ) : (
+                <img
+                  className="user-photo"
+                  src={`https://ui-avatars.com/api/?name=${user.username}&rounded=true&background=a0a0a0`}
+                />
+              )}
+            </>
           ) : null}
         </ul>
       ))}

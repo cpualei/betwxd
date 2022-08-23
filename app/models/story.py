@@ -13,6 +13,7 @@ class Story(db.Model):
     updated_at = db.Column(db.DateTime)
 
     comments = db.relationship("Comment", back_populates="stories", cascade="all, delete")
+    claps = db.relationship("Clap", back_populates="stories", cascade="all, delete")
     # categories = db.relationship("Category", backpopulates="stories")
 
     def to_dict(self):

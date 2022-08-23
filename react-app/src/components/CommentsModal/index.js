@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import Comments from './Comments';
+import ClapButton from '../ClapButton';
 import chat from './chat.png';
 import "./Comments.css"
 
@@ -9,6 +10,7 @@ function CommentsModal({ story }) {
 
   return (
     <>
+    {/* <ClapButton story={story} /> */}
       <img id="chat-icon" src={chat} alt="chat" onClick={() => setShowModal(true)}/>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

@@ -1,4 +1,4 @@
-from flask import Blueprint, json, request
+from flask import Blueprint, jsonify, json, request
 from app.models import db, Clap, Story, User
 # from app.forms import CreateCommentForm, EditCommentForm
 from flask_login import login_required
@@ -6,6 +6,11 @@ from datetime import datetime
 
 
 clap_routes = Blueprint('claps', __name__)
+
+@clap_routes.route('/')
+def claps():
+    claps = Clap.query.all()
+    return jsonify([clap.to_dict() for clap in claps])
 
 @login_required
 @clap_routes.route("/", methods=["POST"])

@@ -23,17 +23,19 @@ const remove = (clapId) => {
   };
 };
 
-export const viewClaps = (storyId) => async (dispatch) => {
-  const res = await fetch(`/api/claps/${storyId}`);
+export const viewClaps = () => async (dispatch) => {
+  // console.log("THIS IS THE STORY ID", storyId)
+  const res = await fetch(`/api/claps/`);
   const claps = await res.json();
+  // console.log("THESE ARE THE CLAPS===", claps)
   dispatch(view(claps));
   return claps;
 };
 
-export const createClap = (claps) => async (dispatch) => {
-  const res = await fetch("/api/claps", {
+export const createClap = (payload) => async (dispatch) => {
+  const res = await fetch("/api/claps/", {
     method: "POST",
-    body: JSON.stringify(claps),
+    body: JSON.stringify(payload),
   });
   const newClap = await res.json();
   dispatch(create(newClap));
@@ -42,10 +44,14 @@ export const createClap = (claps) => async (dispatch) => {
 export const removeClap = (clapId) => async (dispatch) => {
   const res = await fetch(`/api/claps/${clapId}`, {
     method: "DELETE",
-    body: JSON.stringify(clap),
+    // body: JSON.stringify(clap),
   });
-  const clap = await res.json();
-  dispatch(remove(clap));
+  // const clap = await res.json();
+  if (res.ok) {
+    dispatch(remove(clapId));
+  }
+
+  return res;
 };
 
 const clapsReducer = (state = {}, action) => {
@@ -54,8 +60,9 @@ const clapsReducer = (state = {}, action) => {
       const normalizedClaps = {};
       action.claps.forEach((clap) => (normalizedClaps[clap.id] = clap));
       return { ...normalizedClaps };
-    case CREATE_CLAP:
-      const createState = { ...state, [action.clap.id]: action.clap };
+      case CREATE_CLAP:
+        const createState = { ...state, [action.clap.id]: action.clap };
+        console.log("IN THE REDUCER", action)
       return createState;
     case REMOVE_CLAP:
       const removeState = { ...state };

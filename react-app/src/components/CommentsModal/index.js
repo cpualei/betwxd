@@ -10,7 +10,7 @@ function CommentsModal({ story }) {
 
   return (
     <>
-    {/* <ClapButton story={story} /> */}
+    <ClapButton story={story} />
       <img id="chat-icon" src={chat} alt="chat" onClick={() => setShowModal(true)}/>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

@@ -1,28 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import clapsBefore from "../../icons/clapsBefore.png";
 import clapsAfter from "../../icons/clapsAfter.png";
-import { createClap, removeClap } from "../../store/claps";
+import { viewClaps, createClap, removeClap } from "../../store/claps";
 import "./Claps.css";
-import { useDispatch } from "react-redux";
 
-const ClapButton = () => {
+const ClapButton = ({ story }) => {
+
   const dispatch = useDispatch();
 
-  // const claps = useSelector((state) => state.claps);
-  // console.log(claps)
+  const sessionUser = useSelector((state) => state.session.user)
+  const claps = Object.values(useSelector((state) => state.claps));
+
+  const thisClap = claps.filter((clap) => clap?.story_id === story?.id)[0]
 
   const [clap, setClap] = useState(false);
-  const [errors, setErrors] = useState([]);
 
-  // const onClick = async () => {
+  useEffect(() => {
+    dispatch(viewClaps());
+  }, [dispatch])
 
-  //     const payload = {
-  //         user_id: sessionUser?.id,
-  //         bunny_id: bunny?.id
-  //     }
+  const handleOnClick = (e) => {
+    e.preventDefault();
 
-  // }
+    const payload = {
+      user_id: sessionUser.id,
+      story_id: story.id
+    }
+
+    if (thisClap?.user_id === sessionUser?.id) {
+      dispatch(removeClap(thisClap?.id));
+      setClap(false);
+    } else {
+      dispatch(createClap(payload));
+      setClap(true);
+    }
+  }
 
   return (
     <>
@@ -30,7 +44,7 @@ const ClapButton = () => {
           src={!clap ? clapsBefore : clapsAfter}
           alt="claps"
           className="claps-btn"
-          onClick={() => setClap(true)}
+          onClick={handleOnClick}
         />
     </>
   );

@@ -10,8 +10,9 @@ clap_routes = Blueprint('claps', __name__)
 @clap_routes.route('/')
 def claps():
     claps = Clap.query.all()
-    print("THESE ARE THE CLAPS==============>", claps)
-    return json.dumps([clap.to_dict() for clap in claps])
+    # print("THESE ARE THE CLAPS==============>", claps)
+    # return json.dumps([clap.to_dict() for clap in claps])
+    return [clap.to_dict() for clap in claps]
 
 @login_required
 @clap_routes.route("/", methods=["POST"])

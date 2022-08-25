@@ -1,6 +1,6 @@
 #chat-icon {
-    height: 24px;
-    width: 24px;
+    height: 22px;
+    width: 22px;
     cursor: pointer;
 }
 
@@ -40,4 +40,10 @@
 
 .comments-username {
     display: flex;
+}
+
+#separator {
+    font-size: 13px;
+    color: #e6e6e6;
+    margin: 0 10px;
 }

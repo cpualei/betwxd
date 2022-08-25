@@ -49,31 +49,26 @@
     margin-bottom: 40px;
 }
 
-#viewstory-comments-floating-icon-div {
+#viewstory-claps-comments-floating-icon-div {
     position: sticky;
-    bottom: 66px;
+    bottom: 15px;
     transition: opacity 300ms;
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
 }
 
-#viewstory-comments-floating-icon {
+#viewstory-claps-comments-floating-icon {
     display: flex;
     justify-content: center;
     transform: translateY(0px);
     background-color: rgba(255, 255, 255, 1);
-    padding: 0 14px 0 16px;
+    padding: 0 25px;
     height: 40px;
     border-radius: 20px;
     width: 50px;
     align-items: center;
-}
-
-#viewstory-comments-icon {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 2px 10px 0px;
 }
 
 .viewstory-stories {

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
 import Stories from "../Stories";
-import CommentsModal from "../CommentsModal/index.js";
+import ClapAndComments from "../ClapAndComments/index.js";
 import RightSideMisc from "../RightSideMisc/index.js";
 import { viewStories } from "../../store/stories.js";
 import moment from "moment";
@@ -51,9 +51,9 @@ function ViewStory() {
             alt="story-img"
           />
           <div id="viewstory-story">{story?.story}</div>
-          <div id="viewstory-comments-floating-icon-div">
-            <div id="viewstory-comments-floating-icon">
-              <CommentsModal story={story} />
+          <div id="viewstory-claps-comments-floating-icon-div">
+            <div id="viewstory-claps-comments-floating-icon">
+              <ClapAndComments story={story} />
             </div>
           </div>
           <div className="viewstory-stories">

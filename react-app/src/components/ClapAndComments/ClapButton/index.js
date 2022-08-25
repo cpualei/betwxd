@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import clapsBefore from "../../icons/clapsBefore.png";
-import clapsAfter from "../../icons/clapsAfter.png";
-import { viewClaps, createClap, removeClap } from "../../store/claps";
-import "./Claps.css";
+import clapsBefore from "../../../icons/clapsBefore.png";
+import clapsAfter from "../../../icons/clapsAfter.png";
+import { viewClaps, createClap, removeClap } from "../../../store/claps";
+import "./ClapButton.css";
 
 const ClapButton = ({ story }) => {
   const dispatch = useDispatch();

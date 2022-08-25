@@ -5,13 +5,17 @@ import ClapButton from "./ClapButton";
 import chat from "./chat.png";
 import "./Comments.css";
 
-function ClapAndComments({ story }) {
+function ClapAndComments({ story, sessionUser }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <ClapButton story={story} />
-      <p id="separator">|</p>
+      {sessionUser ? (
+        <>
+          <ClapButton story={story} />
+          <p id="separator">|</p>
+        </>
+      ) : null}
       <img
         id="chat-icon"
         src={chat}

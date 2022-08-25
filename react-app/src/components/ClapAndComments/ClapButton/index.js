@@ -21,11 +21,11 @@ const ClapButton = ({ story }) => {
   }, [dispatch]);
 
   const handleOnClick = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
 
     const payload = {
-      user_id: sessionUser.id,
-      story_id: story.id,
+      user_id: sessionUser?.id,
+      story_id: story?.id,
     };
 
     if (thisClap?.user_id !== sessionUser?.id) {
@@ -38,6 +38,8 @@ const ClapButton = ({ story }) => {
   };
 
   return (
+    <>
+    {sessionUser ?
     <>
       {thisClap?.user_id !== sessionUser?.id ? (
         <img
@@ -54,6 +56,8 @@ const ClapButton = ({ story }) => {
           onClick={handleOnClick}
         />
       )}
+      </>
+: null}
     </>
   );
 };

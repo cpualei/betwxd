@@ -13,7 +13,7 @@ function ViewStory() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  const sessionUserId = useSelector((state) => state?.session?.user?.id);
+  const sessionUser = useSelector((state) => state?.session?.user);
 
   const stories = useSelector((state) => state?.stories);
 
@@ -53,11 +53,11 @@ function ViewStory() {
           <div id="viewstory-story">{story?.story}</div>
           <div id="viewstory-claps-comments-floating-icon-div">
             <div id="viewstory-claps-comments-floating-icon">
-              <ClapAndComments story={story} />
+              <ClapAndComments story={story} sessionUser={sessionUser} />
             </div>
           </div>
           <div className="viewstory-stories">
-            <Stories sessionUserId={sessionUserId} />
+            <Stories sessionUserId={sessionUser?.id} />
           </div>
         </div>
       </div>

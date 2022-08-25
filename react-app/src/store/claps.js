@@ -25,9 +25,8 @@ const remove = (clapId) => {
 
 export const viewClaps = () => async (dispatch) => {
   // console.log("THIS IS THE STORY ID", storyId)
-  const res = await fetch(`/api/claps/`);
+  const res = await fetch("/api/claps/");
   const claps = await res.json();
-  // console.log("THESE ARE THE CLAPS===", claps)
   dispatch(view(claps));
   return claps;
 };

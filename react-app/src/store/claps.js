@@ -36,7 +36,9 @@ export const createClap = (payload) => async (dispatch) => {
     method: "POST",
     body: JSON.stringify(payload),
   });
+  console.log("THIS IS THE POST RES === >", res)
   const newClap = await res.json();
+  console.log("THIS IS THE POST NEW CLAP === >", newClap)
   dispatch(create(newClap));
 };
 

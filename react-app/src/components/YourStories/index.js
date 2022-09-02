@@ -35,6 +35,10 @@ function YourStories() {
   return (
     <div className="stories-container">
       <div className="your-stories-div">
+        <div className="your-stories-heading-div">
+          <h1 id="your-stories-heading">Your stories</h1>
+        </div>
+        <div>
         {!yourStories?.length ? (
           <p>You have no stories. Create one now!</p>
         ) : (
@@ -83,6 +87,7 @@ function YourStories() {
             </ul>
           ))
         )}
+        </div>
       </div>
       <div className="right-side-misc-div">
         <RightSideMisc />

@@ -24,7 +24,6 @@ const remove = (clapId) => {
 };
 
 export const viewClaps = () => async (dispatch) => {
-  // console.log("THIS IS THE STORY ID", storyId)
   const res = await fetch("/api/claps/");
   const claps = await res.json();
   dispatch(view(claps));
@@ -38,7 +37,6 @@ export const createClap = (payload) => async (dispatch) => {
   });
   console.log("THIS IS THE POST RES === >", res)
   const newClap = await res.json();
-  console.log("THIS IS THE POST NEW CLAP === >", newClap)
   dispatch(create(newClap));
 };
 

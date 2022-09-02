@@ -1,4 +1,4 @@
-const VIEW_USERS = "/claps/VIEW_CLAPS";
+const VIEW_USERS = "/users/VIEW_USERS";
 // const CREATE_CLAP = "/claps/CREATE_CLAP";
 // const REMOVE_CLAP = "/claps/REMOVE_CLAP";
 
@@ -24,10 +24,10 @@ const view = (users) => {
 // };
 
 export const viewUsers = () => async (dispatch) => {
-  // console.log("THIS IS THE STORY ID", storyId)
   const res = await fetch("/api/users/");
   const users = await res.json();
   dispatch(view(users));
+  console.log("These are the users in Thunk", users)
   return users;
 };
 

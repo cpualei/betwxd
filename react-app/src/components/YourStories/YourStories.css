@@ -1,7 +1,30 @@
-.your-stories-div {
+.your-stories-heading-div {
+    display: flex;
+    width: 715px;
+    justify-content: flex-start;
+}
+
+#your-stories-heading {
+    display: flex;
+    font-weight: bolder;
+    font-size: 42px;
+    color: rgba(41, 41, 41, 1);
+}
+
+/* .your-stories-div {
     display: flex;
     margin-right: 20px;
     padding: 40px 80px 0 200px;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.your-stories-div {
+    display: flex;
+    margin-right: 20px;
+    /* margin: 0; */
+    padding: 40px 100px 0 200px;
     width: 100%;
     align-items: center;
     flex-direction: column;

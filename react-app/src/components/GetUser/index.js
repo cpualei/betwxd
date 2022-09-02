@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { viewUsers } from "../../store/users";
 import "./GetUser.css"
 
 function GetUser({ userId }) {
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+
+  const users = useSelector((state) => {
+    return Object?.values(state?.users);
+  });
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("/api/users/");
-      const responseData = await response.json();
-      setUsers(responseData?.users);
-    }
-    fetchData();
-  }, []);
+    dispatch(viewUsers());
+  }, [dispatch])
 
   return (
     <>

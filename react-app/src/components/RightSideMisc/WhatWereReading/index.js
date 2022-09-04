@@ -11,9 +11,9 @@ function WhatWereReading() {
     return Object.values(state.stories);
   });
 
-  const storyOne = stories[2];
-  const storyTwo = stories[0];
-  const storyThree = stories[3];
+  // const storyOne = stories[2];
+  // const storyTwo = stories[0];
+  // const storyThree = stories[3];
 
   // const threeStories = [storyOne, storyTwo, storyThree];
   const threeStories = stories.splice(1, 3).reverse();

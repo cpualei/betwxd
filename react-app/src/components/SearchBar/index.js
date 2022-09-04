@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import GetImg from "../GetImg";
+
 import search from "../../icons/search.png";
+import { viewUsers } from "../../store/users";
+import { viewStories } from "../../store/stories";
 import "./SearchBar.css";
 
 function SearchBar() {
-  const [users, setUsers] = useState([]);
-  const [stories, setStories] = useState([]);
+  const dispatch = useDispatch();
+
+  const users = useSelector((state) => {
+    return Object.values(state.users);
+  });
+
+  const stories = useSelector((state) => {
+    return Object.values(state.stories);
+  });
+
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("/api/users/");
-      const responseData = await response.json();
-      setUsers(responseData?.users);
-    }
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("/api/stories/");
-      const responseData = await response.json();
-      setStories(responseData?.stories);
-    }
-    fetchData();
-  }, []);
+    dispatch(viewUsers());
+    dispatch(viewStories());
+  }, [dispatch]);
 
   return (
     <>
@@ -50,12 +49,46 @@ function SearchBar() {
               })
               .map((user) => (
                 <div className="username-search-result" key={user?.id}>
-                  <a href={`/users/${user?.id}`}  style={{textDecoration: "none"}} className="username-result">
-                    <div className="profile-photo-and-username-container">
-                      <div className="profile-photo-div">
-                    <GetImg userId={user?.id} />
+                  <a
+                    href={`/users/${user?.id}`}
+                    style={{ textDecoration: "none" }}
+                    className="username-result"
+                  >
+                    <div className="search-results-container">
+                      <div className="search-imgs-div">
+                        <GetImg userId={user?.id} />
+                      </div>
+                      <p className="username-result">{`${user?.username}`}</p>
                     </div>
-                    <p className="username-result">{`${user?.username}`}</p>
+                  </a>
+                </div>
+              ))
+          : null}
+        {query
+          ? stories
+              .filter((story) => {
+                if (
+                  story?.title?.toLowerCase()?.includes(query?.toLowerCase())
+                ) {
+                  return story;
+                }
+              })
+              .map((story) => (
+                <div className="username-search-result" key={story?.id}>
+                  <a
+                    href={`/stories/${story?.id}`}
+                    style={{ textDecoration: "none" }}
+                    className="username-result"
+                  >
+                    <div className="search-results-container">
+                      <div className="search-imgs-div">
+                        <img
+                          className="story-photo"
+                          src={story?.img}
+                          alt="story-img"
+                        />
+                      </div>
+                      <p className="username-result">{`${story?.title}`}</p>
                     </div>
                   </a>
                 </div>

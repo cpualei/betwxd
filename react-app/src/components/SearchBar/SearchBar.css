@@ -32,16 +32,17 @@
 .username-search-result {
     display: flex;
     border: 1px solid #9999993b;
-    height: 50px;
+    height: 47px;
     border-radius: 5px;
     box-shadow: 2px 2px 20px 1px rgb(135 135 135 / 25%);
-    padding: 8px 0 8px 24px;
-    width: 287px;
+    padding: 8px 24px;
+    width: 260px;
     background-color: white;
     flex-direction: column;
     position: absolute;
     top: 162px;
-    left: 1067px;
+    left: 1082px;
+    justify-content: center;
 }
 
 .profile-photo-and-username-container {
@@ -59,4 +60,12 @@
     width: fit-content;
     color: black;
     font-size: 14px;
+}
+
+.story-photo {
+    height: 23px;
+    width: 23px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 8px;
 }

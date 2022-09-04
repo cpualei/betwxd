@@ -45,13 +45,14 @@
     justify-content: center;
 }
 
-.profile-photo-and-username-container {
+.search-results-container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 35px;
 }
 
-.profile-photo-div {
+.search-imgs-div {
     display: flex;
 }
 

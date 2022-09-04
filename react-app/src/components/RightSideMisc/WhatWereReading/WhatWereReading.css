@@ -31,6 +31,9 @@
 }
 
 .profile-photo-and-username-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     height: 35px;
 }
 

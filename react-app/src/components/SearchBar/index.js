@@ -26,7 +26,6 @@ function SearchBar() {
     dispatch(viewStories());
   }, [dispatch]);
 
-
   return (
     <>
       <NavLink to="/new-story">
@@ -50,12 +49,16 @@ function SearchBar() {
               })
               .map((user) => (
                 <div className="username-search-result" key={user?.id}>
-                  <a href={`/users/${user?.id}`}  style={{textDecoration: "none"}} className="username-result">
-                    <div className="profile-photo-and-username-container">
-                      <div className="profile-photo-div">
-                    <GetImg userId={user?.id} />
-                    </div>
-                    <p className="username-result">{`${user?.username}`}</p>
+                  <a
+                    href={`/users/${user?.id}`}
+                    style={{ textDecoration: "none" }}
+                    className="username-result"
+                  >
+                    <div className="search-results-container">
+                      <div className="search-imgs-div">
+                        <GetImg userId={user?.id} />
+                      </div>
+                      <p className="username-result">{`${user?.username}`}</p>
                     </div>
                   </a>
                 </div>
@@ -72,12 +75,20 @@ function SearchBar() {
               })
               .map((story) => (
                 <div className="username-search-result" key={story?.id}>
-                  <a href={`/stories/${story?.id}`}  style={{textDecoration: "none"}} className="username-result">
-                    <div className="profile-photo-and-username-container">
-                      <div className="profile-photo-div">
-                    <img className="story-photo" src={story?.img} alt="story-img" />
-                    </div>
-                    <p className="username-result">{`${story?.title}`}</p>
+                  <a
+                    href={`/stories/${story?.id}`}
+                    style={{ textDecoration: "none" }}
+                    className="username-result"
+                  >
+                    <div className="search-results-container">
+                      <div className="search-imgs-div">
+                        <img
+                          className="story-photo"
+                          src={story?.img}
+                          alt="story-img"
+                        />
+                      </div>
+                      <p className="username-result">{`${story?.title}`}</p>
                     </div>
                   </a>
                 </div>

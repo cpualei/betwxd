@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStory } from "../../store/stories.js";
+import ImageUpload from "../ImageUpload/index.js";
 import "./CreateStory.css";
 
 function CreateStory() {
@@ -101,6 +102,7 @@ function CreateStory() {
               required
             ></input>
           </div>
+          <ImageUpload />
           <div className="story-errors-div">
             <ul
               className="story-errors"

@@ -32,12 +32,11 @@ export const viewStories = () => async (dispatch) => {
   }
 };
 
-export const createStory = (payload) => async (dispatch) => {
-  console.log("THIS IS THE THUNK");
+export const createStory = (formData) => async (dispatch) => {
   const res = await fetch("/api/stories/new-story", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    // headers: { "Content-Type": "application/json" },
+    body: formData,
   });
 
   // const newStory = await res.json();
@@ -48,7 +47,6 @@ export const createStory = (payload) => async (dispatch) => {
   // }
   if (res.ok) {
     const data = await res.json();
-    console.log("THIS IS THE DATA====", data);
     dispatch(create(data));
 
     return null;

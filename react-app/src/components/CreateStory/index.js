@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStory } from "../../store/stories.js";
-import ImageUpload from "../ImageUpload/index.js";
 import "./CreateStory.css";
 
 function CreateStory() {
@@ -14,6 +13,7 @@ function CreateStory() {
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
   const [img, setImg] = useState("");
+  const [imgLoading, setImgLoading] = useState("");
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -28,9 +28,9 @@ function CreateStory() {
       errors.push("*Story must not exceed 5000 characters");
     else if (story.length < 1)
       errors.push("*Please provide a story to publish.");
-    if (!img.match(validateImgUrl)) {
-      errors.push("*Please provide an image that ends in PNG, JPG or JPEG format.");
-    }
+    // if (!img.match(validateImgUrl)) {
+    //   errors.push("*Please provide an image that ends in PNG, JPG or JPEG format.");
+    // }
 
     setErrors(errors);
   }, [title, story, img]);
@@ -38,14 +38,17 @@ function CreateStory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      user_id: sessionUser.id,
-      title,
-      story,
-      img,
-    };
+    const formData = new FormData();
+    formData.append("user_id", sessionUser.id);
+    formData.append("title", title);
+    formData.append("story", story);
+    formData.append("img", img);
 
-    let data = await dispatch(createStory(payload));
+    // aws uploads can be a bit slow—displaying
+    // some sort of loading message is a good idea
+    setImgLoading(true);
+
+    let data = await dispatch(createStory(formData));
 
     if (data) {
       setErrors(data);
@@ -55,6 +58,11 @@ function CreateStory() {
       return history.push(`/`);
     }
   };
+
+  const updateImage = (e) => {
+    const img = e.target.files[0];
+    setImg(img);
+}
 
   return (
     <div className="story-form-container">
@@ -93,16 +101,11 @@ function CreateStory() {
           ></textarea>
           <div style={{ textAlign: "center" }}>
             <input
-              name="img"
-              className="story-form-img"
-              type="text"
-              value={img}
-              onChange={(e) => setImg(e.target.value)}
-              placeholder={"Image URL goes here..."}
-              required
-            ></input>
+              type="file"
+              accept="image/*"
+              onChange={updateImage}
+            />
           </div>
-          <ImageUpload />
           <div className="story-errors-div">
             <ul
               className="story-errors"

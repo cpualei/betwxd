@@ -82,7 +82,7 @@ function EditStory() {
             <button
               className="publish-btn"
               type="submit"
-              disabled={errors.length > 0}
+              // disabled={errors.length > 0}
             >
               Publish
             </button>
@@ -131,7 +131,7 @@ function EditStory() {
               required
             ></textarea>
           </div>
-          <div className="story-errors-div">
+          {/* <div className="story-errors-div">
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}
@@ -140,7 +140,7 @@ function EditStory() {
                 <li key={idx}>{error}</li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
       </form>
     </div>

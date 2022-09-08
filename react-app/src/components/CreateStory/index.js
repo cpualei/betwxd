@@ -18,7 +18,6 @@ function CreateStory() {
 
   useEffect(() => {
     const errors = [];
-    const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
     if (title.length > 100)
       errors.push("*Title must not exceed 100 characters");
@@ -28,9 +27,8 @@ function CreateStory() {
       errors.push("*Story must not exceed 5000 characters");
     else if (story.length < 1)
       errors.push("*Please provide a story to publish.");
-    // if (!img.match(validateImgUrl)) {
-    //   errors.push("*Please provide an image that ends in PNG, JPG or JPEG format.");
-    // }
+    if (img.length < 1)
+      errors.push("*Please provide an image for your story")
 
     setErrors(errors);
   }, [title, story, img]);
@@ -62,7 +60,7 @@ function CreateStory() {
   const updateImage = (e) => {
     const img = e.target.files[0];
     setImg(img);
-}
+  };
 
   return (
     <div className="story-form-container">
@@ -73,7 +71,11 @@ function CreateStory() {
             <p className="new-story-edit-story-text">Creating...</p>
           </div>
           <div className="story-form-top-div-right">
-            <button className="publish-btn" type="submit" disabled={errors.length > 0}>
+            <button
+              className="publish-btn"
+              type="submit"
+              disabled={errors.length > 0}
+            >
               Publish
             </button>
           </div>
@@ -100,11 +102,7 @@ function CreateStory() {
             required
           ></textarea>
           <div style={{ textAlign: "center" }}>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-            />
+            <input type="file" accept="image/*" onChange={updateImage} required/>
           </div>
           <div className="story-errors-div">
             <ul

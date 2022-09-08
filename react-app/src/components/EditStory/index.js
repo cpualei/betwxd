@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateStory } from "../../store/stories.js";
@@ -8,6 +8,7 @@ function EditStory() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+  // const hiddenFileInput = useRef(null);
 
   const sessionUser = useSelector((state) => state.session.user);
   const stories = useSelector((state) => state?.stories);
@@ -16,11 +17,11 @@ function EditStory() {
   const [title, setTitle] = useState(storyContent?.title);
   const [story, setStory] = useState(storyContent?.story);
   const [img, setImg] = useState(storyContent?.img);
+  const [imgLoading, setImgLoading] = useState("");
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     const errors = [];
-    const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
     if (title?.length > 100)
       errors.push("*Title must not exceed 100 characters");
@@ -30,9 +31,8 @@ function EditStory() {
       errors.push("*Story must not exceed 5000 characters");
     else if (story?.length < 1)
       errors.push("*Please provide a story to publish.");
-    if (!img?.match(validateImgUrl)) {
-      errors.push("*Please provide an image that begins with http or https and ends in PNG, JPG or JPEG format.");
-    }
+    if (img?.length < 1)
+      errors.push("*Please provide an image for your story")
 
     setErrors(errors);
   }, [title, story, img]);
@@ -40,14 +40,17 @@ function EditStory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      user_id: sessionUser.id,
-      title,
-      story,
-      img,
-    };
+    const formData = new FormData();
+    formData.append("user_id", sessionUser.id);
+    formData.append("title", title);
+    formData.append("story", story);
+    formData.append("img", img);
 
-    let data = await dispatch(updateStory(id, payload));
+    // aws uploads can be a bit slow—displaying
+    // some sort of loading message is a good idea
+    setImgLoading(true);
+
+    let data = await dispatch(updateStory(id, formData));
 
     if (data) {
       setErrors(data);
@@ -56,6 +59,16 @@ function EditStory() {
       return history.push(`/`);
     }
   };
+
+  const updateImage = (e) => {
+    const img = e.target.files[0];
+    setImg(img);
+
+  };
+
+  // const handleClick = (e) => {
+  //   hiddenFileInput.current?.click();
+  // };
 
   return (
     <div className="story-form-container">
@@ -93,16 +106,10 @@ function EditStory() {
             required
           ></textarea>
           <div style={{ textAlign: "center" }}>
-            <input
-              name="img"
-              className="story-form-img"
-              type="text"
-              value={img}
-              onChange={(e) => setImg(e.target.value)}
-              placeholder={"Image URL goes here..."}
-              // onError={invalidImg}
-              required
-            ></input>
+            {/* <button onClick={handleClick}>Upload an image</button> */}
+              {/* <input type="file" accept="image/*" onChange={updateImage} style={{display: 'none'}} ref={hiddenFileInput} required/> */}
+              <input type="file" accept="image/*" onChange={updateImage}/>
+              &nbsp;{img ? "Image uploaded exists" : null}
           </div>
           <div className="story-errors-div">
             <ul

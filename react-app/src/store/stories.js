@@ -61,11 +61,11 @@ export const createStory = (formData) => async (dispatch) => {
   }
 };
 
-export const updateStory = (id, payload) => async (dispatch) => {
+export const updateStory = (id, formData) => async (dispatch) => {
   const res = await fetch(`/api/stories/edit-story/${id}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    // headers: { "Content-Type": "application/json" },
+    body: formData, id
   });
 
   // if (res.ok) {

@@ -44,6 +44,57 @@ p.new-story-edit-story-text {
     margin: 20px 25%;
 }
 
+.story-form-img {
+    padding: 10px;
+    margin-top: 30px;
+    width: 329px;
+}
+
+.img-upload-text-div {
+    display: flex;
+    justify-content: center;
+}
+
+.img-upload-successful {
+    /* position: relative; */
+    /* right: 10px; */
+    display: flex;
+    padding: 9px 15px;
+    background-color: papayawhip;
+    border-radius: 16px;
+    width: fit-content;
+}
+
+.img-not-uploaded {
+    display: flex;
+    padding: 9px 15px;
+    background-color: papayawhip;
+    border-radius: 16px;
+    width: fit-content;
+}
+
+.upload-and-story-cntner {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    /* align-content: space-between; */
+}
+
+.create-story-upload-and-story-div {
+    position: absolute;
+}
+
+.upload-and-story-div {
+    display: flex;
+    /* align-content: center; */
+}
+
+#img-preview {
+    /* position: absolute; */
+    max-height: fit-content;
+    margin-left: 20px;
+}
+
 .story-form-inputs {
     font-family: medium-content-title-font,Georgia,Cambria,"Times New Roman",Times,serif;
     font-weight: 400;
@@ -56,7 +107,7 @@ p.new-story-edit-story-text {
     font-weight: 400;
     line-height: 1.25;
     letter-spacing: 0;
-    margin-top: 20px;
+    margin: 20px 0 0 65px;
 }
 
 ::placeholder {
@@ -64,20 +115,16 @@ p.new-story-edit-story-text {
 }
 
 #story-form-story {
+    display: flex;
     font-size: 21px;
     line-height: 1.58;
     letter-spacing: -.003em;
-    margin-top: 10px;
     flex-wrap: wrap;
     resize: none;
     height: 300px;
+    margin-left: 66px;
 }
 
-.story-form-img {
-    padding: 10px;
-    margin-top: 30px;
-    width: 329px;
-}
 
 input:focus,
 select:focus,
@@ -108,7 +155,7 @@ button:focus {
     cursor: pointer;
 }
 
-/* #preview-img {
-    height: 25px;
-} */
-
+.upload-btn {
+    height: 37px;
+    cursor: pointer;
+}

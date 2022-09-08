@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStory } from "../../store/stories.js";
+import uploadImg from "../../icons/uploadImg.png";
 import "./CreateStory.css";
 
 function CreateStory() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const hiddenFileInput = useRef(null);
 
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -27,8 +29,7 @@ function CreateStory() {
       errors.push("*Story must not exceed 5000 characters");
     else if (story.length < 1)
       errors.push("*Please provide a story to publish.");
-    if (img.length < 1)
-      errors.push("*Please provide an image for your story")
+    if (img.length < 1) errors.push("*Please provide an image for your story");
 
     setErrors(errors);
   }, [title, story, img]);
@@ -60,6 +61,11 @@ function CreateStory() {
   const updateImage = (e) => {
     const img = e.target.files[0];
     setImg(img);
+    console.log("this is the file", img.name);
+  };
+
+  const handleClick = (e) => {
+    hiddenFileInput.current?.click();
   };
 
   return (
@@ -91,24 +97,51 @@ function CreateStory() {
             placeholder={"Title"}
             required
           ></input>
-          <textarea
-            name="story"
-            className="story-form-inputs"
-            id="story-form-story"
-            type="text"
-            value={story}
-            onChange={(e) => setStory(e.target.value)}
-            placeholder={"Tell your story..."}
-            required
-          ></textarea>
-          <div style={{ textAlign: "center" }}>
-            <input type="file" accept="image/*" onChange={updateImage} required/>
+          <div className="upload-and-story-cntner">
+            <div className="create-story-upload-and-story-div">
+              <img
+                src={uploadImg}
+                className="upload-btn"
+                onClick={handleClick}
+                alt="img"
+              />
+              <input
+                type="file"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={updateImage}
+                // onChange={(e) => setImg(e.target.files[0])}
+                // onChange={(e) => setImg(e.target.value)}
+                ref={hiddenFileInput}
+                required
+              ></input>
+              {/* <img id="img-preview"  src={img} alt={img} /> */}
+              {/* <input type="file" accept="image/*" onChange={updateImage}/> */}
+            </div>
+            <textarea
+              name="story"
+              className="story-form-inputs"
+              id="story-form-story"
+              type="text"
+              value={story}
+              onChange={(e) => setStory(e.target.value)}
+              placeholder={"Tell your story..."}
+              required
+              ></textarea>
           </div>
+            <div className="img-upload-text-div">
+              {img ? (
+                <p className="img-upload-successful">Image upload successful</p>
+              ) : (
+                null
+                // <p className="img-not-uploaded">No image selected</p>
+              )}
+            </div>
           <div className="story-errors-div">
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}
-            >
+              >
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}

@@ -13,11 +13,11 @@ function CreateStory() {
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
   const [img, setImg] = useState("");
+  const [imgLoading, setImgLoading] = useState("");
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     const errors = [];
-    const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
     if (title.length > 100)
       errors.push("*Title must not exceed 100 characters");
@@ -27,9 +27,8 @@ function CreateStory() {
       errors.push("*Story must not exceed 5000 characters");
     else if (story.length < 1)
       errors.push("*Please provide a story to publish.");
-    if (!img.match(validateImgUrl)) {
-      errors.push("*Please provide an image that ends in PNG, JPG or JPEG format.");
-    }
+    if (img.length < 1)
+      errors.push("*Please provide an image for your story")
 
     setErrors(errors);
   }, [title, story, img]);
@@ -37,14 +36,17 @@ function CreateStory() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      user_id: sessionUser.id,
-      title,
-      story,
-      img,
-    };
+    const formData = new FormData();
+    formData.append("user_id", sessionUser.id);
+    formData.append("title", title);
+    formData.append("story", story);
+    formData.append("img", img);
 
-    let data = await dispatch(createStory(payload));
+    // aws uploads can be a bit slow—displaying
+    // some sort of loading message is a good idea
+    setImgLoading(true);
+
+    let data = await dispatch(createStory(formData));
 
     if (data) {
       setErrors(data);
@@ -53,6 +55,11 @@ function CreateStory() {
       setErrors([]);
       return history.push(`/`);
     }
+  };
+
+  const updateImage = (e) => {
+    const img = e.target.files[0];
+    setImg(img);
   };
 
   return (
@@ -64,7 +71,11 @@ function CreateStory() {
             <p className="new-story-edit-story-text">Creating...</p>
           </div>
           <div className="story-form-top-div-right">
-            <button className="publish-btn" type="submit" disabled={errors.length > 0}>
+            <button
+              className="publish-btn"
+              type="submit"
+              disabled={errors.length > 0}
+            >
               Publish
             </button>
           </div>
@@ -91,15 +102,7 @@ function CreateStory() {
             required
           ></textarea>
           <div style={{ textAlign: "center" }}>
-            <input
-              name="img"
-              className="story-form-img"
-              type="text"
-              value={img}
-              onChange={(e) => setImg(e.target.value)}
-              placeholder={"Image URL goes here..."}
-              required
-            ></input>
+            <input type="file" accept="image/*" onChange={updateImage} required/>
           </div>
           <div className="story-errors-div">
             <ul

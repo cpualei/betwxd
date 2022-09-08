@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from app.models import db, Story
 from app.forms import CreateStoryForm, EditStoryForm
+from app.AWS import upload_file_to_s3, allowed_file, get_unique_filename
 from datetime import datetime
 
 
@@ -32,12 +33,33 @@ def story(id):
 def add_story():
     form = CreateStoryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    if "img" not in request.files:
+        return {"errors": "image required"}, 400
+
+    image = request.files["img"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
+
     if form.validate_on_submit():
         data = form.data
         new_story = Story(user_id=data['user_id'],
                           title=data['title'],
                           story=data['story'],
-                          img=data['img'],
+                          img=url,
                           created_at=datetime.now())
         db.session.add(new_story)
         db.session.commit()
@@ -49,11 +71,31 @@ def edit_story(id):
     story = Story.query.get(id)
     form = EditStoryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    if "img" not in request.files:
+        return {"errors": "image required"}, 400
+
+    image = request.files["img"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
     if form.validate_on_submit():
         data = form.data
         story.title=data['title']
         story.story=data['story']
-        story.img=data['img']
+        story.img=url
         story.updated_at=datetime.now()
 
         db.session.commit()

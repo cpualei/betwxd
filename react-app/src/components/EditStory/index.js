@@ -33,7 +33,7 @@ function EditStory() {
       errors.push("*Story must not exceed 5000 characters");
     else if (story?.length < 1)
       errors.push("*Please provide a story to publish.");
-    if (img?.length < 1) errors.push("*Please provide an image for your story");
+    if (!img) errors.push("*Please provide an image for your story");
 
     setErrors(errors);
   }, [title, story, img]);
@@ -62,8 +62,8 @@ function EditStory() {
   };
 
   const updateImage = (e) => {
-    const img = e.target.files[0];
-    setImg(img);
+    const file = e.target.files[0];
+    setImg(file);
   };
 
   const handleClick = (e) => {

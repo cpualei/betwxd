@@ -50,27 +50,28 @@ p.new-story-edit-story-text {
     width: 329px;
 }
 
-.img-upload-text-div {
+.form-btm-text-and-errors-div {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.img-upload-successful {
-    /* position: relative; */
-    /* right: 10px; */
+.form-btm-text-and-errors {
     display: flex;
     padding: 9px 15px;
-    background-color: papayawhip;
     border-radius: 16px;
     width: fit-content;
+    margin: 2.5px 0;
 }
 
-.img-not-uploaded {
-    display: flex;
-    padding: 9px 15px;
+#img-upload-successful {
+    margin-top: 5px;
+    background-color: #b7e7cc;
+}
+
+#img-not-uploaded {
+    margin-top: 5px;
     background-color: papayawhip;
-    border-radius: 16px;
-    width: fit-content;
 }
 
 .upload-and-story-cntner {
@@ -133,14 +134,16 @@ button:focus {
     outline: none;
 }
 
-.story-errors-div {
+.story-errors {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
 }
 
-.story-errors {
-    line-height: 1.4;
+#story-errors-li {
+    background-color: papayawhip;
+    margin: 2.5px 0;
 }
 
 .publish-btn {

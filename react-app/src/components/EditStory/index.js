@@ -18,7 +18,7 @@ function EditStory() {
 
   const [title, setTitle] = useState(storyContent?.title);
   const [story, setStory] = useState(storyContent?.story);
-  const [img, setImg] = useState(storyContent?.img);
+  const [img, setImg] = useState();
   // const [imgLoading, setImgLoading] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -26,14 +26,14 @@ function EditStory() {
     const errors = [];
 
     if (title?.length > 100)
-      errors.push("*Title must not exceed 100 characters");
+      errors.push("Title must not exceed 100 characters");
     else if (title?.length < 1)
-      errors.push("*Please provide a title for your story.");
+      errors.push("Please provide a title for your story.");
     if (story?.length > 5000)
-      errors.push("*Story must not exceed 5000 characters");
+      errors.push("Story must not exceed 5000 characters");
     else if (story?.length < 1)
-      errors.push("*Please provide a story to publish.");
-    if (!img) errors.push("*Please provide an image for your story");
+      errors.push("Please provide a story to publish.");
+    // if (!img) errors.push("*Please provide an image for your story");
 
     setErrors(errors);
   }, [title, story, img]);
@@ -115,9 +115,8 @@ function EditStory() {
                 // onChange={(e) => setImg(e.target.files[0])}
                 // onChange={(e) => setImg(e.target.value)}
                 ref={hiddenFileInput}
-                required
               />
-              <img id="img-preview"  src={storyContent?.img} alt={img} />
+              {/* <img id="img-preview"  src={storyContent?.img} alt={img} /> */}
               {/* <input type="file" accept="image/*" onChange={updateImage}/> */}
             </div>
             <textarea
@@ -131,16 +130,22 @@ function EditStory() {
               required
             ></textarea>
           </div>
-          {/* <div className="story-errors-div">
+          <div className="form-btm-text-and-errors-div">
+              {img ? (
+                <p className="form-btm-text-and-errors" id="img-upload-successful">Image upload successful!</p>
+              ) : (
+                // null
+                <p className="form-btm-text-and-errors" id="img-not-uploaded">Please provide an image for your story.</p>
+              )}
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}
-            >
+              >
               {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
+                <li className="form-btm-text-and-errors" id="story-errors-li" key={idx}>{error}</li>
               ))}
             </ul>
-          </div> */}
+            </div>
         </div>
       </form>
     </div>

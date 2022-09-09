@@ -138,7 +138,8 @@ function EditStory() {
             ></textarea>
           </div>
           <div className="form-btm-text-and-errors-div">
-            {errors.length === 0 && img ? (
+            {!errors.includes("Please provide an image for your story.") &&
+            img ? (
               <p
                 className="form-btm-text-and-errors"
                 id="img-upload-successful"

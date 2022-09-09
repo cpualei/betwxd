@@ -21,15 +21,14 @@ function CreateStory() {
   useEffect(() => {
     const errors = [];
 
-    if (title.length > 100)
-      errors.push("Title must not exceed 100 characters");
+    if (title.length > 100) errors.push("Title must not exceed 100 characters");
     else if (title.length < 1)
       errors.push("Please provide a title for your story.");
     if (story.length > 5000)
       errors.push("Story must not exceed 5000 characters");
     else if (story.length < 1)
       errors.push("Please provide a story to publish.");
-    // if (!img) errors.push("Please provide an image for your story.");
+    if (!img) errors.push("Please provide an image for your story.");
 
     setErrors(errors);
   }, [title, story, img]);
@@ -50,7 +49,7 @@ function CreateStory() {
     let data = await dispatch(createStory(formData));
 
     if (data) {
-      setErrors(data);
+      setErrors([data]);
     } else {
       // received a valid request
       setErrors([]);
@@ -126,24 +125,32 @@ function CreateStory() {
               onChange={(e) => setStory(e.target.value)}
               placeholder={"Tell your story..."}
               required
-              ></textarea>
+            ></textarea>
           </div>
-            <div className="form-btm-text-and-errors-div">
-              {img ? (
-                <p className="form-btm-text-and-errors" id="img-upload-successful">Image upload successful!</p>
-              ) : (
-                // null
-                <p className="form-btm-text-and-errors" id="img-not-uploaded">Please provide an image for your story.</p>
-              )}
+          <div className="form-btm-text-and-errors-div">
+            {errors.length === 0 && img ? (
+              <p
+                className="form-btm-text-and-errors"
+                id="img-upload-successful"
+              >
+                Image upload successful!
+              </p>
+            ) : null}
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}
-              >
-              {errors.map((error, idx) => (
-                <li className="form-btm-text-and-errors" id="story-errors-li" key={idx}>{error}</li>
+            >
+              {errors?.map((error, idx) => (
+                <li
+                  className="form-btm-text-and-errors"
+                  id="story-errors-li"
+                  key={idx}
+                >
+                  {error}
+                </li>
               ))}
             </ul>
-            </div>
+          </div>
         </div>
       </form>
     </div>

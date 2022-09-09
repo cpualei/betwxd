@@ -49,7 +49,7 @@ function User() {
             : <img src={`https://ui-avatars.com/api/?name=${user?.username}&rounded=true&background=a0a0a0`} />}
             <p id="profile-username">{user?.username}</p>
             <p id="profile-bio">{user?.bio}</p>
-            {sessionUser?.id === user?.id ? <p id="profile-edit-link">Edit profile</p> : null}
+            {/* {sessionUser?.id === user?.id ? <p id="profile-edit-link">Edit profile</p> : null} */}
             <RecommendedTopics />
           </div>
         </div>

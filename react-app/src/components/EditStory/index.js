@@ -14,7 +14,7 @@ function EditStory() {
   const sessionUser = useSelector((state) => state.session.user);
   const stories = useSelector((state) => state?.stories);
   const storyContent = stories[id];
-  console.log("this is the story img", storyContent?.img)
+  console.log("this is the story img", storyContent?.img);
 
   const [title, setTitle] = useState(storyContent?.title);
   const [story, setStory] = useState(storyContent?.story);
@@ -24,6 +24,7 @@ function EditStory() {
 
   useEffect(() => {
     const errors = [];
+    const validateImgUrl = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
     if (title?.length > 100)
       errors.push("Title must not exceed 100 characters");
@@ -33,7 +34,12 @@ function EditStory() {
       errors.push("Story must not exceed 5000 characters");
     else if (story?.length < 1)
       errors.push("Please provide a story to publish.");
-    // if (!img) errors.push("*Please provide an image for your story");
+    // if (!img) errors.push("Please provide an image for your story.");
+    if (!storyContent?.img?.match(validateImgUrl))
+      errors.push(
+        "Please provide a valid image that ends in PNG, JPG, or JPEG format."
+      );
+    console.log("IMG IMG IMG", storyContent?.img);
 
     setErrors(errors);
   }, [title, story, img]);
@@ -54,7 +60,7 @@ function EditStory() {
     let data = await dispatch(updateStory(id, formData));
 
     if (data) {
-      setErrors(data);
+      setErrors([data]);
     } else {
       setErrors([]);
       return history.push(`/`);
@@ -69,6 +75,7 @@ function EditStory() {
   const handleClick = (e) => {
     hiddenFileInput.current?.click();
   };
+  console.log("these are the errors===========", errors);
 
   return (
     <div className="story-form-container">
@@ -106,7 +113,7 @@ function EditStory() {
                 className="upload-btn"
                 onClick={handleClick}
                 alt="img"
-                />
+              />
               <input
                 type="file"
                 accept="image/*"
@@ -131,21 +138,29 @@ function EditStory() {
             ></textarea>
           </div>
           <div className="form-btm-text-and-errors-div">
-              {img ? (
-                <p className="form-btm-text-and-errors" id="img-upload-successful">Image upload successful!</p>
-              ) : (
-                // null
-                <p className="form-btm-text-and-errors" id="img-not-uploaded">Please provide an image for your story.</p>
-              )}
+            {errors.length === 0 && img ? (
+              <p
+                className="form-btm-text-and-errors"
+                id="img-upload-successful"
+              >
+                Image upload successful!
+              </p>
+            ) : null}
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}
-              >
-              {errors.map((error, idx) => (
-                <li className="form-btm-text-and-errors" id="story-errors-li" key={idx}>{error}</li>
+            >
+              {errors?.map((error, idx) => (
+                <li
+                  className="form-btm-text-and-errors"
+                  id="story-errors-li"
+                  key={idx}
+                >
+                  {error}
+                </li>
               ))}
             </ul>
-            </div>
+          </div>
         </div>
       </form>
     </div>

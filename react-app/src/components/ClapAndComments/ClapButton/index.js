@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import clapsBefore from "../../../icons/clapsBefore.png";
 import clapsAfter from "../../../icons/clapsAfter.png";
 import { viewClaps, createClap, removeClap } from "../../../store/claps";
@@ -13,6 +12,7 @@ const ClapButton = ({ story }) => {
   const claps = Object.values(useSelector((state) => state.claps));
 
   const thisClap = claps.filter((clap) => clap?.story_id === story?.id)[0];
+  const numberOfClaps = claps.length;
 
   const [clap, setClap] = useState(false);
 
@@ -39,25 +39,26 @@ const ClapButton = ({ story }) => {
 
   return (
     <>
-    {sessionUser ?
-    <>
-      {thisClap?.user_id !== sessionUser?.id ? (
-        <img
-          src={clapsBefore}
-          alt="claps"
-          className="claps-btn"
-          onClick={handleOnClick}
-        />
-      ) : (
-        <img
-          src={clapsAfter}
-          alt="claps"
-          className="claps-btn"
-          onClick={handleOnClick}
-        />
-      )}
-      </>
-: null}
+      {sessionUser ? (
+        <>
+          {thisClap?.user_id !== sessionUser?.id ? (
+            <img
+              src={clapsBefore}
+              alt="claps"
+              className="claps-btn"
+              onClick={handleOnClick}
+            />
+          ) : (
+            <img
+              src={clapsAfter}
+              alt="claps"
+              className="claps-btn"
+              onClick={handleOnClick}
+            />
+          )}
+        </>
+      ) : null}
+      <p id="clap-count">{numberOfClaps}</p>
     </>
   );
 };

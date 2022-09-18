@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createComment } from "../../../store/comments";
+import { createComment } from "../../../../store/comments";
 import "./CreateComment.css";
 
 function CreateComment({ setShowModal, story }) {

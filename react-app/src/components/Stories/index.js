@@ -32,7 +32,6 @@ function Stories() {
   };
 
   return (
-    // <div className="stories-container">
     <div className="stories-div">
       {newerStoriesFirst?.map((story) => (
         <ul className="stories-ul" key={story?.id}>

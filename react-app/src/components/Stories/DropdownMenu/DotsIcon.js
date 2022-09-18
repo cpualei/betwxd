@@ -46,11 +46,6 @@ function DotsIcon({ story }) {
               >
                 Edit story
               </Link>
-              {/* <a
-                onClick={(e) => <EditStory />}
-                id="edit-story-btn"
-                style={{ textDecoration: "none" }}
-              /> */}
 
               <Link
                 href="/stories"

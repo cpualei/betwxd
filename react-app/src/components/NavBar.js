@@ -47,16 +47,23 @@ const NavBar = () => {
           <div className="right-side-nav">
             <div>
               <a
-              activeClassName="active"
+                activeClassName="active"
                 className="non-user-links"
                 id="linkedin-link"
                 href="https://www.linkedin.com/in/caitlin-buen-lucas/"
+                target="_blank"
               >
                 Linkedin
               </a>
             </div>
             <div>
-              <a activeClassName="active" className="non-user-links" id="github-link" href="https://github.com/cpualei/">
+              <a
+                activeClassName="active"
+                className="non-user-links"
+                id="github-link"
+                href="https://github.com/cpualei/"
+                target="_blank"
+              >
                 Github
               </a>
             </div>
@@ -66,6 +73,7 @@ const NavBar = () => {
                 activeClassName="active"
                 className="non-user-links"
                 id="demo-link"
+                target="_blank"
               >
                 Demo user
               </a>

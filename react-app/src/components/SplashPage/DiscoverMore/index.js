@@ -9,18 +9,21 @@ function DiscoverMore() {
         <a
           className="discover-more-links"
           href="https://www.linkedin.com/in/caitlin-buen-lucas/"
+          target="_blank"
         >
           Linkedin
         </a>
         <a
           className="discover-more-links"
           href="https://github.com/cpualei/"
+          target="_blank"
         >
           Github
         </a>
         <a
           className="discover-more-links"
           href="https://medium.com/"
+          target="_blank"
         >
           Medium
         </a>

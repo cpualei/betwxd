@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreateComment from "./CreateComment";
-import EditComment from "./EditComment/EditComment";
-import GetImg from "../GetImg";
-import GetUser from "../GetUser";
-import { viewComments } from "../../store/comments";
+import EditComment from "./EditComment";
+import GetImg from "../../GetImg";
+import GetUser from "../../GetUser";
+import { viewComments } from "../../../store/comments";
 import ReactTimeAgo from "react-time-ago";
 import "./Comments.css";
 
@@ -45,9 +45,7 @@ function Comments({ setShowModal, story }) {
               </div>
               </div>
               <ReactTimeAgo id="comments-date" date={comment.created_at} />
-              {/* {sessionUser && */}
                 <EditComment story={story} comment={comment} />
-               {/* } */}
             </ul>
           ))
         ) : (

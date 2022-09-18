@@ -14,12 +14,10 @@ function EditStory() {
   const sessionUser = useSelector((state) => state.session.user);
   const stories = useSelector((state) => state?.stories);
   const storyContent = stories[id];
-  console.log("this is the story img", storyContent?.img);
 
   const [title, setTitle] = useState(storyContent?.title);
   const [story, setStory] = useState(storyContent?.story);
   const [img, setImg] = useState();
-  // const [imgLoading, setImgLoading] = useState("");
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -34,7 +32,6 @@ function EditStory() {
       errors.push("Story must not exceed 5000 characters");
     else if (story?.length < 1)
       errors.push("Please provide a story to publish.");
-    // if (!img) errors.push("Please provide an image for your story.");
     if (!storyContent?.img?.match(validateImgUrl))
       errors.push(
         "Please provide a valid image that ends in PNG, JPG, or JPEG format."

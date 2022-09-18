@@ -3,7 +3,7 @@ import { Modal } from "../../context/Modal";
 import Comments from "./Comments";
 import ClapButton from "./ClapButton";
 import chat from "./chat.png";
-import "./Comments.css";
+import "./Comments/Comments.css";
 
 function ClapAndComments({ story, sessionUser }) {
   const [showModal, setShowModal] = useState(false);

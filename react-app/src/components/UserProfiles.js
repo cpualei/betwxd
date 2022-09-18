@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import UsersStories from "./UsersStories";
 import RecommendedTopics from "./RightSideMisc/RecommendedTopics";
@@ -10,7 +10,7 @@ function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
 
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     if (!userId) {
@@ -23,9 +23,9 @@ function User() {
     })();
   }, [userId]);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [viewStories()]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!user) {
     return null;

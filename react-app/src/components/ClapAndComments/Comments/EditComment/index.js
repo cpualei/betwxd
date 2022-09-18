@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateComment, removeComment } from "../../../store/comments";
-import { ValidationError } from "../../../utils/validationErrors";
+import { updateComment, removeComment } from "../../../../store/comments";
+import { ValidationError } from "../../../../utils/validationErrors";
 import "./EditComment.css";
 
 function EditComment({ story, comment }) {

@@ -8,18 +8,10 @@ import { viewComments } from "../../../store/comments";
 import ReactTimeAgo from "react-time-ago";
 import "./Comments.css";
 
-function Comments({ setShowModal, story }) {
+function Comments({ setShowModal, story, storyComments }) {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-
-  const comments = useSelector((state) => {
-    return Object?.values(state?.comments);
-  });
-
-  const storyComments = comments?.filter((comment) => {
-    return comment?.story_id === story?.id;
-  });
 
   useEffect(() => {
     dispatch(viewComments());

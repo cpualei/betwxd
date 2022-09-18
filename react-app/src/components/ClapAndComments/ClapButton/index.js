@@ -11,8 +11,9 @@ const ClapButton = ({ story }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const claps = Object.values(useSelector((state) => state.claps));
 
-  const thisClap = claps.filter((clap) => clap?.story_id === story?.id)[0];
-  const numberOfClaps = claps.length;
+  const storyClaps = claps.filter((clap) => clap?.story_id === story?.id);
+  const thisClap = storyClaps[0];
+  const numberOfClaps = storyClaps.length;
 
   const [clap, setClap] = useState(false);
 
@@ -58,7 +59,7 @@ const ClapButton = ({ story }) => {
           )}
         </>
       ) : null}
-      <p id="clap-count">{numberOfClaps}</p>
+        <p id="clap-count">{numberOfClaps}</p>
     </>
   );
 };

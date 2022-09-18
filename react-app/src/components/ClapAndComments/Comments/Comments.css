@@ -2,6 +2,7 @@
     height: 22px;
     width: 22px;
     cursor: pointer;
+    margin-right: 5px;
 }
 
 .comments-ul {
@@ -46,4 +47,10 @@
     font-size: 13px;
     color: #e6e6e6;
     margin: 0 10px;
+}
+
+#comment-count {
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: rgba(117, 117, 117, 1);
 }

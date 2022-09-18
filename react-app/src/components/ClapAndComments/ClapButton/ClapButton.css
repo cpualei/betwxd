@@ -1,4 +1,11 @@
 .claps-btn {
     height: 25px;
     cursor: pointer;
+    margin-right: 5px;
+}
+
+#clap-count {
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: rgba(117, 117, 117, 1);
 }

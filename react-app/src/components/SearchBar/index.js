@@ -32,12 +32,15 @@ function SearchBar() {
         <button id="begin-writing-a-story-btn">Begin writing a story</button>
       </NavLink>
       <div className="search-div">
+        {/* <div> */}
         <img id="search-img" src={search} alt="search" />
         <input
           id="search"
           placeholder="Search"
           onChange={(e) => setQuery(e.target.value)}
         />
+        {/* </div> */}
+        <div className="asfd">
         {query
           ? users
               .filter((user) => {
@@ -64,6 +67,7 @@ function SearchBar() {
                 </div>
               ))
           : null}
+          </div>
         {query
           ? stories
               .filter((story) => {

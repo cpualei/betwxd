@@ -80,8 +80,8 @@
     width: 213px;
     padding: 7px 20px 9px;
     border-radius: 99em;
-    border-width: 1px;
     cursor: pointer;
+    border: 1px solid rgba(25, 25, 25, 1);
 }
 
 #sign-in-link {

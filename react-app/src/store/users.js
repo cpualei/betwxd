@@ -59,7 +59,7 @@ const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_USERS:
       const normalizedUsers = {};
-      action.users.users.forEach((user) => (normalizedUsers[user.id] = user));
+      action.users.forEach((user) => (normalizedUsers[user.id] = user));
       return { ...normalizedUsers };
     //   case CREATE_CLAP:
     //     const createState = { ...state, [action.clap.id]: action.clap };

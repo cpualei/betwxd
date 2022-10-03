@@ -61,7 +61,7 @@ const SignUpForm = () => {
   }
 
   return (
-    <form className="form-container" onSubmit={onSignUp}>
+    <form className="form-container" id="signup-form-container" onSubmit={onSignUp}>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
@@ -106,13 +106,13 @@ const SignUpForm = () => {
           value={repeatPassword}
           // required={true}
           ></input>
-      </div>
       <button id="form-submit-btn" type='submit'>Create account</button>
       <div className="sign-up-instead">
           <p id="no-account-text">No account?</p>{" "}
       <NavLink to="/" component={LoginModal2} />
         </div>
       <p id="bottom-text">Click “Sign Up” to agree to Betwxd’s non-existent Terms of Service and acknowledge that Betwxd’s non-existent Privacy Policy applies to you.</p>
+      </div>
     </form>
   );
 };

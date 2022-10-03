@@ -39,8 +39,12 @@
 .stories-discover-more-container {
     display: flex;
     margin-left: 10%;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     margin-top: 30px;
+}
+
+#stories-div {
+    margin-right: 8%;
 }
 
 .stories-div {
@@ -50,5 +54,5 @@
 
 #discover-more-div {
     display: flex;
-    margin: 10px 0 0 10%;
+    margin-top: 10px;
 }

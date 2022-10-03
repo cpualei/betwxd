@@ -8,6 +8,13 @@ function DiscoverMore() {
       <div className="discover-more-links-div">
         <a
           className="discover-more-links"
+          href="https://caitlinbuenlucas.com/"
+          target="_blank"
+        >
+          My Portfolio
+        </a>
+        <a
+          className="discover-more-links"
           href="https://www.linkedin.com/in/caitlin-buen-lucas/"
           target="_blank"
         >

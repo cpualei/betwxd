@@ -5,7 +5,14 @@ function RecommendedTopics() {
   return (
     <div className="recommended-container">
       <p id="recommended">Recommended topics</p>
-      <div className="recommended-more-links-div">
+      <div className="recommended-links-div">
+        <a
+          className="recommended-links"
+          href="https://caitlinbuenlucas.com/"
+          target="_blank"
+        >
+          My Portfolio
+        </a>
         <a
           className="recommended-links"
           href="https://www.linkedin.com/in/caitlin-buen-lucas/"

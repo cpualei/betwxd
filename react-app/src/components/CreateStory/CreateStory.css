@@ -78,7 +78,6 @@ p.new-story-edit-story-text {
     display: flex;
     margin-top: 10px;
     flex-direction: column;
-    /* align-content: space-between; */
 }
 
 .create-story-upload-and-story-div {
@@ -87,11 +86,9 @@ p.new-story-edit-story-text {
 
 .upload-and-story-div {
     display: flex;
-    /* align-content: center; */
 }
 
 #img-preview {
-    /* position: absolute; */
     max-height: fit-content;
     margin-left: 20px;
 }

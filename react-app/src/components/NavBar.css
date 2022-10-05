@@ -46,11 +46,6 @@
     cursor: pointer;
 }
 
-/* #sign-in-link {
-    margin-right: 20px;
-    color: inherit;
-} */
-
 .side-nav-container {
     display: flex;
     flex-direction: column;

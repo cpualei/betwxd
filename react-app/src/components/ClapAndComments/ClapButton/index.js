@@ -22,7 +22,7 @@ const ClapButton = ({ story }) => {
   }, [dispatch]);
 
   const handleOnClick = (e) => {
-    e?.preventDefault();
+    e.preventDefault();
 
     const payload = {
       user_id: sessionUser?.id,

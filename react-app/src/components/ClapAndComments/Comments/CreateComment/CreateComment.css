@@ -8,7 +8,6 @@
     padding: 20px 15px 15px 15px;
 }
 
-
 .comment-textarea-div {
     height: 120px;
     margin-top: 20px;
@@ -20,7 +19,6 @@
     border: none;
     font: inherit;
 }
-
 
 .comment-btns-div {
     display: flex;

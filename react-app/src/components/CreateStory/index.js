@@ -75,11 +75,7 @@ function CreateStory() {
             <p className="new-story-edit-story-text">Creating...</p>
           </div>
           <div className="story-form-top-div-right">
-            <button
-              className="publish-btn"
-              type="submit"
-              // disabled={errors.length > 0}
-            >
+            <button className="publish-btn" type="submit">
               Publish
             </button>
           </div>
@@ -108,13 +104,9 @@ function CreateStory() {
                 accept="image/*"
                 style={{ display: "none" }}
                 onChange={updateImage}
-                // onChange={(e) => setImg(e.target.files[0])}
-                // onChange={(e) => setImg(e.target.value)}
                 ref={hiddenFileInput}
                 required
               ></input>
-              {/* <img id="img-preview"  src={img} alt={img} /> */}
-              {/* <input type="file" accept="image/*" onChange={updateImage}/> */}
             </div>
             <textarea
               name="story"

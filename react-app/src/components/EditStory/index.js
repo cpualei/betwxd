@@ -36,7 +36,6 @@ function EditStory() {
       errors.push(
         "Please provide a valid image that ends in PNG, JPG, or JPEG format."
       );
-    console.log("IMG IMG IMG", storyContent?.img);
 
     setErrors(errors);
   }, [title, story, img]);
@@ -72,7 +71,6 @@ function EditStory() {
   const handleClick = (e) => {
     hiddenFileInput.current?.click();
   };
-  console.log("these are the errors===========", errors);
 
   return (
     <div className="story-form-container">
@@ -83,11 +81,7 @@ function EditStory() {
             <p className="new-story-edit-story-text">Editing...</p>
           </div>
           <div className="story-form-top-div-right">
-            <button
-              className="publish-btn"
-              type="submit"
-              // disabled={errors.length > 0}
-            >
+            <button className="publish-btn" type="submit">
               Publish
             </button>
           </div>
@@ -116,12 +110,8 @@ function EditStory() {
                 accept="image/*"
                 style={{ display: "none" }}
                 onChange={updateImage}
-                // onChange={(e) => setImg(e.target.files[0])}
-                // onChange={(e) => setImg(e.target.value)}
                 ref={hiddenFileInput}
               />
-              {/* <img id="img-preview"  src={storyContent?.img} alt={img} /> */}
-              {/* <input type="file" accept="image/*" onChange={updateImage}/> */}
             </div>
             <textarea
               name="story"

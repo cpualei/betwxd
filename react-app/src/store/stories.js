@@ -1,8 +1,10 @@
+// Types
 const VIEW_STORIES = "stories/VIEW_STORIES";
 const CREATE_STORY = "stories/CREATE_STORY";
 const UPDATE_STORY = "stories/UPDATE_STORY";
 const REMOVE_STORY = "stories/REMOVE_STORY";
 
+// Action creators
 const view = (stories) => ({
   type: VIEW_STORIES,
   stories,
@@ -23,6 +25,7 @@ const remove = (storyId) => ({
   storyId,
 });
 
+// Thunk action creators
 export const viewStories = () => async (dispatch) => {
   const res = await fetch("/api/stories/");
 
@@ -35,27 +38,22 @@ export const viewStories = () => async (dispatch) => {
 export const createStory = (formData) => async (dispatch) => {
   const res = await fetch("/api/stories/new-story", {
     method: "POST",
-    // headers: { "Content-Type": "application/json" },
     body: formData,
   });
 
-  // const newStory = await res.json();
-
-  // if (newStory) {
-  //     dispatch(create(newStory));
-  //     return newStory;
-  // }
   if (res.ok) {
     const data = await res.json();
     dispatch(create(data));
 
     return null;
+
   } else if (res.status < 500) {
     const data = await res.json();
 
     if (data.errors) {
       return data.errors;
     }
+
   } else {
     return ["An error occurred. Please try again."];
   }
@@ -64,27 +62,22 @@ export const createStory = (formData) => async (dispatch) => {
 export const updateStory = (id, formData) => async (dispatch) => {
   const res = await fetch(`/api/stories/edit-story/${id}`, {
     method: "PUT",
-    // headers: { "Content-Type": "application/json" },
     body: formData, id
   });
-
-  // if (res.ok) {
-  //     const story = await res.json();
-  //     dispatch(update(story));
-  //     return story;
-  // }
 
   if (res.ok) {
     const data = await res.json();
     dispatch(update(data));
 
     return;
+
   } else if (res.status < 500) {
     const data = await res.json();
 
     if (data.errors) {
       return data.errors;
     }
+
   } else {
     return ["An error occurred. Please try again."];
   }
@@ -101,6 +94,7 @@ export const removeStory = (id) => async (dispatch) => {
   }
 };
 
+// Reducer
 const storiesReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_STORIES:

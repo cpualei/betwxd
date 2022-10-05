@@ -1,8 +1,10 @@
+// Types
 const VIEW_COMMENTS = "comments/VIEW_COMMENTS";
 const CREATE_COMMENT = "comments/CREATE_COMMENT";
 const UPDATE_COMMENT = "comments/UPDATE_COMMENT";
 const REMOVE_COMMENT = "comments/REMOVE_COMMENT";
 
+// Action creators
 const view = (comments) => ({
   type: VIEW_COMMENTS,
   comments,
@@ -23,6 +25,7 @@ const remove = (commentId) => ({
   commentId,
 });
 
+// Thunk action creators
 export const viewComments = () => async (dispatch) => {
   const res = await fetch("/api/comments/");
 
@@ -38,24 +41,21 @@ export const createComment = (payload) => async (dispatch) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
-  // const newComment = await res.json();
 
-  // if (newComment) {
-  //   dispatch(create(newComment));
-  //   return newComment;
-  // }
   if (res.ok) {
     const data = await res.json();
     console.log("THIS IS THE DATA====", data)
     dispatch(create(data));
 
     return null;
+
   } else if (res.status < 500) {
     const data = await res.json();
 
     if (data.errors) {
       return data.errors;
     }
+
   } else {
     return ["An error occurred. Please try again."];
   }
@@ -86,6 +86,7 @@ export const removeComment = (id) => async (dispatch) => {
   }
 };
 
+// Reducer
 const commentsReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_COMMENTS:

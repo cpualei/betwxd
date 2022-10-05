@@ -1,7 +1,3 @@
-/* .what-were-reading-container {
-    padding-bottom: 20px;
-} */
-
 .what-were-reading-today-div {
     display: flex;
     flex-direction: row;
@@ -27,7 +23,6 @@
 .what-were-reading-stories-container {
     display: flex;
     flex-direction: column;
-    /* padding-bottom: 40px; */
 }
 
 .profile-photo-and-username-container {

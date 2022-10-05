@@ -1,5 +1,4 @@
 #get-started-link {
-    /* margin-right: 20px; */
     transition: background-color 300ms linear, color 300ms linear;
     border-width: 1px;
     border-radius: 99em;
@@ -137,5 +136,4 @@
     font-weight: 400;
     text-align: center;
     color: rgba(117, 117, 117, 1);
-    /* padding: 60px 0; */
 }

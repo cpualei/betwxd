@@ -1,7 +1,9 @@
+// Types
 const VIEW_CLAPS = "/claps/VIEW_CLAPS";
 const CREATE_CLAP = "/claps/CREATE_CLAP";
 const REMOVE_CLAP = "/claps/REMOVE_CLAP";
 
+// Action creators
 const view = (claps) => {
   return {
     type: VIEW_CLAPS,
@@ -23,6 +25,7 @@ const remove = (clapId) => {
   };
 };
 
+// Thunk action creators
 export const viewClaps = () => async (dispatch) => {
   const res = await fetch("/api/claps/");
   const claps = await res.json();
@@ -35,7 +38,7 @@ export const createClap = (payload) => async (dispatch) => {
     method: "POST",
     body: JSON.stringify(payload),
   });
-  console.log("THIS IS THE POST RES === >", res)
+
   const newClap = await res.json();
   dispatch(create(newClap));
 };
@@ -43,9 +46,8 @@ export const createClap = (payload) => async (dispatch) => {
 export const removeClap = (clapId) => async (dispatch) => {
   const res = await fetch(`/api/claps/${clapId}`, {
     method: "DELETE",
-    // body: JSON.stringify(clap),
   });
-  // const clap = await res.json();
+
   if (res.ok) {
     dispatch(remove(clapId));
   }
@@ -53,6 +55,7 @@ export const removeClap = (clapId) => async (dispatch) => {
   return res;
 };
 
+// Reducter
 const clapsReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_CLAPS:
@@ -61,7 +64,6 @@ const clapsReducer = (state = {}, action) => {
       return { ...normalizedClaps };
       case CREATE_CLAP:
         const createState = { ...state, [action.clap.id]: action.clap };
-        console.log("IN THE REDUCER", action)
       return createState;
     case REMOVE_CLAP:
       const removeState = { ...state };

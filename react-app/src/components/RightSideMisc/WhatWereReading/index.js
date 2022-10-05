@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import GetImg from "../../GetImg";
 import GetUser from "../../GetUser";
 import greendot from "../../../icons/greendot.png";
 import "./WhatWereReading.css";
-import { NavLink } from "react-router-dom";
 
 function WhatWereReading() {
   const stories = useSelector((state) => {

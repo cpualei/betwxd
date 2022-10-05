@@ -4,15 +4,6 @@
     justify-content: space-between;
 }
 
-/* .stories-feed-div {
-    display: flex;
-    margin-right: 20px;
-    padding: 40px 80px 0 200px;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-} */
-
 .stories-feed-div {
     display: flex;
     margin-right: 20px;

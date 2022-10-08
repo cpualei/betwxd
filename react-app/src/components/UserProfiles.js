@@ -27,6 +27,11 @@ function User() {
     window.scrollTo(0, 0);
   }, []);
 
+  const invalidImg = (e) => {
+    e.currentTarget.src =
+      "https://www.ipwatchdog.com/wp-content/uploads/2018/05/invalid-stamp.jpg";
+  };
+
   if (!user) {
     return null;
   }
@@ -45,6 +50,7 @@ function User() {
               id="profile-photo"
               src={user?.profile_photo}
               alt="profile-photo"
+              onError={invalidImg}
             />
             : <img src={`https://ui-avatars.com/api/?name=${user?.username}&rounded=true&background=a0a0a0`} />}
             <p id="profile-username">{user?.username}</p>

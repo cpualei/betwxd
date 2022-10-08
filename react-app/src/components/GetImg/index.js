@@ -16,7 +16,7 @@ function GetImg({ userId }) {
 
   const invalidImg = (e) => {
     e.currentTarget.src =
-      "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";
+      "https://www.ipwatchdog.com/wp-content/uploads/2018/05/invalid-stamp.jpg";
   };
 
   return (

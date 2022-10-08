@@ -22,10 +22,6 @@ function Stories() {
     dispatch(viewStories());
   }, [dispatch]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [viewStories()]);
-
   const invalidImg = (e) => {
     e.currentTarget.src =
       "https://thumbs.dreamstime.com/b/invalid-red-rubber-stamp-over-white-background-88003326.jpg";

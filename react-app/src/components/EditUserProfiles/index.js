@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import "./EditUserProfiles.css";
 
 function EditUserProfiles() {
@@ -10,28 +9,42 @@ function EditUserProfiles() {
     <div className="edit-profile-container">
       <div className="settings-div">
         <h2 id="settings-header">Other links</h2>
-        <NavLink className="settings-links" to="https://caitlinbuenlucas.com/">
-          My portfolio
-        </NavLink>
-        <NavLink className="settings-links" to="https://github.com/cpualei">
-          Github profile
-        </NavLink>
-        <NavLink
+        <a
           className="settings-links"
-          to="https://splitzy-app.herokuapp.com/"
+          href="https://caitlinbuenlucas.com/"
+          target="_blank"
+        >
+          My portfolio
+        </a>
+        <a
+          className="settings-links"
+          href="https://github.com/cpualei"
+          target="_blank"
+        >
+          Github profile
+        </a>
+        <a
+          className="settings-links"
+          href="https://splitzy-app.herokuapp.com/"
+          target="_blank"
         >
           splitzy
-        </NavLink>
-        <NavLink
+        </a>
+        <a
           className="settings-links"
-          to="https://cabindogs.herokuapp.com/"
+          href="https://cabindogs.herokuapp.com/"
+          target="_blank"
         >
           CabinDogs
-        </NavLink>
-        <NavLink className="settings-links" to="https://medium.com/">
+        </a>
+        <a
+          className="settings-links"
+          href="https://medium.com/"
+          target="_blank"
+        >
           {" "}
           Medium
-        </NavLink>
+        </a>
       </div>
       <div className="about-you-div">
         <h2 id="about-you-header">About you</h2>
@@ -52,7 +65,7 @@ function EditUserProfiles() {
           </p>
         </div>
         <div className="about-you-sections">
-              <p className="about-you-subheadings">Photo</p>
+          <p className="about-you-subheadings">Photo</p>
           <div className="about-you-photo-section">
             <div>
               <p id="section-description">

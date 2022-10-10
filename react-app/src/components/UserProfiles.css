@@ -48,6 +48,7 @@
     margin-top: 25px;
     cursor: pointer;
     width: fit-content;
+    text-decoration: none;
 }
 
 #profile-edit-link:hover {

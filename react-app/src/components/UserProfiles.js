@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useParams, NavLink } from "react-router-dom";
 import UsersStories from "./UsersStories";
 import RecommendedTopics from "./RightSideMisc/RecommendedTopics";
 import ProfileRightSideMisc from "./ProfileRightSideMisc";
@@ -10,7 +10,7 @@ function User() {
   const [user, setUser] = useState({});
   const { userId } = useParams();
 
-  // const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     if (!userId) {
@@ -45,17 +45,25 @@ function User() {
         <div className="users-profile-inner-div">
           <ProfileRightSideMisc />
           <div className="users-profile-info">
-            {user?.profile_photo ?
-            <img
-              id="profile-photo"
-              src={user?.profile_photo}
-              alt="profile-photo"
-              onError={invalidImg}
-            />
-            : <img src={`https://ui-avatars.com/api/?name=${user?.username}&rounded=true&background=a0a0a0`} />}
+            {user?.profile_photo ? (
+              <img
+                id="profile-photo"
+                src={user?.profile_photo}
+                alt="profile-photo"
+                onError={invalidImg}
+              />
+            ) : (
+              <img
+                src={`https://ui-avatars.com/api/?name=${user?.username}&rounded=true&background=a0a0a0`}
+              />
+            )}
             <p id="profile-username">{user?.username}</p>
             <p id="profile-bio">{user?.bio}</p>
-            {/* {sessionUser?.id === user?.id ? <p id="profile-edit-link">Edit profile</p> : null} */}
+            {sessionUser?.id === user?.id ? (
+              <NavLink to={`/${sessionUser.id}/settings`} id="profile-edit-link">
+                Edit profile
+              </NavLink>
+            ) : null}
             <RecommendedTopics />
           </div>
         </div>

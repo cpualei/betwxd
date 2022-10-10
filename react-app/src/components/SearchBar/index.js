@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import GetImg from "../GetImg";
-
 import search from "../../icons/search.png";
 import { viewUsers } from "../../store/users";
 import { viewStories } from "../../store/stories";
@@ -10,6 +9,8 @@ import "./SearchBar.css";
 
 function SearchBar() {
   const dispatch = useDispatch();
+
+  const sessionUserId = useSelector((state) => state.session.user.id);
 
   const users = useSelector((state) => {
     return Object.values(state.users);
@@ -28,8 +29,8 @@ function SearchBar() {
 
   return (
     <>
-      <NavLink to="/new-story">
-        <button id="begin-writing-a-story-btn">Begin writing a story</button>
+      <NavLink to={`/users/${sessionUserId}`}>
+        <button id="visit-your-profile-btn">Visit your profile</button>
       </NavLink>
       <div className="search-container">
         <div className="search-div">

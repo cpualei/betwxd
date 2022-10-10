@@ -7,7 +7,7 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import UserProfiles from "./components/UserProfiles";
-// import EditUserProfiles from "./components/EditUserProfiles";
+import EditUserProfiles from "./components/EditUserProfiles";
 import Splash from "./components/SplashPage";
 import StoriesPage from "./components/StoriesPage";
 import CreateStory from "./components/CreateStory";
@@ -48,10 +48,10 @@ function App() {
         </ProtectedRoute>
         <Route path="/users/:userId" exact={true}>
           <UserProfiles />
-        {/* <ProtectedRoute>
-          <EditUserProfiles path="/users/:id/edit-profile" />
-        </ProtectedRoute> */}
         </Route>
+        <ProtectedRoute path="/:userId/settings">
+          <EditUserProfiles />
+        </ProtectedRoute>
         {!sessionUser ? (
           <Route path="/" exact={true}>
             <Splash />

@@ -6,6 +6,8 @@ function EditUserProfiles() {
   const sessionUser = useSelector((state) => state?.session?.user);
 
   return (
+    <>
+      <h1 id="under-construction-h1">🛠 This page is under contruction 🛠</h1>
     <div className="edit-profile-container">
       <div className="settings-div">
         <h2 id="settings-header">Other links</h2>
@@ -99,6 +101,7 @@ function EditUserProfiles() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

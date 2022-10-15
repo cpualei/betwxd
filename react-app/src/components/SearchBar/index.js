@@ -10,7 +10,7 @@ import "./SearchBar.css";
 function SearchBar() {
   const dispatch = useDispatch();
 
-  const sessionUserId = useSelector((state) => state.session.user.id);
+  const sessionUserId = useSelector((state) => state?.session?.user?.id);
 
   const users = useSelector((state) => {
     return Object.values(state.users);

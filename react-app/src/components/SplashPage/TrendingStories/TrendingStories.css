@@ -30,11 +30,23 @@
 
 .trending-ul {
     padding: 0px;
+    display: flex;
 }
 
 .trending-img-user-container {
+    margin-top: 5px;
+}
+
+.trending-img-user-div {
     display: flex;
     align-items: center;
+}
+
+.trending-numbers {
+    color: rgba(230, 230, 230, 1);
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 16px;
 }
 
 .trending-img-div {

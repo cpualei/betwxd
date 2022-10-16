@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import GetImg from "../GetImg";
 import search from "../../icons/search.png";
 import { viewUsers } from "../../store/users";
 import { viewStories } from "../../store/stories";
+import { demouser } from "../../store/session";
 import "./SearchBar.css";
 
 function SearchBar() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const sessionUserId = useSelector((state) => state.session.user.id);
+  const sessionUser = useSelector((state) => state?.session?.user);
 
   const users = useSelector((state) => {
     return Object.values(state.users);
@@ -27,11 +29,28 @@ function SearchBar() {
     dispatch(viewStories());
   }, [dispatch]);
 
+  const demoOnClick = async (e) => {
+    e.preventDefault();
+    await dispatch(demouser("demo@aa.io", "password"));
+    await history.push("/");
+  };
+
   return (
     <>
-      <NavLink to={`/users/${sessionUserId}`}>
-        <button id="visit-your-profile-btn">Visit your profile</button>
-      </NavLink>
+      {sessionUser ? (
+        <NavLink to={`/users/${sessionUser?.id}`}>
+          <button id="visit-your-profile-btn">Visit your profile</button>
+        </NavLink>
+      ) : (
+        <a
+          onClick={demoOnClick}
+          activeClassName="active"
+          className="non-user-links"
+          target="_blank"
+        >
+          <button id="visit-your-profile-btn">Demo site now</button>
+        </a>
+      )}
       <div className="search-container">
         <div className="search-div">
           <img id="search-img" src={search} alt="search" />
@@ -41,7 +60,7 @@ function SearchBar() {
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
-        <div className="asfd">
+
           {query
             ? users
                 .filter((user) => {
@@ -100,7 +119,6 @@ function SearchBar() {
                   </div>
                 ))
             : null}
-        </div>
       </div>
     </>
   );

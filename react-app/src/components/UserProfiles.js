@@ -60,7 +60,7 @@ function User() {
             <p id="profile-username">{user?.username}</p>
             <p id="profile-bio">{user?.bio}</p>
             {sessionUser?.id === user?.id ? (
-              <NavLink to={`/${sessionUser.id}/settings`} id="profile-edit-link">
+              <NavLink to={`/${sessionUser?.id}/settings`} id="profile-edit-link">
                 Edit profile
               </NavLink>
             ) : null}

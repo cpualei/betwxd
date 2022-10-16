@@ -34,6 +34,20 @@ function RecommendedTopics() {
         >
           Medium
         </a>
+        <a
+          className="recommended-links"
+          href="https://splitzy-app.herokuapp.com/login"
+          target="_blank"
+        >
+          splitzy
+        </a>
+        <a
+          className="recommended-links"
+          href="https://cabindogs.herokuapp.com/"
+          target="_blank"
+        >
+          CabinDogs
+        </a>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 .discover-more-container {
     display: flex;
     flex-direction: column;
+    width: 400px;
 }
 
 #discover-more {
@@ -11,8 +12,10 @@
     color: inherit;
     margin-bottom: 16px;
 }
+
 .discover-more-links-div {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .discover-more-links {
@@ -22,4 +25,5 @@
     border-radius: 3px;
     text-decoration: none;
     color: rgb(117 117 117);
+    font-size: 13px;
 }

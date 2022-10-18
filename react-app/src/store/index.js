@@ -5,13 +5,15 @@ import storiesReducer from './stories';
 import commentsReducer from './comments';
 import clapsReducer from './claps';
 import usersReducer from './users';
+// import profilePhotoReducer from './profilePhoto';
 
 const rootReducer = combineReducers({
   session,
   stories: storiesReducer,
   comments: commentsReducer,
   claps: clapsReducer,
-  users: usersReducer
+  users: usersReducer,
+  // profilePhoto: profilePhotoReducer
 });
 
 

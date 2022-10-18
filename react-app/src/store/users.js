@@ -14,7 +14,6 @@ export const viewUsers = () => async (dispatch) => {
   const res = await fetch("/api/users/");
   const users = await res.json();
   dispatch(view(users));
-  console.log("These are the users in Thunk", users)
   return users;
 };
 

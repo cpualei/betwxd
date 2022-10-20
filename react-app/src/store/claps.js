@@ -1,4 +1,4 @@
-// Types
+// Actions
 const VIEW_CLAPS = "/claps/VIEW_CLAPS";
 const CREATE_CLAP = "/claps/CREATE_CLAP";
 const REMOVE_CLAP = "/claps/REMOVE_CLAP";

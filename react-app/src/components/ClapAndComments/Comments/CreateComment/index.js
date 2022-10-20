@@ -30,6 +30,7 @@ function CreateComment({ setShowModal, story }) {
     };
 
     const data = await dispatch(createComment(payload));
+    
     if (data) {
       // received invalid request
       setErrors(data);

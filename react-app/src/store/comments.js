@@ -1,4 +1,4 @@
-// Types
+// Actions
 const VIEW_COMMENTS = "comments/VIEW_COMMENTS";
 const CREATE_COMMENT = "comments/CREATE_COMMENT";
 const UPDATE_COMMENT = "comments/UPDATE_COMMENT";

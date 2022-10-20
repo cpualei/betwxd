@@ -1,4 +1,4 @@
-// Types
+// Actions
 const VIEW_USERS = "/users/VIEW_USERS";
 
 // Action creators

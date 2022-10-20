@@ -1,4 +1,4 @@
-// Types
+// Actions
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 

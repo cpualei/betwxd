@@ -1,4 +1,4 @@
-// Types
+// Actions
 const VIEW_STORIES = "stories/VIEW_STORIES";
 const CREATE_STORY = "stories/CREATE_STORY";
 const UPDATE_STORY = "stories/UPDATE_STORY";

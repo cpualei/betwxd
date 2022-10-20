@@ -12,7 +12,7 @@ from .api.auth_routes import auth_routes
 from .api.story_routes import story_routes
 from .api.comment_routes import comment_routes
 from .api.clap_routes import clap_routes
-from .api.profile_photo_routes import profile_photo_routes
+from .api.profile_routes import profile_routes
 
 from .seeds import seed_commands
 
@@ -39,7 +39,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(story_routes, url_prefix='/api/stories')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(clap_routes, url_prefix='/api/claps')
-app.register_blueprint(profile_photo_routes, url_prefix='/api/profile_photo')
+app.register_blueprint(profile_routes, url_prefix='/api/profile')
 db.init_app(app)
 Migrate(app, db)
 

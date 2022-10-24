@@ -5,7 +5,7 @@ import storiesReducer from './stories';
 import commentsReducer from './comments';
 import clapsReducer from './claps';
 import usersReducer from './users';
-// import profilesReducer from './profiles';
+import profilesReducer from './profiles';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   comments: commentsReducer,
   claps: clapsReducer,
   users: usersReducer,
-  // profiles: profilesReducer
+  profiles: profilesReducer
 });
 
 

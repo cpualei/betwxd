@@ -1,6 +1,9 @@
-from flask import Blueprint
+from datetime import datetime
+from flask import Blueprint, request
 from app.models import db, User
+from app.forms import EditBioForm
 from app.AWS import upload_file_to_s3, allowed_file, get_unique_filename
+from datetime import datetime
 
 
 profile_routes = Blueprint('profile', __name__)
@@ -18,6 +21,25 @@ def validation_errors_to_error_messages(validation_errors):
 
 # ====== Add profile_photo_routes =======
 
-# @profile_photo_routes.route('/<int:id>', methods=['PUT'])
+# @profile_routes.route('/username/<int:id>', methods=['PUT'])
+# def edit_username(id):
+#     username = User.query.get(id)
+
+@profile_routes.route('/<int:id>/bio', methods=['PUT'])
+def edit_bio(id):
+    user = User.query.get(id)
+    form = EditBioForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        user.bio=data['bio']
+        user.updated_at=datetime.now()
+
+        db.session.commit()
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+# @profile_routes.route('/<int:id>', methods=['PUT'])
 # def edit_profile_photo(id):
 #     profile_photo = User.query.get(id)

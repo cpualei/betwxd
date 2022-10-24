@@ -58,12 +58,19 @@ p.about-you-subheadings {
     margin-top: 0;
 }
 
-p.edit-profile-editable-fields {
+.edit-profile-editable-fields {
     font-size: 15px;
     max-width: 480px;
     border-bottom: 0.5px solid #d6d6d6;
     padding-bottom: 10px;
     margin-bottom: 25px;
+    resize: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    font: inherit;
+    color: inherit;
+    height: 15px;
 }
 
 #edit-profile-profile-photo {
@@ -76,7 +83,7 @@ p#section-description {
     width: 440px;
 }
 
-.edit-profile-edit-btn {
+.edit-profile-edit-cancel-btn {
     height: 37px;
     line-height: 37px;
     padding: 0 16px;
@@ -84,12 +91,25 @@ p#section-description {
     border-radius: 99em;
     color: rgba(0,0,0,.54);
     cursor: pointer;
+    background-color: white;
 }
 
-.edit-profile-edit-btn:hover {
+.edit-profile-edit-cancel-btn:hover {
     color: rgba(23, 23, 23, 0.756);
     border: 1px solid rgba(23, 23, 23, 0.654);
     border-radius: 99em;
     -webkit-transition: .1s background-color,.1s border-color,.1s color,.1s fill;
     transition: .1s background-color,.1s border-color,.1s color,.1s fill;
+}
+
+.edit-profile-save-btn {
+    height: 37px;
+    line-height: 37px;
+    padding: 0 16px;
+    border: 1px solid #1a8917;
+    border-radius: 99em;
+    color: #1a8917;
+    cursor: pointer;
+    background-color: white;
+    margin-right: 8px;
 }

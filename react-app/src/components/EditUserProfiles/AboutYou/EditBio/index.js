@@ -44,14 +44,14 @@ function EditBio({ sessionUser }) {
             className="edit-profile-editable-fields"
             value={sessionUser.bio}
             onChange={(e) => setBio(e.target.value)}
-            disable={!edit}
+            // disable={!edit}
           />
           <p id="section-description">
             Your short bio appears on your Profile and next to your stories. Max
             200 characters.
           </p>
         </div>
-        {/* {edit == false ? (
+        {edit == false ? (
           <button
             className="edit-profile-edit-cancel-btn"
             onClick={(e) => {
@@ -79,7 +79,7 @@ function EditBio({ sessionUser }) {
               Cancel
             </button>
           </div>
-        )} */}
+        )}
       </div>
     </form>
   );

@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import EditUsername from "./EditUsername";
 import EditBio from "./EditBio";
 import EditProfilePhoto from "./EditProfilePhoto";
+import viewUsers from "../../../store/users";
 
 function AboutYou() {
+  const dispatch = useDispatch();
+
   const sessionUser = useSelector((state) => state?.session?.user);
+
+  // useEffect(() => {
+  //   dispatch(viewUsers())
+  // }, [dispatch])
 
   return (
     <>

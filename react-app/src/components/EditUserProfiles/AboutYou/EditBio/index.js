@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateBio } from "../../../../store/profiles";
+import { viewBios, updateBio } from "../../../../store/profiles";
 
 function EditBio({ sessionUser }) {
   const dispatch = useDispatch();
@@ -10,9 +10,9 @@ function EditBio({ sessionUser }) {
   const [save, setSave] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  //   useEffect(() => {
-
-  //   }, [bio])
+    // useEffect(() => {
+    //   dispatch(viewUsers())
+    // }, [dispatch])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ function EditBio({ sessionUser }) {
       bio,
     };
 
-    const data = dispatch(updateBio(payload));
+    const data = await dispatch(updateBio(payload, sessionUser.id));
 
     if (data) {
       setErrors([data]);
@@ -42,16 +42,18 @@ function EditBio({ sessionUser }) {
           <p className="about-you-subheadings">Short bio</p>
           <textarea
             className="edit-profile-editable-fields"
-            value={sessionUser.bio}
             onChange={(e) => setBio(e.target.value)}
-            // disable={!edit}
-          />
+            disabled={!edit}
+          >
+            {sessionUser.bio}
+          </textarea>
+
           <p id="section-description">
             Your short bio appears on your Profile and next to your stories. Max
             200 characters.
           </p>
         </div>
-        {edit == false ? (
+        {edit === false ? (
           <button
             className="edit-profile-edit-cancel-btn"
             onClick={(e) => {

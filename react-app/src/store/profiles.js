@@ -44,10 +44,12 @@ const bioUpdate = (bio) => ({
 //     };
 // };
 
-export const updateBio = (id, payload) => async (dispatch) => {
+
+export const updateBio = (payload, id) => async (dispatch) => {
     const res = await fetch(`/api/profile/${id}/bio`, {
         method: "PUT",
-        body: payload, id
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload, id)
     });
 
     if (res.ok) {

@@ -46,7 +46,11 @@ Betwx'd is built with Flask (backend), React and Redux (frontend), and PostgresS
 ### Future Features
 ✅ To reflect the features Medium provides, I plan to implement a search function which allows writers to search other writers and articles, a "claps" feature which allows writers to "clap" (or like) a story, and profile pages for existing users where other users can view all stories that a particular writer has written.
 
-Give users ability to edit their profile description and profile picture.
+✅ Give users ability to edit their usernames
+
+✅ Give users ability to edit their bios
+
+🟩 Give users ability to edit their profile pictures
 <br>
 
 ### Contact Me

@@ -1,4 +1,3 @@
-from typing import Text
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField, SubmitField
 from sqlalchemy import DateTime

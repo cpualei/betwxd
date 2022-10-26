@@ -52,6 +52,7 @@ Betwx'd is built with Flask (backend), React and Redux (frontend), and PostgresS
 
 🟩 Give users ability to edit their profile pictures
 <br>
+<br>
 
 ### Contact Me
 <a href="https://www.linkedin.com/in/caitlin-buen-lucas/">Linkedin</a> | <a href="https://github.com/cpualei/">Github</a>

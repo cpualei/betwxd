@@ -1,13 +1,13 @@
 // Actions
-// const UPDATE_USERNAME = 'profile/UPDATE_USERNAME';
+const UPDATE_USERNAME = 'profile/UPDATE_USERNAME';
 const UPDATE_BIO = 'profile/UPDATE_BIO';
 // const UPDATE_PHOTO = 'profile/UPDATE_PHOTO';
 
 // Action creators
-// const usernameUpdate = (username) => ({
-//     type: UPDATE_USERNAME,
-//     username
-// });
+const usernameUpdate = (username) => ({
+    type: UPDATE_USERNAME,
+    username
+});
 
 const bioUpdate = (bio) => ({
     type: UPDATE_BIO,
@@ -20,29 +20,30 @@ const bioUpdate = (bio) => ({
 // });
 
 // Thunk action creators
-// export const updateUsername = (id, payload) => async (dispatch) => {
-//     const res = await fetch(`/api/profile/username/${id}`, {
-//         method: "PUT",
-//         body: payload, id
-//     });
+export const updateUsername = (payload, id) => async (dispatch) => {
+    const res = await fetch(`/api/profile/${id}/username`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload, id)
+    });
 
-//     if (res.ok) {
-//         const data = await res.json();
-//         dispatch(usernameUpdate(data));
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(usernameUpdate(data));
 
-//         return;
+        return;
 
-//     } else if (res.status < 500) {
-//         const data = await res.json();
+    } else if (res.status < 500) {
+        const data = await res.json();
 
-//         if (data.errors) {
-//             return data.errors;
-//         }
+        if (data.errors) {
+            return data.errors;
+        }
 
-//     } else {
-//         return ["An error occured. Please try again."];
-//     };
-// };
+    } else {
+        return ["An error occured. Please try again."];
+    };
+};
 
 
 export const updateBio = (payload, id) => async (dispatch) => {
@@ -97,9 +98,9 @@ export const updateBio = (payload, id) => async (dispatch) => {
 // Reducer
 const profilesReducer = (state = {}, action) => {
     switch (action.type) {
-        // case UPDATE_USERNAME:
-        //     const updateUsernameState = { ...state, [action.username.id]: action.username };
-        //     return updateUsernameState;
+        case UPDATE_USERNAME:
+            const updateUsernameState = { ...state, [action.username.id]: action.username };
+            return updateUsernameState;
         case UPDATE_BIO:
             const updateBioState = { ...state, [action.bio.id]: action.bio };
             return updateBioState;

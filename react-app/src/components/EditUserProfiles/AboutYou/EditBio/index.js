@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { viewBios, updateBio } from "../../../../store/profiles";
+import { updateBio } from "../../../../store/profiles";
 
 function EditBio({ sessionUser }) {
   const dispatch = useDispatch();
@@ -9,10 +9,6 @@ function EditBio({ sessionUser }) {
   const [edit, setEdit] = useState(false);
   const [save, setSave] = useState(false);
   const [errors, setErrors] = useState([]);
-
-    // useEffect(() => {
-    //   dispatch(viewUsers())
-    // }, [dispatch])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,9 +40,8 @@ function EditBio({ sessionUser }) {
             className="edit-profile-editable-fields"
             onChange={(e) => setBio(e.target.value)}
             disabled={!edit}
-          >
-            {sessionUser.bio}
-          </textarea>
+            defaultValue={sessionUser.bio}
+          />
 
           <p id="section-description">
             Your short bio appears on your Profile and next to your stories. Max

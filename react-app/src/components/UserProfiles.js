@@ -69,7 +69,9 @@ function User() {
         </div>
         <div className="users-profile-technologies-div">
           <p id="users-profile-technologies">
-            Javascript Python React.js Redux Flask SQLAlchemy Sequelize
+          Python &nbsp; Flask &nbsp; HTML5 &nbsp; CSS3 &nbsp; AWS &nbsp; React.js &nbsp;
+          Redux &nbsp; PostgreSQL &nbsp; SQLAlchemy &nbsp; Git &nbsp; GitHub
+          &nbsp; Heroku
           </p>
         </div>
       </div>

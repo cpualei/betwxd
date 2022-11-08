@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "betwxd",
     "public": "public",
     "ignore": [
       "firebase.json",

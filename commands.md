@@ -25,3 +25,4 @@ heroku run -a betwxd flask db migrate
 heroku run -a betwxd flask db upgrade
 heroku run -a betwxd flask seed all
 
+asdf

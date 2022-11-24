@@ -86,7 +86,7 @@ function SearchBar() {
                         <p className="search-result">{`${user?.username}`}</p>
                       </div>
                     </a>
-                  </div>
+                 </div>
                 ))
             : null}
           {query

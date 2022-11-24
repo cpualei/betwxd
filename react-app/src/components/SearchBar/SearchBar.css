@@ -8,6 +8,7 @@
     margin-top: 80px;
     position: absolute;
     background-color: white;
+    flex-direction: column;
 }
 
 .search-div {

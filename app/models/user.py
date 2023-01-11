@@ -1,4 +1,5 @@
-from .db import db
+# add environment and add_prefix-for_prod to existing import statement
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from .clap import Clap
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -6,6 +7,10 @@ from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
+
+    # add to every model file under __table_name__
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)

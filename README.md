@@ -2,7 +2,9 @@
 
 <p align="center">Betwx'd is a full-stack pixel-perfect clone of Medium. Betwx'd received it's name from the term "betwixt" meaning "in between two things". This application provides a place where readers and writers can share their thoughts, ideas, opinions and perspectives through articles written by it's users and read by it's users. In order to both write stories and share your thoughts about them, all you have to do is sign up.</p>
 
-<p align="center">Live link: https://betwxd.herokuapp.com/</p>
+
+<p align="center">PLEASE NOTE: This application is now hosted on a FREE hosting platform. May run slower than usual.</p>
+<p align="center">Live link: https://betwxd.onrender.com/</p>
 
 <br>
 

@@ -3,7 +3,7 @@ import SearchBar from "../SearchBar";
 import WhatWereReading from "./WhatWereReading";
 import RecommendedTopics from "./RecommendedTopics";
 import UsersList from "../UsersList";
-import LanguagesUsed from "./LanguagesUsed";
+import TechnologiesUsed from "./TechnologiesUsed";
 import "./RightSideMisc.css";
 
 function RightSideMisc() {
@@ -20,7 +20,7 @@ function RightSideMisc() {
         </div>
       </div>
       <div className="misc-bottom-container">
-        <LanguagesUsed />
+        <TechnologiesUsed />
       </div>
     </div>
   );

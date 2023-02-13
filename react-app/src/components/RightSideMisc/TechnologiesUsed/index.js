@@ -1,7 +1,7 @@
 import React from "react";
 import "../RightSideMisc.css";
 
-function LanguagesUsed() {
+function TechnologiesUsed() {
   return (
     <p id="technologies-used">
       Python &nbsp; Flask &nbsp; HTML5 &nbsp; CSS3 &nbsp; AWS &nbsp; React.js
@@ -11,4 +11,4 @@ function LanguagesUsed() {
   );
 }
 
-export default LanguagesUsed;
+export default TechnologiesUsed;

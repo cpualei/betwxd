@@ -3,24 +3,24 @@ import SearchBar from "../SearchBar";
 import WhatWereReading from "./WhatWereReading";
 import RecommendedTopics from "./RecommendedTopics";
 import UsersList from "../UsersList";
-import LanguagesUsed from "./LanguagesUsed";
+import TechnologiesUsed from "./TechnologiesUsed";
 import "./RightSideMisc.css";
 
 function RightSideMisc() {
   return (
-    <div className="stories-misc-container">
-      <div className="stories-misc-outter-div">
-        <div className="stories-misc-div">
+    <div className="misc-outer-container">
+      <div className="misc-top-container">
+        <div className="misc-search-div">
           <SearchBar />
         </div>
-        <div className="what-were-reading-recommended-container">
+        <div className="misc-readings-topics-users-div">
           <WhatWereReading />
           <RecommendedTopics />
           <UsersList />
         </div>
       </div>
-      <div className="technologies-div">
-        <LanguagesUsed />
+      <div className="misc-bottom-container">
+        <TechnologiesUsed />
       </div>
     </div>
   );

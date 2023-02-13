@@ -4,8 +4,8 @@ import "../RightSideMisc/RightSideMisc.css";
 
 function ProfileRightSideMisc() {
   return (
-    <div className="stories-misc-container">
-      <div className="stories-misc-div">
+    <div className="misc-outer-container">
+      <div className="misc-search-div">
         <SearchBar />
       </div>
     </div>

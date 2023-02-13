@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar";
 import WhatWereReading from "./WhatWereReading";
 import RecommendedTopics from "./RecommendedTopics";
 import UsersList from "../UsersList";
+import LanguagesUsed from "./LanguagesUsed";
 import "./RightSideMisc.css";
 
 function RightSideMisc() {
@@ -19,11 +20,7 @@ function RightSideMisc() {
         </div>
       </div>
       <div className="technologies-div">
-        <p id="technologies-used">
-          Python &nbsp; Flask &nbsp; HTML5 &nbsp; CSS3 &nbsp; AWS &nbsp; React.js &nbsp;
-          Redux &nbsp; PostgreSQL &nbsp; SQLAlchemy &nbsp; Git &nbsp; GitHub
-          &nbsp; Heroku
-        </p>
+        <LanguagesUsed />
       </div>
     </div>
   );

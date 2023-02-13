@@ -1,29 +1,29 @@
-.stories-misc-container {
+.misc-outer-container {
     display: flex;
     flex-direction: column;
     background-color: white;
     justify-content: space-between;
 }
 
-.stories-misc-outter-div {
+.misc-top-container {
     display: flex;
     flex-direction: column;
 }
 
-.stories-misc-div {
+.misc-search-div {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 40px;
 }
 
-.what-were-reading-recommended-container {
+.misc-readings-topics-users-div {
     padding: 0 40px 40px 40px;
     width: 318px;
     margin-top: 80px;
 }
 
-.technologies-div {
+.misc-bottom-container {
     display: flex;
 }
 

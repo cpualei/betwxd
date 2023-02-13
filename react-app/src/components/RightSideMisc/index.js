@@ -8,18 +8,18 @@ import "./RightSideMisc.css";
 
 function RightSideMisc() {
   return (
-    <div className="stories-misc-container">
-      <div className="stories-misc-outter-div">
-        <div className="stories-misc-div">
+    <div className="misc-outer-container">
+      <div className="misc-top-container">
+        <div className="misc-search-div">
           <SearchBar />
         </div>
-        <div className="what-were-reading-recommended-container">
+        <div className="misc-readings-topics-users-div">
           <WhatWereReading />
           <RecommendedTopics />
           <UsersList />
         </div>
       </div>
-      <div className="technologies-div">
+      <div className="misc-bottom-container">
         <LanguagesUsed />
       </div>
     </div>

@@ -9,7 +9,7 @@ def seed_stories():
         created_at='2022-07-06 16:10:21',
         updated_at='2022-07-06 16:10:21')
     story2 = Story(
-        user_id=2,
+        user_id=4,
         title='Why do mosquitos exist?',
         story="While they can seem pointless and purely irritating to us humans, mosquitoes do play a substantial role in the ecosystem. Mosquitoes form an important source of biomass in the food chain—serving as food for fish as larvae and for birds, bats and frogs as adult flies—and some species are important pollinators. Mosquitoes don’t deserve such a bad rap, says Yvonne-Marie Linton, research director at the Walter Reed Biosystematics Unit, which curates Smithsonian’s U.S. National Mosquito Collection. Out of the more than 3,500 mosquito species, only around 400 can transmit diseases like malaria and West Nile virus to people, and most don’t feed on humans at all.",
         img='https://media.newyorker.com/photos/5d3f5d812935b200099bbd58/1:1/w_1124,h_1124,c_limit/NewYorker_Mosquito_Vertical_v5.jpg',
@@ -26,7 +26,7 @@ def seed_stories():
         user_id=4,
         title='THE IMPORTANT ROLE OF SHARKS',
         story="Sharks get a bad rap for being mindless eating machines, but this couldn’t be further from the truth. Instead of inspiring fear, we want people to feel connected to an inspired by sharks because shark species all over the world are essential for healthy ocean ecosystems, food webs, and even local economies. Here are a few ways how: As apex predators (predators with no or few predators of their own), sharks keep other marine populations in balance. Research shows that the removal of sharks in certain ecosystems can lead other species to reproduce unchecked and throw ecosystems out of balance, even leading to the demise of coral reefs or threats to fishery stocks. Additionally, by feeding on sick or weaker animals (they’re easier to catch after all), sharks can prevent the spread of disease and encourage genetic fitness in fish populations. Sharks’ role as a top predator can also protect marine plants by preventing the overgrazing of habitats like seagrass beds. For example, tiger sharks in Hawai’i hunt turtles. If tiger sharks weren’t present in the ecosystem, turtle populations would grow and they would spend more time grazing with the threat of predators removed. This could lead to starvation of other species, erosion of the sea floor, and hiding places for juvenile fish and other species would disappear, harming populations of other species. Additionally, sharks keep a natural carbon cycle in motion, both by feeding on deceased animals on the seafloor and by sinking to the seafloor when they die similar to the way whales and other large marine animals do. Without sharks, the ocean’s carbon cycle would be disrupted. All living things get sick at some point or another, but it seems like sharks get sick less often than other species. Research on shark biology may help us better understand disease in the marine environment and develop medications and treatments that could benefit humans. In addition to protecting fishery stocks through natural feeding behaviors, sharks have an added benefit for local economies all over the world: ecotourism dollars. Excursions involving live sharks — such as SCUBA diving, cage diving, and shark viewing — are available all over the world and drive local tourism economies. Not only does shark tourism generate hundreds of millions of dollars annually, but it can also encourage conservation of sharks and their habitats. At the very least, it may discourage shark finning as economists argue the value of a live shark generates money over its lifetime while hunting a shark brings in a much lower one-time revenue. ",
-        img='https://h5at2e2cs73cnhgg3ocux6bl-wpengine.netdna-ssl.com/wp-content/uploads/2019/07/Matthew-Lowe-_-shark-Bahamas.jpg',
+        img='https://assets.weforum.org/article/image/zrK1DJOTjj_sOqcvrmwhV6UAeppYSUXM_9FvM8MkRds.jpg',
         created_at='2022-07-10 16:10:21',
         updated_at='2022-07-10 16:10:21')
     story5 = Story(
@@ -43,6 +43,27 @@ def seed_stories():
         img='https://media.architecturaldigest.com/photos/61b7b1b580cb28672bc5848e/1:1/w_1280,c_limit/il_1588xN.3299732509_ld66.jpg',
         created_at='2022-07-14 17:10:22',
         updated_at='2022-06-20 17:10:22')
+    story7 = Story(
+        user_id=5,
+        title='What are the benefits of REST APIs?',
+        story="'REST APIs offer four main benefits:\n\n1. Integration - APIs are used to integrate new applications with existing software systems. This increases development speed because each functionality doesn’t have to be written from scratch. You can use APIs to leverage existing code.\n\n2. Innovation - Entire industries can change with the arrival of a new app. Businesses need to respond quickly and support the rapid deployment of innovative services. They can do this by making changes at the API level without having to re-write the whole code.\n\n3. Expansion - APIs present a unique opportunity for businesses to meet their clients’ needs across different platforms. For example, maps API allows map information integration via websites, Android,iOS, etc. Any business can give similar access to their internal databases by using free or paid APIs.\n\n4. Ease of maintenance - The API acts as a gateway between two systems. Each system is obliged to make internal changes so that the API is not impacted. This way, any future code changes by one party do not impact the other party.",
+        img='https://www.payoda.com/wp-content/uploads/2021/05/1_mbP4Bjrs8Hshx7IgjsUNSg.jpeg',
+        created_at='2023-03-14 17:10:22',
+        updated_at='2023-03-14 17:10:22')
+    story8 = Story(
+        user_id=4,
+        title='History of San Diego',
+        story="The written (as opposed to oral) history of the San Diego, California, region began in the present state of California when Europeans first began inhabiting the San Diego Bay region. As the first area of California in which Europeans settled, San Diego has been described as 'the birthplace of California.' Explorer Juan Rodriguez Cabrillo claims to have discovered San Diego Bay in 1542, roughly 200 years before other Europeans settled the area; in truth, Native Americans such as the Kumeyaay people had been living in the area for as long as 12,000 years prior to any European presence. A fort and mission were established in 1769, which gradually expanded into a settlement under first Spanish and then Mexican rule. San Diego officially became part of the U.S. in 1848, and the town was named the county seat of San Diego County when California was granted statehood in 1850. It remained a very small town for several decades, but grew rapidly after 1880 due to development and the establishment of multiple military facilities. Growth was especially rapid during and immediately after World War II. Entrepreneurs and boosters laid the basis for an economy based today on the military, defense industries, biotech, tourism, international trade, and manufacturing. San Diego is now the eighth largest city in the country and forms the heart of the larger San Diego metropolitan area.",
+        img='https://fox5sandiego.com/wp-content/uploads/sites/15/2021/11/AdobeStock_300186995-e1637004125255.jpeg?strip=1',
+        created_at='2023-03-20 13:20:22',
+        updated_at='2023-03-20 13:20:22')
+    story9 = Story(
+        user_id=1,
+        title='Toxic Chemicals in Sunscreen & Safer Alternatives',
+        story="Oxybenzone: This ingredient is one of the most commonly-used sunscreen chemicals.\n\nOxybenzone is linked to endocrine disruption, organ system toxicity, contact allergies, and photoallergies, meaning exposure to light is required to generate an allergic response. This ingredient, sometimes called benzophenone-3, is not to be confused with benzophenone, another common sunscreen ingredient. Oxybenzone is also harmful to aquatic life. Lately, this sunscreen ingredient has taken some well-deserved heat from researchers and the media alike for its impact on coral reefs. This chemical is so harmful that Hawaii recently has taken measures to ban it to protect coral reefs. Degrading coral reefs affects biodiversity, as well as humans, where coral reefs are important livelihoods for fisherman and economies dependent on tourism. Coral reefs also protect coastlines from storms and remove carbon dioxide from the atmosphere.\n\nOctinoxate: A UV filter that protects from UV-B sun rays (it doesn’t protect against UV-A rays, however). It tends to work well in sunscreen formulas because it dissolves easily in oil. Octinoxate is linked to endocrine disruption by an abundance of data, as well as to reproductive toxicity. This ingredient is of concern for people and the planet. Like oxybenzone, this ingredient is targeted in Hawaii’s ban, as it harms coral reefs.\n\nHomosalate: Absorbs UV light to prevent direct skin exposure. This ingredient is linked to hormone disruption and it may also enhance the absorption of pesticides, including bug sprays. This ingredient is persistent in the environment, meaning it doesn’t break down readily.\n\nTitanium Dioxide: This ingredient isn’t a human-made chemical, but a naturally-occurring mineral found in the earth’s crust. This UV filter can be safe in mineral sunscreen if it’s used and processed under certain conditions. Titanium dioxide is considered possibly carcinogenic when inhaled. So it’s best to avoid this ingredient is aerosol spray sunscreens, dry powder sunscreens, and SPF powder cosmetics. Titanium dioxide may become dangerous when nanoparticle size. Nanoparticles, which can be 1000 times smaller than the width of a human hair, have not been properly assessed for their potential effects on human health or the environment. Researchers don’t yet understand the impacts nanoparticles could have. But because of their infinitesimally small size, nanoparticles may be more chemically reactive and therefore more bioavailable, meaning the particles are fast tracked into the body. Researchers have suggested that nanoparticle titanium dioxide may be implicated in coral reef degradation.",
+        img='https://www.drishtiias.com/images/uploads/1631951894_image2.jpg',
+        created_at='2023-03-20 13:20:22',
+        updated_at='2023-03-20 13:20:22')
 
     db.session.add(story1)
     db.session.add(story2)
@@ -50,6 +71,9 @@ def seed_stories():
     db.session.add(story4)
     db.session.add(story5)
     db.session.add(story6)
+    db.session.add(story7)
+    db.session.add(story8)
+    db.session.add(story9)
 
     db.session.commit()
 

@@ -12,7 +12,7 @@ def seed_users():
     Rihanna = User(
         username='Rihanna', email='rihanna@aa.io', password='password', profile_photo='https://assets.teenvogue.com/photos/604b63245a8c47a0fc860da0/4:3/w_2332,h_1749,c_limit/rihanna-lede.jpg', bio='You already know who I am.')
     Caitlin = User(
-        username='Caitlin', email='caitlin@aa.io', password='password', profile_photo='https://caitlinbuenlucas.com/assets/img/portfolio/me.png', bio='Welcome to my full-stack pixel-perfect clone of Medium. Thanks for passing through.')
+        username='Caitlin', email='caitlin@aa.io', password='password', profile_photo='https://caitlinbuenlucas.com/img/me.jpg', bio='Welcome to my full-stack pixel-perfect clone of Medium. Thanks for passing through.')
 
     db.session.add(Demo)
     db.session.add(Marnie)

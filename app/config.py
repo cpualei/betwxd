@@ -10,5 +10,5 @@ class Config:
     # so the connection uri must be updated here
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         # 'DATABASE_URL').replace('postgres://', 'postgresql://')
-        'HEROKU_POSTGRESQL_CHARCOAL_URLS').replace('postgres://', 'postgresql://')
+        'HEROKU_POSTGRESQL_CHARCOAL_URL').replace('postgres://', 'postgresql://')
     SQLALCHEMY_ECHO = True

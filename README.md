@@ -1,14 +1,15 @@
 <h1 align="center">Betwx'd</h1>
 
-<p align="center">Betwx'd is a full-stack pixel-perfect clone of Medium. Betwx'd received it's name from the term "betwixt" meaning "in between two things". This application provides a place where readers and writers can share their thoughts, ideas, opinions and perspectives through articles written by it's users and read by it's users. In order to both write stories and share your thoughts about them, all you have to do is sign up.</p>
+<p align="center">A full-stack pixel-perfect clone of Medium.
+<br>
+<br>
+Betwx'd received it's name from the term "betwixt" meaning "in between two things". This application provides a place where people can share their thoughts, ideas, opinions and perspectives, and also browse those of others.</p>
 
-
-<p align="center">PLEASE NOTE: This application is now hosted on a FREE hosting platform. May run slower than usual.</p>
-<p align="center">Live link: https://betwxd.onrender.com/</p>
+<p align="center">Live link: https://betwxd-1cf4683698b7.herokuapp.com/</p>
 
 <br>
 
-## Technologies Used
+## Technologies used:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
@@ -39,13 +40,13 @@
 
 <br>
 
-### Application Architecture
+## Application architecture:
 
 Betwx'd is built with Flask (backend), React and Redux (frontend), and PostgresSQL (database).
 
 <br>
 
-### Future Features
+## Future features:
 ✅ To reflect the features Medium provides, I plan to implement a search function which allows writers to search other writers and articles, a "claps" feature which allows writers to "clap" (or like) a story, and profile pages for existing users where other users can view all stories that a particular writer has written.
 
 ✅ Give users ability to edit their usernames
@@ -56,12 +57,12 @@ Betwx'd is built with Flask (backend), React and Redux (frontend), and PostgresS
 <br>
 <br>
 
-### Contact Me
+## Connect with me:
 <a href="https://www.linkedin.com/in/caitlin-buen-lucas/">Linkedin</a> | <a href="https://github.com/cpualei/">Github</a>
 
 <br>
 
-## Getting started
+## Getting started:
 1. Clone the main repository
 
    ```bash

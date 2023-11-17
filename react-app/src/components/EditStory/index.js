@@ -17,7 +17,7 @@ function EditStory() {
 
   const [title, setTitle] = useState(storyContent?.title);
   const [story, setStory] = useState(storyContent?.story);
-  const [img, setImg] = useState();
+  const [img, setImg] = useState(storyContent?.img);
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -123,17 +123,12 @@ function EditStory() {
               placeholder={"Tell your story..."}
               required
             ></textarea>
+            <div className="preview-img">
+              {!errors.includes("Please provide an image for your story.") &&
+                img && <img src={img} alt="preview-img" id="preview-img" />}
+            </div>
           </div>
           <div className="form-btm-text-and-errors-div">
-            {!errors.includes("Please provide an image for your story.") &&
-            img ? (
-              <p
-                className="form-btm-text-and-errors"
-                id="img-upload-successful"
-              >
-                Image upload successful!
-              </p>
-            ) : null}
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}

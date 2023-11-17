@@ -15,7 +15,6 @@ function CreateStory() {
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
   const [img, setImg] = useState("");
-  const [imgLoading, setImgLoading] = useState("");
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -42,16 +41,11 @@ function CreateStory() {
     formData.append("story", story);
     formData.append("img", img);
 
-    // aws uploads can be a bit slow—displaying
-    // some sort of loading message is a good idea
-    setImgLoading(true);
-
     let data = await dispatch(createStory(formData));
 
     if (data) {
       setErrors([data]);
     } else {
-      // received a valid request
       setErrors([]);
       return history.push(`/`);
     }
@@ -121,14 +115,7 @@ function CreateStory() {
           </div>
           <div className="form-btm-text-and-errors-div">
             {!errors.includes("Please provide an image for your story.") &&
-            img ? (
-              <p
-                className="form-btm-text-and-errors"
-                id="img-upload-successful"
-              >
-                Image upload successful!
-              </p>
-            ) : null}
+              img && <img src={URL.createObjectURL(img)} alt="preview-img" id="preview-img"/>}
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}

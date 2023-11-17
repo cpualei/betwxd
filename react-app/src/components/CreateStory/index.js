@@ -112,10 +112,18 @@ function CreateStory() {
               placeholder={"Tell your story..."}
               required
             ></textarea>
+            <div className="preview-img">
+              {!errors.includes("Please provide an image for your story.") &&
+                img && (
+                  <img
+                    src={URL.createObjectURL(img)}
+                    alt="preview-img"
+                    id="preview-img"
+                  />
+                )}
+            </div>
           </div>
           <div className="form-btm-text-and-errors-div">
-            {!errors.includes("Please provide an image for your story.") &&
-              img && <img src={URL.createObjectURL(img)} alt="preview-img" id="preview-img"/>}
             <ul
               className="story-errors"
               style={{ listStyleType: "none", padding: "0px" }}

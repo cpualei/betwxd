@@ -88,11 +88,6 @@ p.new-story-edit-story-text {
     display: flex;
 }
 
-#img-preview {
-    max-height: fit-content;
-    margin-left: 20px;
-}
-
 .story-form-inputs {
     font-family: medium-content-title-font,Georgia,Cambria,"Times New Roman",Times,serif;
     font-weight: 400;
@@ -117,9 +112,9 @@ p.new-story-edit-story-text {
     font-size: 21px;
     line-height: 1.58;
     letter-spacing: -.003em;
-    flex-wrap: wrap;
-    resize: none;
-    height: 300px;
+    /* flex-wrap: wrap; */
+    /* resize: none; */
+    height: 150px;
     margin-left: 66px;
 }
 
@@ -158,4 +153,13 @@ button:focus {
 .upload-btn {
     height: 37px;
     cursor: pointer;
+}
+
+div .preview-img {
+    text-align: center;
+}
+
+#preview-img {
+    max-height: 400px;
+    width: fit-content;
 }

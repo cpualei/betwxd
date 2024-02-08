@@ -36,7 +36,7 @@ function RecommendedTopics() {
         </a>
         <a
           className="recommended-links"
-          href="https://splitzy-app.herokuapp.com/login"
+          href="https://splitzyapp-fd4923ca97e0.herokuapp.com/login"
           target="_blank"
         >
           splitzy

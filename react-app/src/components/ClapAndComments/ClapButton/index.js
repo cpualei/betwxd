@@ -6,16 +6,15 @@ import { viewClaps, createClap, removeClap } from "../../../store/claps";
 import "./ClapButton.css";
 
 const ClapButton = ({ story }) => {
+  const [clap, setClap] = useState(false);
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
   const claps = Object.values(useSelector((state) => state.claps));
 
-  const storyClaps = claps.filter((clap) => clap?.story_id === story?.id);
+  const storyClaps = claps.filter((clap) => clap.story_id === story.id)
   const thisClap = storyClaps[0];
   const numberOfClaps = storyClaps.length;
-
-  const [clap, setClap] = useState(false);
 
   useEffect(() => {
     dispatch(viewClaps());
@@ -25,15 +24,15 @@ const ClapButton = ({ story }) => {
     e.preventDefault();
 
     const payload = {
-      user_id: sessionUser?.id,
-      story_id: story?.id,
+      user_id: sessionUser.id,
+      story_id: story.id,
     };
 
-    if (thisClap?.user_id !== sessionUser?.id) {
+    if (thisClap.user_id !== sessionUser.id) {
       dispatch(createClap(payload));
       setClap(true);
     } else {
-      dispatch(removeClap(thisClap?.id));
+      dispatch(removeClap(thisClap.id));
       setClap(false);
     }
   };
@@ -41,25 +40,14 @@ const ClapButton = ({ story }) => {
   return (
     <>
       {sessionUser ? (
-        <>
-          {thisClap?.user_id !== sessionUser?.id ? (
-            <img
-              src={clapsBefore}
-              alt="claps"
-              className="claps-btn"
-              onClick={handleOnClick}
-            />
-          ) : (
-            <img
-              src={clapsAfter}
-              alt="claps"
-              className="claps-btn"
-              onClick={handleOnClick}
-            />
-          )}
-        </>
+        <img
+          src={thisClap?.user_id !== sessionUser.id ? clapsBefore : clapsAfter}
+          alt="claps"
+          className="claps-btn"
+          onClick={handleOnClick}
+        />
       ) : null}
-        <p id="clap-count">{numberOfClaps}</p>
+      <p id="clap-count">{numberOfClaps}</p>
     </>
   );
 };

@@ -12,9 +12,9 @@ function ClapAndComments({ story, sessionUser }) {
 
   const [showModal, setShowModal] = useState(false);
 
-  const comments = useSelector((state) => Object?.values(state?.comments));
+  const comments = useSelector((state) => Object.values(state.comments));
 
-  const storyComments = comments?.filter((comment) => comment?.story_id === story?.id);
+  const storyComments = comments.filter((comment) => comment.story_id === story.id);
   const numberOfComments = storyComments.length;
 
   useEffect(() => {

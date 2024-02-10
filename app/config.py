@@ -9,6 +9,6 @@ class Config:
     # url in the hidden config vars to start with postgres.
     # so the connection uri must be updated here
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URL').replace('postgres://', 'postgresql://')
-        # 'HEROKU_POSTGRESQL_CHARCOAL_URL').replace('postgres://', 'postgresql://')
+        # 'DATABASE_URL').replace('postgres://', 'postgresql://')
+        'HEROKU_POSTGRESQL_CHARCOAL_URL').replace('postgres://', 'postgresql://')
     SQLALCHEMY_ECHO = True

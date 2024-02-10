@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import GetUser from "../GetUser/index.js";
@@ -13,13 +13,16 @@ function ViewStory() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const sessionUser = useSelector((state) => state?.session?.user);
   const stories = useSelector((state) => state?.stories);
 
   const story = stories[id];
+  console.log('story', story)
 
   useEffect(() => {
-    dispatch(viewStories(id));
+    dispatch(viewStories(id)).then(() => setIsLoading(false));
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -30,6 +33,10 @@ function ViewStory() {
     e.currentTarget.src =
       "https://w7.pngwing.com/pngs/756/477/png-transparent-circle-close-cross-incorrect-invalid-x-delete-flat-actions-icon-thumbnail.png";
   };
+
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
 
   return (
     <div className="viewstory-container">
